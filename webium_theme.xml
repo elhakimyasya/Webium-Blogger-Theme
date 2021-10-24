@@ -13,6 +13,9 @@
 				<Variable name="defaultColorButtonIcon" description="Default Button Icon Color" type="color" default="#5f6368" value="#5f6368"/>
 				<Variable name="defaultColorButtonIconHover" description="Default Button Icon Hover Color" type="color" default="#202124" value="#202124"/>
 			</Group>
+			<Group description="Features">
+				<Variable name="featuresDarkmode" description="Darkmode (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px"/>
+			</Group>
 			<Group description="Header">
 				<Variable name="headerColorText" description="Header Text Color" type="color" default="$(defaultColorText)" value="#202124"/>
 				<Variable name="headerColorBorder" description="Header Border Color" type="color" default="$(defaultColorBorder)" value="#dadce4"/>
@@ -118,6 +121,12 @@
 				min-height: 56px;
 				width: 100%;
 				}
+				.header .button_icon {
+				color: var(--color-header-button-icon);
+				}
+				.header .button_icon:hover, .header .button_icon:focus {
+				color: var(--color-header-button-icon-hover)
+				}
 				.header .header_primary, .header .header_secondary {
 				align-items: center;
 				box-sizing: border-box;
@@ -129,10 +138,10 @@
 				width: 100%;
 				}
 				.header .header_primary {
-				padding: 8px 8px 0 8px
+				padding: 8px 12px 0 12px
 				}
 				.header .header_secondary {
-				padding: 0 8px 8px 0
+				padding: 0 12px 8px 12px
 				}
 				.header .header_section {
 				display: flex;
@@ -155,12 +164,6 @@
 				align-items: center;
 				justify-content: center;
 				}
-				.header .Header .button_icon {
-				color: var(--color-header-button-icon);
-				}
-				.header .Header .button_icon:hover, .header .Header .button_icon:focus {
-				color: var(--color-button-icon-hover)
-				}
 				.header .Header a {
 				align-items: center;
 				color: var(--color-header-text);
@@ -176,7 +179,7 @@
 				overflow: hidden;
 				text-indent: -999px;
 				width: auto;
-				margin: 0 8px 0 0;
+				<b:eval expr='data:blog.languageDirection == "rtl" ? "margin-left:8px" : "margin-right:8px"'/>
 				}
 				.header .Header img ~ h1 {
 				<b:eval expr='data:blog.languageDirection == "rtl" ? "border-right:1px solid var(--color-header-border);padding-right:8px" : "border-left:1px solid var(--color-header-border);padding-left:8px"'/>
@@ -215,13 +218,44 @@
 					<meta name='viewport' expr:content='data:skin.vars.defaultOptionViewportPinch == "1px" ? "width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" : "width=device-width, initial-scale=1.0"'/>
 					<meta name='description' expr:content='data:blog.metaDescription ? data:blog.metaDescription.escaped : data:view.description.escaped'/>
 				</b:includable>
+				<b:includable id='libraries'>
+					<script>
+						var elementBody = document.body;
+
+						<b:if cond='data:skin.vars.featuresDarkmode == "2px"'>
+							// Darkmode
+							var buttonColorMode = document.getElementById('button_color_mode');
+							if (buttonColorMode) {
+							buttonColorMode.addEventListener("click", function() {
+							elementBody.classList.toggle("darkmode");
+							localStorage.setItem("mode", "colormode" === localStorage.getItem("mode") ? "light" : "colormode");
+							if ("colormode" === localStorage.getItem("mode")) {
+							elementBody.classList.add("darkmode");
+							} else {
+							elementBody.classList.remove("darkmode");
+							}
+							})
+							};
+						</b:if>
+					</script>
+				</b:includable>
 			</b:defaultmarkup>
 
 			<b:defaultmarkup type='Header'><b:includable id='main' var='this'><b:class name='hidden'/></b:includable></b:defaultmarkup>
 		</b:defaultmarkups>
 	</head>
+	<b:if cond='false and data:blog.pageType in {"static_page", "item"} and data:blog.isMobileRequest'>--&gt;&lt;/head&gt;</b:if>
 	<body>
-		<b:if cond='false and data:blog.pageType in {"static_page", "item"} and data:blog.isMobileRequest'>--&gt;&lt;/head&gt;</b:if>
+		<script>
+			<b:if cond='data:skin.vars.featuresDarkmode == "2px"'>
+				// Darkmode
+				if (localStorage.getItem("mode") === "colormode") {
+				document.body.classList.add("darkmode");
+				} else {
+				document.body.classList.remove("darkmode");
+				};
+			</b:if>
+		</script>
 		<div id='app' class='app'>
 			<header id='header' class='header'>
 				<div class='header_primary'>
@@ -240,6 +274,9 @@
 					</div>
 					<div class='header_section section_center'></div>
 					<div class='header_section section_end'>
+						<button id='button_toggle_search' class='button_icon button_toggle_search' expr:aria-label='data:messages.searchThisBlog' type='button'>
+							<svg width='24' height='24' viewBox='0 0 24 24'><path d='M9.5,4C13.09,4 16,6.91 16,10.5C16,12.12 15.41,13.6 14.43,14.73L20.08,20.38L19.37,21.09L13.72,15.44C12.59,16.41 11.11,17 9.5,17C5.91,17 3,14.09 3,10.5C3,6.91 5.91,4 9.5,4M9.5,5C6.46,5 4,7.46 4,10.5C4,13.54 6.46,16 9.5,16C12.54,16 15,13.54 15,10.5C15,7.46 12.54,5 9.5,5Z'/></svg>
+						</button>
 						<button id='button_color_mode' class='button_icon button_color_mode' aria-label='Color Mode' type='button'>
 							<svg width='24' height='24' viewBox='0 0 24 24'><path d='M14,20C14,21.1 13.1,22 12,22H11C9.9,22 9,21.1 9,20H10C10,20.55 10.45,21 11,21H12C12.55,21 13,20.55 13,20H14M15,17C15,18.1 14.1,19 13,19H10C8.9,19 8,18.1 8,17V15C6.2,13.82 5,11.8 5,9.5C5,5.91 7.91,3 11.5,3C15.09,3 18,5.91 18,9.5C18,11.8 16.8,13.82 15,15V17M9,17C9,17.55 9.45,18 10,18H13C13.55,18 14,17.55 14,17V14.4C15.78,13.5 17,11.64 17,9.5C17,6.46 14.54,4 11.5,4C8.46,4 6,6.46 6,9.5C6,11.64 7.22,13.5 9,14.4V17Z'/></svg>
 						</button>
@@ -255,6 +292,7 @@
 			</footer>
 			<b:section id='hidden' class='hidden'/>
 		</div>
+		<b:include name='libraries'/>
 		<b:if cond='!data:view.isPage'>&lt;!--</b:if>
 	</body>
 	<b:if cond='!data:view.isPage'>&lt;/body&gt;--&gt;</b:if>
