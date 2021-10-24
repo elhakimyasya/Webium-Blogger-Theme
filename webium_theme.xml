@@ -239,7 +239,7 @@
 				box-sizing: border-box;
 				display: flex;
 				flex-direction: row;
-				justify-content: center;
+				justify-content: flex-end;
 				width: 100%;
 				}
 				.header .search_input {
@@ -301,6 +301,9 @@
 				<b:includable id='libraries'>
 					<script>
 						var elementBody = document.body;
+						var elementLogo = document.querySelector('.Header img');
+						var logoLight = 'https://1.bp.blogspot.com/-tzzvwhlM1w4/YD6KssSuu-I/AAAAAAAAdHI/RkzxkRearc415wH0yNxS_1beJrt8aYfjgCK4BGAYYCw/s280/webiumblack.png';
+						var logoDark = 'https://1.bp.blogspot.com/-P0OSciKtuLI/YXW_g-cQwgI/AAAAAAAAlJE/bm8QS4Ylfug2czAUv2k1ULuUK1H_g_O2gCLcBGAsYHQ/output-onlinepngtools.png';
 
 						<b:if cond='data:skin.vars.featuresDarkmode == "2px"'>
 							// Darkmode
@@ -311,10 +314,28 @@
 							localStorage.setItem('color_mode', 'dark' === localStorage.getItem('color_mode') ? 'light' : 'dark');
 							if ('dark' === localStorage.getItem('color_mode')) {
 							elementBody.classList.add('darkmode');
+
+							if (elementLogo) {
+							elementLogo.setAttribute('src', logoDark)
+							}
 							} else {
 							elementBody.classList.remove('darkmode');
+							
+							if (elementLogo) {
+							elementLogo.setAttribute('src', logoLight)
+							}
 							}
 							})
+							};
+
+							if (localStorage.getItem('color_mode') === 'dark') {
+							if (elementLogo) {
+							elementLogo.setAttribute('src', logoDark)
+							}
+							} else {
+							if (elementLogo) {
+							elementLogo.setAttribute('src', logoLight)
+							}
 							};
 						</b:if>
 
