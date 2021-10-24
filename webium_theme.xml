@@ -107,10 +107,12 @@
 				}
 
 				body {
+				background-color: var(--color-background);
 				font-family: Inter, Calibri, 'Segoe UI', sans-serif;
 				font-size: 16px;
 				}
 
+				/*----- Button Icon -----*/
 				.button_icon {
 				appearance: none;
 				align-items: center;
@@ -141,6 +143,7 @@
 				color: var(--color-button-icon-hover)
 				}
 
+				/*----- Header -----*/
 				.header {
 				align-items: center;
 				box-sizing: border-box;
@@ -190,6 +193,7 @@
 				<b:eval expr='data:blog.languageDirection == "rtl" ? "margin:0 8px 0 0" : "margin:0 0 0 8px"'/>;
 				}
 
+				/*===== Header Title and Logo =====*/
 				.header .Header {
 				display: flex;
 				align-items: center;
@@ -229,6 +233,7 @@
 				-webkit-line-clamp: 1;
 				}
 
+				/*===== Header Search Form =====*/
 				.header .search_form {
 				align-items: center;
 				box-sizing: border-box;
@@ -256,11 +261,16 @@
 				}
 
 				<b:if cond='data:skin.vars.featuresDarkmode == "2px"'>
+					/*----- Darkmode -----*/
 					body.darkmode .header .button_color_mode path:first-child, body:not(.darkmode) .header .button_color_mode path:last-child {
 					display: none;
 					}
+					body.darkmode .header {
+					box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 12px 0px;
+					}
 				</b:if>
 
+				/*----- Media Query -----*/
 				@media screen and (max-width: 980px) {
 				.header {
 				min-height: 56px;
@@ -298,8 +308,8 @@
 							if (buttonColorMode) {
 							buttonColorMode.addEventListener('click', function() {
 							elementBody.classList.toggle('darkmode');
-							localStorage.setItem('mode', 'colormode' === localStorage.getItem('mode') ? 'light' : 'colormode');
-							if ('colormode' === localStorage.getItem('mode')) {
+							localStorage.setItem('color_mode', 'dark' === localStorage.getItem('color_mode') ? 'light' : 'dark');
+							if ('dark' === localStorage.getItem('color_mode')) {
 							elementBody.classList.add('darkmode');
 							} else {
 							elementBody.classList.remove('darkmode');
@@ -309,6 +319,7 @@
 						</b:if>
 
 						<b:if cond='!data:view.search.query'>
+							// Toggle Search
 							var elementSearchInput = document.getElementById('search_input');
 							var buttonToggleSearch = document.getElementById('button_toggle_search');
 							if (buttonToggleSearch) {
@@ -330,7 +341,7 @@
 		<script>
 			<b:if cond='data:skin.vars.featuresDarkmode == "2px"'>
 				// Darkmode
-				if (localStorage.getItem('mode') === 'colormode') {
+				if (localStorage.getItem('color_mode') === 'dark') {
 				document.body.classList.add('darkmode');
 				} else {
 				document.body.classList.remove('darkmode');
