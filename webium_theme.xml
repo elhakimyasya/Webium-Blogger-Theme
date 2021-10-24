@@ -7,16 +7,24 @@
 			/*
 			<Group description="Default">
 				<Variable name="defaultOptionViewportPinch" description="Viewport Pinch/Zooming (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px"/>
+				<Variable name="defaultColorBackground" description="Default Background Color" type="color" default="#ffffff" value="#ffffff"/>
 				<Variable name="defaultColorKey" description="Default Key Color" type="color" default="#1a73e8" value="#1a73e8"/>
 				<Variable name="defaultColorText" description="Default Text Color" type="color" default="#202124" value="#202124"/>
+				<Variable name="defaultColorMeta" description="Default Meta Color" type="color" default="#5f6368" value="#5f6368"/>
 				<Variable name="defaultColorBorder" description="Default Border Color" type="color" default="#dadce4" value="#dadce4"/>
 				<Variable name="defaultColorButtonIcon" description="Default Button Icon Color" type="color" default="#5f6368" value="#5f6368"/>
 				<Variable name="defaultColorButtonIconHover" description="Default Button Icon Hover Color" type="color" default="#202124" value="#202124"/>
 			</Group>
 			<Group description="Features">
 				<Variable name="featuresDarkmode" description="Darkmode (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px"/>
+				<Variable name="darkModeColorBackground" description="Darkmode Background Color" type="color" default="#202124" value="#202124"/>
+				<Variable name="darkModeColorKey" description="Darkmode Key Color" type="color" default="#f7ce45" value="#f7ce45"/>
+				<Variable name="darkModeColorText" description="Darkmode Text Color" type="color" default="#e4e6e9" value="#e4e6e9"/>
+				<Variable name="darkModeColorMeta" description="Darkmode Meta Color" type="color" default="#9aa0a6" value="#9aa0a6"/>
+				<Variable name="darkModeColorBorder" description="Darkmode Border Color" type="color" default="#5f6368" value="#5f6368"/>
 			</Group>
 			<Group description="Header">
+				<Variable name="headerColorBackground" description="Header Background Color" type="color" default="$(defaultColorBackground)" value="#ffffff"/>
 				<Variable name="headerColorText" description="Header Text Color" type="color" default="$(defaultColorText)" value="#202124"/>
 				<Variable name="headerColorBorder" description="Header Border Color" type="color" default="$(defaultColorBorder)" value="#dadce4"/>
 				<Variable name="headerColorButtonIcon" description="Header Button Icon Color" type="color" default="$(defaultColorButtonIcon)" value="#5f6368"/>
@@ -29,17 +37,37 @@
 			@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/inter/v3/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZJhiI2B.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/inter/v3/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZthiI2B.woff2) format('woff2');unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/inter/v3/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZNhiI2B.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/inter/v3/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZxhiI2B.woff2) format('woff2');unicode-range:U+0370-03FF}@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/inter/v3/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZBhiI2B.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/inter/v3/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZFhiI2B.woff2) format('woff2');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/inter/v3/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/inter/v3/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuI6fAZJhiI2B.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/inter/v3/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuI6fAZthiI2B.woff2) format('woff2');unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/inter/v3/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuI6fAZNhiI2B.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/inter/v3/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuI6fAZxhiI2B.woff2) format('woff2');unicode-range:U+0370-03FF}@font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/inter/v3/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuI6fAZBhiI2B.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/inter/v3/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuI6fAZFhiI2B.woff2) format('woff2');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/inter/v3/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuI6fAZ9hiA.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Inter';font-style:normal;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/inter/v3/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYAZJhiI2B.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Inter';font-style:normal;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/inter/v3/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYAZthiI2B.woff2) format('woff2');unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Inter';font-style:normal;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/inter/v3/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYAZNhiI2B.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Inter';font-style:normal;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/inter/v3/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYAZxhiI2B.woff2) format('woff2');unicode-range:U+0370-03FF}@font-face{font-family:'Inter';font-style:normal;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/inter/v3/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYAZBhiI2B.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Inter';font-style:normal;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/inter/v3/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYAZFhiI2B.woff2) format('woff2');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Inter';font-style:normal;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/inter/v3/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYAZ9hiA.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 
 			body:not(.darkmode) {
+			--color-background: $(defaultColorBackground);
 			--color-key: $(defaultColorKey);
 			--color-text: $(defaultColorText);
+			--color-meta: $(defaultColorMeta);
 			--color-border: $(defaultColorBorder);
 
 			--color-button-icon: $(defaultColorButtonIcon);
 			--color-button-icon-hover: $(defaultColorButtonIconHover);
 
+			--color-header-background: $(headerColorBackground);
 			--color-header-text: $(headerColorText);
 			--color-header-border: $(headerColorBorder);
 			--color-header-button-icon: $(headerColorButtonIcon);
 			--color-header-button-icon-hover: $(headerColorButtonIconHover);
+			}
+
+			body.darkmode {
+			--color-background: $(darkModeColorBackground);
+			--color-key: $(darkModeColorKey);
+			--color-text: $(darkModeColorText);
+			--color-meta: $(darkModeColorMeta);
+			--color-border: $(darkModeColorBorder);
+
+			--color-button-icon: $(defaultColorButtonIcon);
+			--color-button-icon-hover: $(defaultColorButtonIconHover);
+
+			--color-header-background: $(darkModeColorBackground);
+			--color-header-text: $(darkModeColorText);
+			--color-header-border: $(darkModeColorBorder);
+			--color-header-button-icon: $(darkModeColorMeta);
+			--color-header-button-icon-hover: $(darkModeColorText);
 			}
 			]]>
 		</b:skin>
@@ -97,6 +125,8 @@
 				height: auto;
 				justify-content: center;
 				line-height: 0;
+				min-width: 24px;
+				min-height: 24px;
 				outline: none;
 				padding: 4px;
 				position: relative;
@@ -115,10 +145,11 @@
 				align-items: center;
 				box-sizing: border-box;
 				box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 12px 0px;
+				background-color: var(--color-header-background);
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
-				min-height: 56px;
+				min-height: 65px;
 				width: 100%;
 				}
 				.header .button_icon {
@@ -172,6 +203,7 @@
 				font-weight: 600;
 				justify-content: center;
 				text-decoration: none;
+				user-select: none;
 				}
 				.header .Header img {
 				flex: 0 0 auto;
@@ -195,6 +227,44 @@
 				text-overflow: ellipsis;
 				-webkit-box-orient: vertical;
 				-webkit-line-clamp: 1;
+				}
+
+				.header .search_form {
+				align-items: center;
+				box-sizing: border-box;
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				width: 100%;
+				}
+				.header .search_input {
+				appearance: none;
+				border: none;
+				background-color: transparent;
+				color: var(--color-header-text);
+				font-size: 14px;
+				font-weight: inherit;
+				line-height: 24px;
+				outline: none;
+				padding: 0;
+				transition: width 140ms ease-in-out;
+				width: 0;
+				}
+				body.search_active .header .search_input {
+				min-width: 182px;
+				width: 100%;
+				}
+
+				<b:if cond='data:skin.vars.featuresDarkmode == "2px"'>
+					body.darkmode .header .button_color_mode path:first-child, body:not(.darkmode) .header .button_color_mode path:last-child {
+					display: none;
+					}
+				</b:if>
+
+				@media screen and (max-width: 980px) {
+				.header {
+				min-height: 56px;
+				}
 				}
 			</style>
 		</b:if>
@@ -226,14 +296,25 @@
 							// Darkmode
 							var buttonColorMode = document.getElementById('button_color_mode');
 							if (buttonColorMode) {
-							buttonColorMode.addEventListener("click", function() {
-							elementBody.classList.toggle("darkmode");
-							localStorage.setItem("mode", "colormode" === localStorage.getItem("mode") ? "light" : "colormode");
-							if ("colormode" === localStorage.getItem("mode")) {
-							elementBody.classList.add("darkmode");
+							buttonColorMode.addEventListener('click', function() {
+							elementBody.classList.toggle('darkmode');
+							localStorage.setItem('mode', 'colormode' === localStorage.getItem('mode') ? 'light' : 'colormode');
+							if ('colormode' === localStorage.getItem('mode')) {
+							elementBody.classList.add('darkmode');
 							} else {
-							elementBody.classList.remove("darkmode");
+							elementBody.classList.remove('darkmode');
 							}
+							})
+							};
+						</b:if>
+
+						<b:if cond='!data:view.search.query'>
+							var elementSearchInput = document.getElementById('search_input');
+							var buttonToggleSearch = document.getElementById('button_toggle_search');
+							if (buttonToggleSearch) {
+							buttonToggleSearch.addEventListener('click', function() {
+							elementBody.classList.toggle('search_active');
+							elementSearchInput.focus()
 							})
 							};
 						</b:if>
@@ -249,10 +330,10 @@
 		<script>
 			<b:if cond='data:skin.vars.featuresDarkmode == "2px"'>
 				// Darkmode
-				if (localStorage.getItem("mode") === "colormode") {
-				document.body.classList.add("darkmode");
+				if (localStorage.getItem('mode') === 'colormode') {
+				document.body.classList.add('darkmode');
 				} else {
-				document.body.classList.remove("darkmode");
+				document.body.classList.remove('darkmode');
 				};
 			</b:if>
 		</script>
@@ -272,14 +353,22 @@
 							</b:widget>
 						</b:section>
 					</div>
-					<div class='header_section section_center'></div>
 					<div class='header_section section_end'>
-						<button id='button_toggle_search' class='button_icon button_toggle_search' expr:aria-label='data:messages.searchThisBlog' type='button'>
-							<svg width='24' height='24' viewBox='0 0 24 24'><path d='M9.5,4C13.09,4 16,6.91 16,10.5C16,12.12 15.41,13.6 14.43,14.73L20.08,20.38L19.37,21.09L13.72,15.44C12.59,16.41 11.11,17 9.5,17C5.91,17 3,14.09 3,10.5C3,6.91 5.91,4 9.5,4M9.5,5C6.46,5 4,7.46 4,10.5C4,13.54 6.46,16 9.5,16C12.54,16 15,13.54 15,10.5C15,7.46 12.54,5 9.5,5Z'/></svg>
-						</button>
-						<button id='button_color_mode' class='button_icon button_color_mode' aria-label='Color Mode' type='button'>
-							<svg width='24' height='24' viewBox='0 0 24 24'><path d='M14,20C14,21.1 13.1,22 12,22H11C9.9,22 9,21.1 9,20H10C10,20.55 10.45,21 11,21H12C12.55,21 13,20.55 13,20H14M15,17C15,18.1 14.1,19 13,19H10C8.9,19 8,18.1 8,17V15C6.2,13.82 5,11.8 5,9.5C5,5.91 7.91,3 11.5,3C15.09,3 18,5.91 18,9.5C18,11.8 16.8,13.82 15,15V17M9,17C9,17.55 9.45,18 10,18H13C13.55,18 14,17.55 14,17V14.4C15.78,13.5 17,11.64 17,9.5C17,6.46 14.54,4 11.5,4C8.46,4 6,6.46 6,9.5C6,11.64 7.22,13.5 9,14.4V17Z'/></svg>
-						</button>
+						<b:if cond='!data:view.search.query'>
+							<form class='search_form' expr:action='data:blog.searchUrl'>
+								<b:attr cond='!data:view.isPreview' name='target' value='_top'/>
+								<b:include name='urlParamsAsFormInput'/>
+								<button id='button_toggle_search' class='button_icon button_toggle_search' expr:aria-label='data:messages.searchThisBlog' type='button'>
+									<svg width='24' height='24' viewBox='0 0 24 24'><path d='M9.5,4C13.09,4 16,6.91 16,10.5C16,12.12 15.41,13.6 14.43,14.73L20.08,20.38L19.37,21.09L13.72,15.44C12.59,16.41 11.11,17 9.5,17C5.91,17 3,14.09 3,10.5C3,6.91 5.91,4 9.5,4M9.5,5C6.46,5 4,7.46 4,10.5C4,13.54 6.46,16 9.5,16C12.54,16 15,13.54 15,10.5C15,7.46 12.54,5 9.5,5Z'/></svg>
+								</button>
+								<input id='search_input' class='search_input' autocomplete='off' expr:aria-label='data:messages.searchThisBlog' expr:placeholder='data:messages.searchThisBlog' expr:value='data:view.isSearch ? data:view.search.query.escaped : ""' name='q' required=''/>
+							</form>
+						</b:if>
+						<b:if cond='data:skin.vars.featuresDarkmode == "2px"'>
+							<button id='button_color_mode' class='button_icon button_color_mode' aria-label='Color Mode' type='button'>
+								<svg width='24' height='24' viewBox='0 0 24 24'><path d='M14,20C14,21.1 13.1,22 12,22H11C9.9,22 9,21.1 9,20H10C10,20.55 10.45,21 11,21H12C12.55,21 13,20.55 13,20H14M15,17C15,18.1 14.1,19 13,19H10C8.9,19 8,18.1 8,17V15C6.2,13.82 5,11.8 5,9.5C5,5.91 7.91,3 11.5,3C15.09,3 18,5.91 18,9.5C18,11.8 16.8,13.82 15,15V17M9,17C9,17.55 9.45,18 10,18H13C13.55,18 14,17.55 14,17V14.4C15.78,13.5 17,11.64 17,9.5C17,6.46 14.54,4 11.5,4C8.46,4 6,6.46 6,9.5C6,11.64 7.22,13.5 9,14.4V17Z'/><path d='M14,20C14,21.1 13.1,22 12,22H11C9.9,22 9,21.1 9,20H10C10,20.55 10.45,21 11,21H12C12.55,21 13,20.55 13,20H14M15,17C15,18.1 14.1,19 13,19H10C8.9,19 8,18.1 8,17V15C6.2,13.82 5,11.8 5,9.5C5,5.91 7.91,3 11.5,3C15.09,3 18,5.91 18,9.5C18,11.8 16.8,13.82 15,15V17M9,17C9,17.55 9.45,18 10,18H13C13.55,18 14,17.55 14,17V14.4C15.78,13.5 17,11.64 17,9.5C17,6.46 14.54,4 11.5,4C8.46,4 6,6.46 6,9.5C6,11.64 7.22,13.5 9,14.4V17M8.13,10.12L10.5,7.75L12.5,9.75L14.25,8L14.96,8.71L12.5,11.16L10.5,9.16L8.84,10.83L8.13,10.12Z'/></svg>
+							</button>
+						</b:if>
 					</div>
 				</div>
 				<div class='header_secondary'></div>
