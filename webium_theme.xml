@@ -30,6 +30,15 @@
 				<Variable name="headerColorButtonIcon" description="Header Button Icon Color" type="color" default="$(defaultColorButtonIcon)" value="#5f6368"/>
 				<Variable name="headerColorButtonIconHover" description="Header Button Icon Hover Color" type="color" default="$(defaultColorButtonIconHover)" value="#202124"/>
 			</Group>
+			<Group description="Index">
+				<Variable name="indexOptionRecentHeadline" description="Index Recent Headline Title (Disable | Enable)" type="length" default="2px" min="1px" max="2px" value="2px"/>
+				<Variable name="indexColorText" description="Index Text Color" type="color" default="$(defaultColorText)" value="#202124"/>
+				<Variable name="indexColorBorder" description="Index Border Color" type="color" default="$(defaultColorBorder)" value="#dadce4"/>
+			</Group>
+			<Group description="Gadgets">
+				<Variable name="gadgetColorTitle" description="Gadget Title Color" type="color" default="$(defaultColorText)" value="#202124"/>
+				<Variable name="gadgetColorBorder" description="Gadget Border Color" type="color" default="$(defaultColorBorder)" value="#dadce4"/>
+			</Group>
 			*/
 			/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 			html{line-height:1.5;scroll-behavior:smooth;overflow-x: hidden;-webkit-text-size-adjust:100%}body{margin:0}a{color:var(--color-key)}main{display:block}h1{font-size:2em;margin:.67em 0}hr{-webkit-box-sizing:content-box;box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none;height: auto;max-width:100%}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}button,[type="button"],[type="reset"],[type="submit"]{-webkit-appearance:button}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring,[type="button"]:-moz-focusring,[type="reset"]:-moz-focusring,[type="submit"]:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{-webkit-box-sizing:border-box;box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type="checkbox"],[type="radio"]{-webkit-box-sizing:border-box;box-sizing:border-box;padding:0}[type="number"]::-webkit-inner-spin-button,[type="number"]::-webkit-outer-spin-button{height:auto}[type="search"]{-webkit-appearance:textfield;outline-offset:-2px}[type="search"]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}template{display:none}[hidden]{display:none}
@@ -43,6 +52,9 @@
 			--color-meta: $(defaultColorMeta);
 			--color-border: $(defaultColorBorder);
 
+			--color-gadget-title: $(gadgetColorTitle);
+			--color-gadget-border: $(gadgetColorBorder);
+
 			--color-button-icon: $(defaultColorButtonIcon);
 			--color-button-icon-hover: $(defaultColorButtonIconHover);
 
@@ -51,6 +63,9 @@
 			--color-header-border: $(headerColorBorder);
 			--color-header-button-icon: $(headerColorButtonIcon);
 			--color-header-button-icon-hover: $(headerColorButtonIconHover);
+
+			--color-index-text: $(indexColorText);
+			--color-index-border: $(indexColorBorder);
 			}
 
 			body.darkmode {
@@ -60,6 +75,9 @@
 			--color-meta: $(darkModeColorMeta);
 			--color-border: $(darkModeColorBorder);
 
+			--color-gadget-title: $(darkModeColorText);
+			--color-gadget-border: $(darkModeColorBorder);
+
 			--color-button-icon: $(defaultColorButtonIcon);
 			--color-button-icon-hover: $(defaultColorButtonIconHover);
 
@@ -68,6 +86,9 @@
 			--color-header-border: $(darkModeColorBorder);
 			--color-header-button-icon: $(darkModeColorMeta);
 			--color-header-button-icon-hover: $(darkModeColorText);
+
+			--color-index-text: $(darkModeColorText);
+			--color-index-border: $(darkModeColorBorder);
 			}
 			]]>
 		</b:skin>
@@ -108,6 +129,7 @@
 
 				body {
 				background-color: var(--color-background);
+				color: var(--color-text);
 				font-family: Inter, Calibri, 'Segoe UI', sans-serif;
 				font-size: 16px;
 				}
@@ -141,6 +163,29 @@
 				}
 				.button_icon:hover, .button_icon:focus {
 				color: var(--color-button-icon-hover)
+				}
+
+				/*----- Gadget -----*/
+				.widget_title {
+				align-items: center;
+				border-bottom: 1px solid var(--color-gadget-border);
+				box-sizing: border-box;
+				display: flex;
+				justify-content: space-between;
+				margin-bottom: 12px;
+				width: 100%;
+				}
+				.widget_title .title {
+				box-sizing: border-box;
+				border-bottom: 1px solid var(--color-gadget-title);
+				color: var(--color-gadget-title);
+				display: inline-block;
+				font-size: 14px;
+				font-weight: 500;
+				line-height: 38px;
+				margin: 0;
+				user-select: none;
+				width: auto;
 				}
 
 				/*----- Header -----*/
@@ -265,16 +310,59 @@
 				}
 
 				/*----- Main and Sidebar Section -----*/
+				.section_top_container {
+				padding: 65px 0 0;
+				}
+
+				<b:if cond='data:view.search.query'>
+					.section_top_container .search_form {
+					box-sizing: border-box;
+					padding: 12px;
+					display: flex;
+					flex-direction: row;
+					justify-content: center;
+					margin: 0 auto;
+					max-width: 1192px;
+					width: 100%;
+					}
+					.section_top_container .search_input {
+					appearance: none;
+					border: none;
+					border-bottom: 1px solid var(--color-index-border);
+					box-sizing: border-box;
+					background-color: transparent;
+					color: var(--color-index-text);
+					font-size: 38px;
+					font-weight: inherit;
+					line-height: 74px;
+					outline: none;
+					padding: 0;
+					width: 100%
+					}
+				</b:if>
+
 				.section_container {
-				align-items: center;
 				box-sizing: border-box;
-				padding: 65px 12px 12px;
+				padding: 0 12px 12px;
 				display: flex;
 				flex-direction: row;
+				justify-content: space-between;
 				margin: 0 auto;
 				max-width: 1192px;
 				width: 100%;
 				}
+				<b:if cond='data:view.isMultipleItems'>
+					.section_container .section_main {
+					width: calc(100% - (380px + 40px));
+					<b:eval expr='data:blog.languageDirection == "rtl" ? "border-left:1px solid var(--color-index-border);padding-left:40px" : "border-right:1px solid var(--color-index-border);padding-right:40px"'/>
+					}
+					.section_container .section_aside {
+					max-width: 380px;
+					width: 100%
+					}
+					<b:else/>
+				</b:if>
+				
 
 				<b:if cond='data:skin.vars.featuresDarkmode == "2px"'>
 					/*----- Darkmode -----*/
@@ -291,6 +379,21 @@
 				.header {
 				min-height: 56px;
 				}
+				.section_container {
+				flex-direction: column;
+				}
+				.section_container .section_main, .section_container .section_main {
+				border: none;
+				max-width: 100%;
+				padding: 0;
+				width: 100%
+				}
+				<b:if cond='data:view.search.query'>
+					.section_top_container .search_input {
+					font-size: 28px;
+					line-height: 64px;
+					}
+				</b:if>
 				}
 			</style>
 		</b:if>
@@ -313,6 +416,13 @@
 					</b:if>
 					<meta name='viewport' expr:content='data:skin.vars.defaultOptionViewportPinch == "1px" ? "width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" : "width=device-width, initial-scale=1.0"'/>
 					<meta name='description' expr:content='data:blog.metaDescription ? data:blog.metaDescription.escaped : data:view.description.escaped'/>
+				</b:includable>
+				<b:includable id='widget-title'>
+					<b:if cond='data:defaultTitle or data:title'>
+						<div class='widget_title'>
+							<div class='title'><b:eval expr='data:defaultTitle ?: data:title'/></div>
+						</div>
+					</b:if>
 				</b:includable>
 				<b:includable id='libraries'>
 					<script>
@@ -414,15 +524,52 @@
 						</b:if>
 						<b:if cond='data:skin.vars.featuresDarkmode == "2px"'>
 							<button id='button_color_mode' class='button_icon button_color_mode' aria-label='Color Mode' type='button'>
-								<svg width='24' height='24' viewBox='0 0 24 24'><path d='M14,20C14,21.1 13.1,22 12,22H11C9.9,22 9,21.1 9,20H10C10,20.55 10.45,21 11,21H12C12.55,21 13,20.55 13,20H14M15,17C15,18.1 14.1,19 13,19H10C8.9,19 8,18.1 8,17V15C6.2,13.82 5,11.8 5,9.5C5,5.91 7.91,3 11.5,3C15.09,3 18,5.91 18,9.5C18,11.8 16.8,13.82 15,15V17M9,17C9,17.55 9.45,18 10,18H13C13.55,18 14,17.55 14,17V14.4C15.78,13.5 17,11.64 17,9.5C17,6.46 14.54,4 11.5,4C8.46,4 6,6.46 6,9.5C6,11.64 7.22,13.5 9,14.4V17Z'/><path d='M14,20C14,21.1 13.1,22 12,22H11C9.9,22 9,21.1 9,20H10C10,20.55 10.45,21 11,21H12C12.55,21 13,20.55 13,20H14M15,17C15,18.1 14.1,19 13,19H10C8.9,19 8,18.1 8,17V15C6.2,13.82 5,11.8 5,9.5C5,5.91 7.91,3 11.5,3C15.09,3 18,5.91 18,9.5C18,11.8 16.8,13.82 15,15V17M9,17C9,17.55 9.45,18 10,18H13C13.55,18 14,17.55 14,17V14.4C15.78,13.5 17,11.64 17,9.5C17,6.46 14.54,4 11.5,4C8.46,4 6,6.46 6,9.5C6,11.64 7.22,13.5 9,14.4V17M8.13,10.12L10.5,7.75L12.5,9.75L14.25,8L14.96,8.71L12.5,11.16L10.5,9.16L8.84,10.83L8.13,10.12Z'/></svg>
+								<svg width='24' height='24' viewBox='0 0 24 24'><path d='M14,20C14,21.1 13.1,22 12,22H11C9.9,22 9,21.1 9,20H10C10,20.55 10.45,21 11,21H12C12.55,21 13,20.55 13,20H14M15,17C15,18.1 14.1,19 13,19H10C8.9,19 8,18.1 8,17V15C6.2,13.82 5,11.8 5,9.5C5,5.91 7.91,3 11.5,3C15.09,3 18,5.91 18,9.5C18,11.8 16.8,13.82 15,15V17M9,17C9,17.55 9.45,18 10,18H13C13.55,18 14,17.55 14,17V14.4C15.78,13.5 17,11.64 17,9.5C17,6.46 14.54,4 11.5,4C8.46,4 6,6.46 6,9.5C6,11.64 7.22,13.5 9,14.4V17M8.13,10.12L10.5,7.75L12.5,9.75L14.25,8L14.96,8.71L12.5,11.16L10.5,9.16L8.84,10.83L8.13,10.12Z'/><path d='M14,20C14,21.1 13.1,22 12,22H11C9.9,22 9,21.1 9,20H10C10,20.55 10.45,21 11,21H12C12.55,21 13,20.55 13,20H14M15,17C15,18.1 14.1,19 13,19H10C8.9,19 8,18.1 8,17V15C6.2,13.82 5,11.8 5,9.5C5,5.91 7.91,3 11.5,3C15.09,3 18,5.91 18,9.5C18,11.8 16.8,13.82 15,15V17M9,17C9,17.55 9.45,18 10,18H13C13.55,18 14,17.55 14,17V14.4C15.78,13.5 17,11.64 17,9.5C17,6.46 14.54,4 11.5,4C8.46,4 6,6.46 6,9.5C6,11.64 7.22,13.5 9,14.4V17Z'/></svg>
 							</button>
 						</b:if>
 					</div>
 				</div>
 				<div class='header_secondary'></div>
 			</header>
+			<div id='section_top_container' class='section_top_container'>
+				<b:if cond='data:view.search.query'>
+					<form class='search_form' expr:action='data:blog.searchUrl'>
+						<b:attr cond='!data:view.isPreview' name='target' value='_top'/>
+						<b:include name='urlParamsAsFormInput'/>
+						<input id='search_input' class='search_input' autocomplete='off' expr:aria-label='data:messages.searchThisBlog' expr:placeholder='data:messages.searchThisBlog' expr:value='data:view.isSearch ? data:view.search.query.escaped : ""' name='q' required=''/>
+					</form>
+				</b:if>
+				<div class='section_jumbotron'>
+					
+				</div>
+			</div>
 			<div id='section_container' class='section_container'>
-				<main class='section_main'></main>
+				<main class='section_main'>
+					<b:section id='main_widget_section' class='main_widget_section' name='Main Section' maxwidgets='1'>
+						<b:widget id='Blog1' locked='true' title='Blog (Blog Posts)' type='Blog' visible='true'>
+							<b:includable id='main' var='this'>
+								<b:if cond='data:view.isHomepage and data:skin.vars.indexOptionRecentHeadline == "2px"'>
+									<div class='widget_title'>
+										<div class='title'><data:messages.recentPosts/></div>
+									</div>
+								</b:if>
+								<b:if cond='data:view.search.query'>
+									<div class='search_query'>
+										<b:if cond='data:posts.empty'>
+											<div class='message_query query_error'>
+												<strong class='label_search'><data:messages.search/></strong>
+											</div>
+											<b:else/>
+											<div class='message_query query_success'>
+												<strong class='label_search'><data:messages.search/></strong>
+											</div>
+										</b:if>
+									</div>
+								</b:if>
+							</b:includable>
+						</b:widget>
+					</b:section>
+				</main>
 				<aside class='section_aside'></aside>
 			</div>
 			<footer id='footer' class='footer'>
