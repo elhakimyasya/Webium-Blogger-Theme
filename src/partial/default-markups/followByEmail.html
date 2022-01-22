@@ -1,0 +1,20 @@
+<b:defaultmarkup type='FollowByEmail'>
+    <b:includable id='main'>
+        <b:include name='content' />
+    </b:includable>
+    <b:includable id='content'>
+        <div class='followemail-widget'>
+            <form action='https://feedburner.google.com/fb/a/mailverify' expr:onsubmit='"window.open(\"https://feedburner.google.com/fb/a/mailverify?uri=" + data:feedPath + "\", \"popupwindow\", \"scrollbars=yes,width=550,height=520\"); return true"' method='post' target='popupwindow'>
+                <b:include name='widget-title' />
+                <p>
+                    <b:include data='{ message: "translateSubscribeEmail" }' name='translate' />
+                </p>
+                <input autocomplete='off' class='follow-by-email-address' expr:placeholder='data:messages.emailAddress' name='email' type='email' required='' />
+                <input class='follow-by-email-submit' expr:value='data:messages.getEmailNotifications' type='submit' />
+
+                <input expr:value='data:feedPath' name='uri' type='hidden' />
+                <input name='loc' type='hidden' value='en_US' />
+            </form>
+        </div>
+    </b:includable>
+</b:defaultmarkup>

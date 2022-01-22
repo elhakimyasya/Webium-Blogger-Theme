@@ -1,0 +1,67 @@
+<b:defaultmarkup type='Profile'>
+    <b:includable id='main' var='this'>
+        <b:include name='content' />
+    </b:includable>
+    <b:includable id='content'>
+        <b:if cond='data:team'>
+            <div class='profile-widget team'>
+                <b:include name='widget-title' />
+                <b:include name='teamProfile' />
+            </div>
+
+            <b:else />
+            <div class='profile-widget individual'>
+                <b:include name='widget-title' />
+                <b:include name='userProfile' />
+            </div>
+        </b:if>
+    </b:includable>
+    <b:includable id='teamProfile'>
+        <b:loop values='data:authors' var='author'>
+            <div class='profile'>
+                <b:include data='author' name='teamProfileLink' />
+            </div>
+        </b:loop>
+    </b:includable>
+    <b:includable id='teamProfileLink'>
+        <a class='profile-link g-profile' expr:href='data:userUrl' rel='nofollow noopener noreferer' target='_blank'>
+            <b:include name='profileImage' />
+
+            <span class='profile-name'>
+                <data:display-name />
+            </span>
+        </a>
+        <a class='profile-follow' expr:href='data:userUrl' rel='nofollow noopener noreferer' target='_blank'>
+            <data:messages.visitProfile />
+        </a>
+    </b:includable>
+    <b:includable id='profileImage'>
+        <b:if cond='data:authorPhoto.image'>
+            <b:include name='authorProfileImage' />
+
+            <b:else />
+            <b:include name='defaultProfileImage' />
+        </b:if>
+    </b:includable>
+    <b:includable id='authorProfileImage'>
+        <span class='profile-img lazyload blur-up' expr:style='"background-image: url(" + resizeImage(data:authorPhoto.image, 48) + ")"' />
+    </b:includable>
+    <b:includable id='defaultProfileImage'>
+        <span class='profile-img lazyload blur-up' style='background-image: url(data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==)' />
+    </b:includable>
+
+    <b:includable id='userProfile'>
+        <div class='profile'>
+            <a class='profile-link g-profile' expr:href='data:userUrl' rel='nofollow noopener noreferer' target='_blank'>
+                <b:include name='profileImage' />
+
+                <span class='profile-name'>
+                    <data:displayname />
+                </span>
+            </a>
+            <a class='profile-follow' expr:href='data:userUrl' rel='nofollow noopener noreferer' target='_blank'>
+                <data:messages.visitProfile />
+            </a>
+        </div>
+    </b:includable>
+</b:defaultmarkup>

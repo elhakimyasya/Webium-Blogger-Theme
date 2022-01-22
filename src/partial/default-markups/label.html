@@ -1,0 +1,43 @@
+<b:defaultmarkup type='Label'>
+    <b:includable id='main' var='this'>
+        <b:include name='widget-title' />
+        <b:include name='content' />
+    </b:includable>
+    <b:includable id='cloud'>
+        <b:loop values='data:labels' var='label'>
+            <span class='label-size'>
+                <b:class expr:name='"label-size-" + data:label.cssSize' />
+                <a class='label-name' expr:href='data:label.url'>
+                    <data:label.name />
+                    <b:if cond='data:this.showFreqNumbers'>
+                        (
+                        <data:label.count />)
+                    </b:if>
+                </a>
+            </span>
+        </b:loop>
+    </b:includable>
+    <b:includable id='content'>
+        <div class='label-widget'>
+            <b:class expr:name='data:this.display' />
+
+            <b:include cond='data:this.display == "list"' name='list' />
+            <b:include cond='data:this.display == "cloud"' name='cloud' />
+        </div>
+    </b:includable>
+    <b:includable id='list'>
+        <ul>
+            <b:loop values='data:labels' var='label'>
+                <li>
+                    <a class='label-name' expr:href='data:label.url'>
+                        <data:label.name />
+                        <b:if cond='data:this.showFreqNumbers'>
+                            (
+                            <data:label.count />)
+                        </b:if>
+                    </a>
+                </li>
+            </b:loop>
+        </ul>
+    </b:includable>
+</b:defaultmarkup>

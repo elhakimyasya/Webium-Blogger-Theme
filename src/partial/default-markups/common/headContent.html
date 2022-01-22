@@ -1,7 +1,17 @@
 <b:includable id='headContent'>
     <meta charset='UTF-8' />
     <meta http-equiv='Content-Type' expr:content='"text/html; charset=" + data:blog.encoding' />
-    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta name='viewport' content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5' />
+    <meta name='description' expr:content='data:view.description.escaped' />
+    <meta name='generator' content='blogger' />
+    <meta name='theme-color' expr:content='data:skin.vars.keycolor' />
+    <meta name='msapplication-navbutton-color' expr:content='data:skin.vars.keycolor' />
+    <b:if cond='data:blog.adultContent'>
+        <meta name='rating' content='adult' />
+    </b:if>
+
+    <b:include name='openGraph' />
+
     <title>
         <data:view.title.escaped />
     </title>
@@ -30,4 +40,12 @@
 
         <link expr:href='data:link' rel='dns-prefetch preconnect' />
     </b:loop>
+    <link rel='icon' expr:href='data:blog.blogspotFaviconUrl' type='image/x-icon' />
+    <link rel='canonical' expr:href='data:view.url.canonical' />
+
+    <b:tag cond='data:view.isMultipleItems and data:widgets.Blog.first.posts[0].featuredImage' expr:href='data:widgets.Blog.first.posts[0].featuredImage' name='link' rel='image_src' />
+    <b:tag cond='data:view.isSingleItem and data:view.featuredImage' expr:href='data:view.featuredImage' name='link' rel='image_src' />
+    
+    <data:blog.feedLinks />
+    <data:blog.meTag />
 </b:includable>

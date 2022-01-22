@@ -1,0 +1,28 @@
+<b:defaultmarkup type='Header'>
+    <b:includable id='main' var='this'>
+        <div class='header-widget'>
+            <b:include cond='data:imagePlacement in {"REPLACE", "BEFORE_DESCRIPTION"}' name='image' />
+            <b:include cond='data:imagePlacement == "BEHIND"' name='title' />
+        </div>
+    </b:includable>
+    <b:includable id='image'>
+        <a class='header-logo-image' expr:href='data:blog.homepageUrl'>
+            <img expr:alt='data:blog.title.escaped' src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' expr:data-src='resizeImage(data:image, 280)' class='lazyload blur-up' expr:width='data:width' expr:height='data:height' />
+
+            <b:if cond='data:view.isHomepage'>
+                <b:if cond='data:widget.sectionId == "header-section"'>
+                    <h1 id='header-title'>
+                        <data:title />
+                    </h1>
+                </b:if>
+            </b:if>
+        </a>
+    </b:includable>
+    <b:includable id='title'>
+        <h1 class='header-blog-title'>
+            <b:tag expr:href='data:blog.homepageUrl' name='a'>
+                <data:title />
+            </b:tag>
+        </h1>
+    </b:includable>
+</b:defaultmarkup>

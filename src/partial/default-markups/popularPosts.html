@@ -1,0 +1,66 @@
+<b:defaultmarkup type='PopularPosts'>
+    <b:includable id='main' var='this'>
+        <b:if cond='data:title == ""'>
+            <h3 class='title'><svg width='28' viewBox='0 0 28 29' fill='none' height='28'>
+                    <circle cx='14' cy='14.79' r='9.5' stroke='currentColor'></circle>
+                    <path d='M5.46 18.36l4.47-4.48M9.97 13.87l3.67 3.66M13.67 17.53l5.1-5.09M16.62 11.6h3M19.62 11.6v3' stroke='currentColor' stroke-linecap='round'></path>
+                </svg>
+                <b:include data='{ message: "translateTrendingOn" }' name='translate' />
+                <data:blog.title />
+            </h3>
+
+            <else />
+            <h3 class='title'><svg width='28' viewBox='0 0 28 29' fill='none' height='28'>
+                    <circle cx='14' cy='14.79' r='9.5' stroke='currentColor'></circle>
+                    <path d='M5.46 18.36l4.47-4.48M9.97 13.87l3.67 3.66M13.67 17.53l5.1-5.09M16.62 11.6h3M19.62 11.6v3' stroke='currentColor' stroke-linecap='round'></path>
+                </svg>
+                <data:title />
+            </h3>
+        </b:if>
+
+        <div class='popular-widget'>
+            <b:loop values='data:posts' var='post'>
+                <b:include data='post' name='content' />
+            </b:loop>
+        </div>
+    </b:includable>
+    <b:includable id='content' var='post'>
+        <article class='post'>
+            <div class='block-meta'>
+                <div class='post-meta-top'>
+                    <b:if cond='data:post.author.authorPhoto.image'>
+                        <span class='author-avatar lazyload blur-up' expr:style='"background-image: url(" + resizeImage(data:post.author.authorPhoto.image, 40, "1:1") + ")"' />
+                    </b:if>
+                    <div class='meta'>
+                        <span class='post-author'><strong>
+                                <data:post.author.name />
+                            </strong></span>
+                        <span class='translate'>
+                            <b:include data='{ message: "translateIn" }' name='translate' />
+                        </span>
+                        <b:if cond='data:post.labels'>
+                            <span class='post-category'><strong>
+                                    <data:post.labels.first.name />
+                                </strong></span>
+                        </b:if>
+                    </div>
+                </div>
+                <a class='post-title' expr:href='data:post.url' rel='bookmark'>
+                    <h2>
+                        <data:post.title />
+                    </h2>
+                </a>
+                <div class='post-meta-bottom'>
+                    <span class='post-time'>
+                        <time class='published' expr:datetime='data:post.date.iso8601'>
+                            <data:post.date />
+                        </time>
+                        <svg width='15' height='15' viewBox='0 0 15 15'>
+                            <path d='M7.44 2.32c.03-.1.09-.1.12 0l1.2 3.53a.29.29 0 0 0 .26.2h3.88c.11 0 .13.04.04.1L9.8 8.33a.27.27 0 0 0-.1.29l1.2 3.53c.03.1-.01.13-.1.07l-3.14-2.18a.3.3 0 0 0-.32 0L4.2 12.22c-.1.06-.14.03-.1-.07l1.2-3.53a.27.27 0 0 0-.1-.3L2.06 6.16c-.1-.06-.07-.12.03-.12h3.89a.29.29 0 0 0 .26-.19l1.2-3.52z'></path>
+                        </svg>
+                    </span>
+                </div>
+            </div>
+        </article>
+    </b:includable>
+</b:defaultmarkup>

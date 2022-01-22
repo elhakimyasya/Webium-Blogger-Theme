@@ -1,0 +1,74 @@
+<b:includable id='customLanguage'>
+    <b:switch var='data:message'>
+        <b:case value='translateIn' />
+        <b:if cond='data:blog.locale == "en"'>In
+            <b:elseif cond='data:blog.locale == "es"' />En
+            <b:elseif cond='data:blog.locale == "pt"' />No
+            <b:elseif cond='data:blog.locale == "id"' />Dalam
+            <b:else />In
+        </b:if>
+        <b:case value='translateUpdated' />
+        <b:if cond='data:blog.locale == "en"'>Updated
+            <b:elseif cond='data:blog.locale == "es"' />Actualizado
+            <b:elseif cond='data:blog.locale == "pt"' />Atualizada
+            <b:elseif cond='data:blog.locale == "id"' />Diperbarui
+            <b:else />Updated
+        </b:if>
+        <b:case value='translateLoadMore' />
+        <b:if cond='data:blog.locale == "en"'>Load More
+            <b:elseif cond='data:blog.locale == "es"' />Carga más
+            <b:elseif cond='data:blog.locale == "pt"' />Carregue mais
+            <b:elseif cond='data:blog.locale == "id"' />Muat Lebih Banyak
+            <b:else />Load More
+        </b:if>
+        <b:case value='translateLoading' />
+        <b:if cond='data:blog.locale == "en"'>Loading
+            <b:elseif cond='data:blog.locale == "es"' />Cargando
+            <b:elseif cond='data:blog.locale == "pt"' />Carregando
+            <b:elseif cond='data:blog.locale == "id"' />Memuat
+            <b:else />Loading
+        </b:if>
+        <b:case value='translateLoadNoMore' />
+        <b:if cond='data:blog.locale == "en"'>There are no other posts
+            <b:elseif cond='data:blog.locale == "es"' />No hay otras publicaciones
+            <b:elseif cond='data:blog.locale == "pt"' />Não há outras postagens
+            <b:elseif cond='data:blog.locale == "id"' />Tidak ada postingan lainnya
+            <b:else />There are no other posts
+        </b:if>
+        <b:case value='translateLoadError' />
+        <b:if cond='data:blog.locale == "en"'>Error loading post
+            <b:elseif cond='data:blog.locale == "es"' />Error al cargar la publicación
+            <b:elseif cond='data:blog.locale == "pt"' />Erro ao carregar postagem
+            <b:elseif cond='data:blog.locale == "id"' />Kesalahan memuat postingan
+            <b:else />Error loading post
+        </b:if>
+        <b:case value='translateSubscribeEmail' />
+        <b:if cond='data:blog.locale == "en"'>Get notification of the latest articles directly via your email.
+            <b:elseif cond='data:blog.locale == "es"' />Reciba notificaciones de los últimos artículos directamente a través de su correo electrónico.
+            <b:elseif cond='data:blog.locale == "pt"' />Receba notificações sobre os artigos mais recentes diretamente por e-mail.
+            <b:elseif cond='data:blog.locale == "id"' />Dapatkan notifikasi artikel terbaru langsung melalui email Anda.
+            <b:else />Get notification of the latest articles directly via your email.
+        </b:if>
+        <b:case value='translateShareTo' />
+        <b:if cond='data:blog.locale == "en"'>Share to
+            <b:elseif cond='data:blog.locale == "es"' />Compartir a
+            <b:elseif cond='data:blog.locale == "pt"' />Compartilhar com
+            <b:elseif cond='data:blog.locale == "id"' />Bagikan ke
+            <b:else />Share to
+        </b:if>
+        <b:case value='translateTrendingOn' />
+        <b:if cond='data:blog.locale == "en"'>Trending On
+            <b:elseif cond='data:blog.locale == "es"' />Tendencia en
+            <b:elseif cond='data:blog.locale == "pt"' />Tendência em
+            <b:elseif cond='data:blog.locale == "id"' />Sedang Tren di
+            <b:else />Trending On
+        </b:if>
+        <b:case value='translateAllContent' />
+        <b:if cond='data:blog.locale == "en"'>All Post
+            <b:elseif cond='data:blog.locale == "es"' />Todos los mensajes
+            <b:elseif cond='data:blog.locale == "pt"' />Todas as postagens
+            <b:elseif cond='data:blog.locale == "id"' />Semua Postingan
+            <b:else />All Post
+        </b:if>
+    </b:switch>
+</b:includable>
