@@ -26,5 +26,12 @@
   "bugs": {
     "url": "https://github.com/elhakimyasya/Webium-Blogger-Template/issues"
   },
-  "homepage": "https://github.com/elhakimyasya/Webium-Blogger-Template#readme"
+  "homepage": "https://github.com/elhakimyasya/Webium-Blogger-Template#readme",
+  "dependencies": {
+    "gulp": "^4.0.2"
+  },
+  "devDependencies": {
+    "gulp-file-include": "^2.3.0",
+    "gulp-rename": "^2.0.0"
+  }
 }

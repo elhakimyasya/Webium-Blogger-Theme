@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:js='true' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateVersion='1.0.0' expr:class='data:blog.languageDirection' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale'>
+    <head>
+        <b:include data='blog' name='headContent' />
+
+        <b:skin></b:skin>
+
+        <b:if cond='data:view.isLayoutMode'>
+            <b:template-skin></b:template-skin>
+        </b:if>
+    </head>
+    <body expr:class='data:blog.pageType'></body>
+</html>
