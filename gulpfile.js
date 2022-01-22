@@ -41,4 +41,4 @@ gulp.task("start", function () {
         .pipe(gulp.dest("./dist"))
 });
 
-gulp.task("build", gulp.series("styles", "styles:autoprefix", "start"))
+gulp.task("build", gulp.series("styles", "styles:autoprefix", "styles:minify", "start"))

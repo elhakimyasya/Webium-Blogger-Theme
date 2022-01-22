@@ -1,3 +1,31 @@
-div {
-    display: flex;
+body#layout {
+  max-width: 980px;
+  margin: 0 auto;
+  background: transparent;
+  border: none;
+
+  div.section {
+    background: transparent;
+    border: transparent;
+    width: 100%;
+    overflow: hidden;
+
+    h4 {
+      text-align: center;
+      margin: 0;
+    }
+
+    .dropregion {
+      display: none;
+    }
+
+    .draggable-widget .widget-content {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    .widget-content {
+      border-radius: 4px;
+    }
+  }
 }

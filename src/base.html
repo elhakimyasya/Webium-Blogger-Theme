@@ -5,7 +5,68 @@
 <head>
     <b:include data='blog' name='headContent' />
 
-    <b:skin></b:skin>
+    <b:skin><![CDATA[
+        /*
+        @@include("../src/partial/variables.html")
+        */
+        :root {
+            --linkColor: $(link.color);
+            --mainWidth: $(main.width);
+            --headerColorBackground: $(header.color.background);
+            --headerColorBackgroundScroll: $(header.color.backgroundscroll);
+            --headerColorBorder: $(header.color.border);
+            --headerColorText: $(header.color.text);
+            --headerColorMenu: $(header.color.menu);
+            --headerColorMenuBorder: $(header.color.menuborder);
+            --headerColorMenuBackground: $(header.color.menubg);
+            --headerColorMenuBoxShadow: $(header.color.menuboxshdow);
+            --headerWidth: $(header.width);
+            --indexColorMetaTop: $(index.color.metatop);
+            --indexColorMetaBottom: $(index.color.metabottom);
+            --indexColorMetaBottomIcon: $(index.color.metabottomicon);
+            --indexColorText: $(index.color.text);
+            --indexColorSnippet: $(index.color.snippet);
+            --indexColorLoadMore: $(index.color.loadmore);
+            --indexColorLoadMoreBorder: $(index.color.loadmoreborder);
+            --indexColorLoadMoreBackground: $(index.color.loadmorebg);
+            --itemColorPost: $(item.color.post);
+            --itemColorShare: $(item.color.share);
+            --itemColorShareHover: $(item.color.sharehover);
+            --itemColorShareBorder: $(item.color.shareborder);
+            --itemColorShareShadow: $(item.color.shareshadow);
+            --itemColorShareBackground: $(item.color.sharebg);
+            -=itemColorAuthor: $(item.color.author);
+            --itemColorAuthorBorder: $(item.color.authorborder);
+            --itemColorMeta: $(item.color.meta);
+            --itemColorMetaIcon: $(item.color.metaicon);
+            --itemColorMetaBottom: $(item.color.metabottom);
+            --itemColorText: $(item.color.text);
+            --itemColorSnippet: $(item.color.snippet);
+            --itemColorLabelBackground: $(item.color.labelbg);
+            --itemColorLabelText: $(item.color.labeltext);
+            --itemColorImageLightbox: $(item.color.imagelightbox);
+            --itemMainWidthHeader: $(item.main.widthheader);
+            --itemMainWidthFooter: $(item.main.widthfooter);
+            --footerColorBackground: $(footer.color.background);
+            --footerColorText: $(footer.color.text);
+            --widgetColorTitle: $(widget.color.title);
+            --widgetColorPostTitle: $(widget.color.posttitle);
+            --widgetColorPostMetaTop: $(widget.color.postmetatop);
+            --widgetColorPostSnippet: $(widget.color.postsnippet);
+            --widgetColorLabelBorder: $(widget.color.labelborder);
+            --widgetColorLabelText: $(widget.color.labeltext);
+            --widgetColorLabelBackground: $(widget.color.labelbackground);
+            --widgetColorLabelButton: $(widget.color.labelbutton);
+            --widgetColorLabelButtonHover: $(widget.color.labelbuttoncolorhover);
+            --widgetColorLabelButtonBorder: $(widget.color.labelbuttonborder);
+            --widgetColorLabelButtonBorderHover: $(widget.color.labelbuttonborderhover);
+            --widgetColorPopularCounter: $(widget.color.popularcounter);
+            --widgetColorBorder: $(widget.color.border);
+            --widgetColorSearch: $(widget.color.searchcolor);
+        }
+        @@include("../build/styles/skin.css")
+    ]]>
+    </b:skin>
 
     <b:if cond='data:view.isLayoutMode'>
         <b:template-skin>@@include("../build/styles/template-skin.css")</b:template-skin>
