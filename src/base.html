@@ -13,10 +13,7 @@
 
     <b:defaultmarkups>
         <b:defaultmarkup type='Common'>
-            @@loop("../src/partial/default-markups/common/template.html", [
-            { "id": "headContent", "value": "headContent" },
-            { "id": "globalJS", "value": "globalJS" }
-            ])
+            @@include("../src/partial/default-markups/common/headContent.html")
         </b:defaultmarkup>
         @@loop("../src/partial/default-markups/template.html", [
         { "type": "BlogArchive", "value": "BlogArchive" },
@@ -32,6 +29,12 @@
     </b:defaultmarkups>
 </head>
 
-<body expr:class='data:blog.pageType'></body>
+<body expr:class='data:blog.pageType'>
+    <header></header>
+    <main></main>
+    <footer></footer>
+
+    <b:section id='hidden' />
+</body>
 
 </html>
