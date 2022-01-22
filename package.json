@@ -1,0 +1,30 @@
+{
+  "name": "webium-blogger-template",
+  "version": "1.0.0",
+  "description": "Webium is a Free Blogger Template that looks very similar to the Medium.com.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elhakimyasya/Webium-Blogger-Template.git"
+  },
+  "keywords": [
+    "Blogger",
+    "Blogspot",
+    "Medium",
+    "Theme",
+    "Template"
+  ],
+  "author": {
+    "name": "Yasya El Hakim",
+    "email": "yasyaelhakim@gmail.com",
+    "url": "https://www.elcreativeacademy.com/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/elhakimyasya/Webium-Blogger-Template/issues"
+  },
+  "homepage": "https://github.com/elhakimyasya/Webium-Blogger-Template#readme"
+}
