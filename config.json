@@ -1,0 +1,11 @@
+{
+    "themeInfo": {
+        "version": "2.0.0"
+    },
+    "b": {
+        "css": false,
+        "defaultwidgetversion": 2,
+        "layoutsVersion": 3,
+        "responsive": true
+    }
+}
