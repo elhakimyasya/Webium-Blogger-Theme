@@ -1,0 +1,32 @@
+<b:widget id="Header1" locked="true" title="Logo and Title" type="Header" visible="true">
+    <b:includable id='main' var='this'>
+        <b:class name='header_section section_start' />
+        <a expr:href='data:blog.homepageUrl' expr:title='data:blog.title'>
+            <b:tag cond='data:imagePlacement in {"REPLACE", "BEFORE_DESCRIPTION"}' name='img' expr:src='data:image' expr:srcset='sourceSet(data:image, [24, 44, 64, 100])' expr:alt='data:title' expr:width='data:width' expr:height='data:height' />
+            <h1 expr:class='data:imagePlacement in {"REPLACE"} ? "visibility_hidden" : "no_class"'>
+                <data:title/>
+            </h1>
+        </a>
+    </b:includable>
+    <b:includable id='title' />
+    <b:includable id='image' />
+    <b:includable id='description' />
+    <b:includable id='behindImageStyle' />
+</b:widget>
+<b:widget id="LinkList999" locked="true" title="Main Menu" type="LinkList" visible="true">
+    <b:includable id='main'>
+        <b:class name='header_section section_center' />
+        <b:include name='content' />
+    </b:includable>
+    <b:includable id='content'>
+        <ul>
+            <b:loop values='data:links' var='link'>
+                <li>
+                    <a expr:href='data:link.target'>
+                        <data:link.name/>
+                    </a>
+                </li>
+            </b:loop>
+        </ul>
+    </b:includable>
+</b:widget>
