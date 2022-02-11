@@ -1,0 +1,23 @@
+{
+  "name": "webium-blogger-template",
+  "version": "1.1.0",
+  "description": "[![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](https://www.paypal.me/yasyaelhakim/5)",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elhakimyasya/Webium-Blogger-Template.git"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Yasya El Hakim",
+    "email": "yasyaelhakim@gmail.com",
+    "url": "https://www.elcreativeacademy.com/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/elhakimyasya/Webium-Blogger-Template/issues"
+  },
+  "homepage": "https://github.com/elhakimyasya/Webium-Blogger-Template#readme"
+}
