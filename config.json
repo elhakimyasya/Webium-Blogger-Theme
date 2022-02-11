@@ -1,5 +1,11 @@
 {
     "theme": {
         "version": "1.0"
+    },
+    "config": {
+        "cdataStart": "<![CDATA[",
+        "cdataEnd": "]]>",
+        "cdataStart:alt": "/*<[!CDATA[*/",
+        "cdataEnd:alt": "/*]]>*/"
     }
 }
