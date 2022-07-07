@@ -4,7 +4,7 @@
         <ul class='flex flex-row items-center justify-center'>
             <b:loop values='data:links' var='link'>
                 <li expr:class='data:blog.canonicalUrl == data:link.target or (data:blog.url == data:link.target) ? "selected ltr:mr-6 ltr:last:mr-0 rtl:ml-6 rtl:last:ml-0" : "item ltr:mr-6 ltr:last:mr-0 rtl:ml-6 rtl:last:ml-0"'>
-                    <a expr:href='data:link.target'>
+                    <a expr:href='data:link.target' class='text-[#292929] hover:text-[#000]'>
                         <span>
                             <data:link.name />
                         </span>
