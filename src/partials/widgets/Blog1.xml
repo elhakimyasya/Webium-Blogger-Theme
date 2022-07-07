@@ -1,0 +1,87 @@
+<b:widget id='Blog1' locked='true' title='Blog' type='Blog' visible='true' version='2'>
+    <b:includable id='main' var='this'>
+        <div class='flex w-full flex-col items-center justify-center'>
+            <b:loop index='i' values='data:posts' var='post'>
+                <article class='mb-8 flex w-full flex-row items-center justify-between last:mb-0 xl:mb-12'>
+                    <div class='flex w-full flex-col items-start justify-center ltr:mr-5 rtl:ml-5'>
+                        <b:comment>Post Title</b:comment>
+                        <b:if cond='data:post.title != ""'>
+                            <b:tag cond='data:post.link or (data:post.url and data:view.url != data:post.url)' name='a' expr:href='data:post.link ?: data:post.url'>
+                                <b:tag expr:name='data:view.isMultipleItems ? "h2" : "h1"' expr:class='data:view.isMultipleItems ? "w-full text-base font-bold text-[#292929] line-clamp-2 xl:text-2xl xl:line-clamp-none" : "w-full font-bold"'>
+                                    <data:post.title />
+                                </b:tag>
+                            </b:tag>
+                        </b:if>
+                    </div>
+                    <b:comment>Index: Post Thumbnail</b:comment>
+                    <a class='flex h-28 w-28 flex-shrink-0 flex-grow-0 items-end justify-center bg-slate-300 xl:h-36 xl:w-52' expr:href='data:post.url' expr:title='data:post.title'>
+                        <b:class cond='data:post.featuredImage.isYouTube' name='youtube_image' />
+                        <b:with value='data:post.featuredImage.isYouTube ? data:post.featuredImage.youtubeMaxResDefaultUrl : data:post.featuredImage ?: "//lh3.googleusercontent.com/-Efigs16DUTQ/YKrJkJaHDKI/AAAAAAAAg_A/_xTHzW1sLmssSTAFEZtZTL_QqseedXjfACLcBGAsYHQ/s1600-rw/index.webp"' var='images'>
+                            <span class='animation_pulse lazyload block h-full w-full flex-shrink-0 flex-grow-0 bg-colorMeta bg-cover bg-center bg-no-repeat dark:bg-colorColorModeDarkMeta' expr:title='data:post.title' expr:data-image='resizeImage(data:images, 600, "16:9")'></span>
+                        </b:with>
+                    </a>
+                </article>
+            </b:loop>
+        </div>
+    </b:includable>
+
+    <b:includable id='aboutPostAuthor' />
+    <b:includable id='addComments' />
+    <b:includable id='blogThisShare' />
+    <b:includable id='bylineByName' var='byline' />
+    <b:includable id='bylineRegion' var='regionItems' />
+    <b:includable id='commentAuthorAvatar' />
+    <b:includable id='commentDeleteIcon' var='comment' />
+    <b:includable id='commentForm' var='post' />
+    <b:includable id='commentFormIframeSrc' var='post' />
+    <b:includable id='commentItem' var='comment' />
+    <b:includable id='commentList' var='comments' />
+    <b:includable id='commentPicker' var='post' />
+    <b:includable id='comments' var='post' />
+    <b:includable id='commentsLink' />
+    <b:includable id='commentsLinkIframe' />
+    <b:includable id='commentsTitle' />
+    <b:includable id='defaultAdUnit' />
+    <b:includable id='emailPostIcon' />
+    <b:includable id='facebookShare' />
+    <b:includable id='feedLinks' />
+    <b:includable id='feedLinksBody' var='links' />
+    <b:includable id='footerBylines' />
+    <b:includable id='googlePlusShare' />
+    <b:includable id='headerByline' />
+    <b:includable id='homePageLink' />
+    <b:includable id='iframeComments' var='post' />
+    <b:includable id='linkShare' var='post' />
+    <b:includable id='nextPageLink' />
+    <b:includable id='otherSharingButton' />
+    <b:includable id='platformShare' />
+    <b:includable id='post' var='post' />
+    <b:includable id='postAuthor' />
+    <b:includable id='postBody' var='post' />
+    <b:includable id='postBodySnippet' var='post' />
+    <b:includable id='postCommentsAndAd' var='post' />
+    <b:includable id='postCommentsLink' />
+    <b:includable id='postFooter' var='post' />
+    <b:includable id='postFooterAuthorProfile' var='post' />
+    <b:includable id='postHeader' var='post' />
+    <b:includable id='postJumpLink' var='post' />
+    <b:includable id='postLabels' />
+    <b:includable id='postLocation' />
+    <b:includable id='postMeta' var='post' />
+    <b:includable id='postMetadataJSONImage' />
+    <b:includable id='postMetadataJSONPublisher' />
+    <b:includable id='postPagination' />
+    <b:includable id='postReactions' />
+    <b:includable id='postShareButtons' />
+    <b:includable id='postTimestamp' />
+    <b:includable id='postTitle' var='post' />
+    <b:includable id='previousPageLink' />
+    <b:includable id='sharingButton' />
+    <b:includable id='sharingButtonContent' />
+    <b:includable id='sharingButtons' />
+    <b:includable id='sharingButtonsMenu' />
+    <b:includable id='sharingPlatformIcon' />
+    <b:includable id='threadedCommentForm' var='post' />
+    <b:includable id='threadedCommentJs' var='post' />
+    <b:includable id='threadedComments' var='post' />
+</b:widget>

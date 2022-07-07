@@ -45,7 +45,7 @@
     </head>
     <body class='bg-[#fff]'>
         <div id='app' class='app'>
-            <header id='elcreative_header' class='elcreative_header fixed top-0 flex min-h-[75px] w-full flex-col items-center justify-center border-b border-b-[#000] bg-[#ffc017] px-6 xl:px-0'>
+            <header id='elcreative_header' class='elcreative_header fixed top-0 flex min-h-[75px] w-full flex-col items-center justify-center border-b border-b-[#000] bg-[#ffc017] px-4 xl:px-0'>
                 <div class='mx-auto flex w-full max-w-6xl items-center justify-between'>
                     <b:section id='section_app_bar' class='section_app_bar flex items-center justify-start ltr:mr-2 rtl:ml-2' name='Header Logo and Title' maxwidgets='1' showaddelement='false'>
                         @@include("../src/partials/widgets/Header1.xml")
@@ -55,6 +55,20 @@
                     </b:section>
                 </div>
             </header>
+            <div id='elcreative_container' class='elcreative_container mx-auto flex w-full max-w-6xl flex-col justify-between px-4 pb-4 pt-28 xl:pt-32 lg:flex-row xl:px-0 xl:pb-5'>
+                <main class='w-full max-w-max lg:max-w-2xl'>
+                    <b:section id='section_main_widget' class='section_main_widget' name='Main Section' maxwidgets='2' showaddelement='false'>
+                        @@include("../src/partials/widgets/Blog1.xml")
+                    </b:section>
+                </main>
+                <b:if cond='!data:view.isError'>
+                    <aside class="w-full max-w-max lg:max-w-sm">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi iste enim itaque, magni necessitatibus amet recusandae nostrum eum totam fuga repellendus? Rem temporibus odio, modi doloremque hic veniam assumenda ipsum recusandae adipisci explicabo error dignissimos at. Consectetur nisi amet voluptatem pariatur totam, atque itaque repudiandae! Nihil distinctio sed asperiores assumenda doloribus commodi ullam ea. Aperiam, dolorum similique. Nemo iste officia, fuga incidunt commodi voluptatum saepe enim provident eum iusto dignissimos autem facilis labore hic deserunt, ex nam. Aliquam cum totam modi quia adipisci, eligendi dolorem enim, quos blanditiis, architecto rem numquam expedita ut ipsa vitae officia quae laboriosam perspiciatis eveniet exercitationem odit ipsam quo quis accusamus. Iste saepe pariatur magnam incidunt nemo harum accusantium veniam aspernatur deserunt. Quod, nesciunt earum id laudantium quas eaque incidunt exercitationem! In iste reprehenderit quod amet est dolore voluptatem numquam accusamus repellendus! Debitis praesentium doloribus aliquam laborum tenetur hic sequi maxime, dicta corrupti minus beatae quisquam impedit odio laudantium dolores enim labore dolore nulla! Similique doloremque laudantium hic culpa aliquam mollitia distinctio quo et voluptas ratione rerum facere odio animi nobis eius placeat non illum maiores, necessitatibus nihil eligendi optio! Doloremque aspernatur architecto ipsa nesciunt perspiciatis asperiores ut totam, doloribus fugit itaque distinctio facere, natus nobis! Laudantium placeat, aliquam, sunt nam ut iste dolorum commodi illum culpa maiores veniam facere exercitationem quam repellendus ipsa. Exercitationem odio quod ex eos modi doloremque velit, laborum amet quas repellendus aut sequi, perferendis sapiente consectetur sint quibusdam ab a. Reprehenderit repellat expedita a dicta, est, eveniet incidunt dolorem explicabo quidem fuga molestiae, voluptatem quam. Placeat quod molestias eligendi repudiandae alias magni suscipit nihil non facere! Fugit reiciendis non, earum odio minima beatae accusamus iste rerum voluptatem iusto quaerat rem quibusdam id assumenda dolores doloremque dignissimos? Reprehenderit aperiam itaque similique ipsa rem tempore repudiandae temporibus laborum! Voluptatibus, beatae sunt odit, exercitationem sequi deleniti molestias dolor atque eum consequuntur accusantium veniam culpa maxime dicta est quia hic ex nam quam laboriosam pariatur. Illo dignissimos deleniti eos fugiat, earum, ad non consequuntur eaque quasi quibusdam quod ullam aliquam, odit repellendus! Veritatis impedit dolorum consectetur necessitatibus, laboriosam nemo eos aspernatur. Ratione necessitatibus eius consequuntur. Dolor enim cum voluptatem alias? Totam, ipsa iusto dolore temporibus dignissimos at minus facilis eveniet delectus aliquam aperiam atque veniam asperiores accusantium. A eius ipsa inventore doloremque expedita perspiciatis officia veniam molestias voluptatibus, sequi perferendis et deserunt maxime quasi quam magnam quo odit quas totam atque rerum nostrum fuga maiores dolorem. Earum corrupti magni officiis, commodi sapiente fuga tempore quos tenetur iure dolorem labore asperiores blanditiis assumenda, harum nobis quibusdam atque. Mollitia totam molestias pariatur sit excepturi voluptatum voluptate, eius, modi quos consequatur officia illo ipsam eaque eligendi sed incidunt deleniti exercitationem accusamus sapiente doloremque iure, illum quisquam facere reprehenderit? Incidunt asperiores cumque ratione corrupti amet explicabo sequi vel quae placeat, tenetur delectus praesentium accusantium nemo ab porro neque at ad obcaecati iste quis adipisci! Sunt aspernatur ut odio quasi eos harum, consequatur obcaecati architecto asperiores natus voluptatibus laboriosam eaque tempora incidunt necessitatibus! Nulla magni nostrum rem sed eum.
+                        <b:section id='section_aside_widget' class='section_aside_widget sticky top-[82px] flex flex-col items-center justify-center' name='Sidebar Section'>
+                        </b:section>
+                    </aside>
+                </b:if>
+            </div>
             <b:section id='hidden' class='invisible hidden' name='Hidden Section'>
                 <b:widget id='ContactForm1' locked='true' title='Contact Form' type='ContactForm' visible='true' version='2' />
             </b:section>
