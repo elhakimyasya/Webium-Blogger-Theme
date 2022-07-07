@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html b:css='false' b:defaultwidgetversion='2' b:js='true' b:layoutsVersion='3' b:responsive='true' b:templateVersion='{{version}}' expr:class='data:blog.languageDirection + " " + data:blog.pageType' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale'>
     <head>
+        <b:include data='blog' name='headContent' />
         <b:if cond='!data:view.isLayoutMode'>
             <b:skin><![CDATA[/*
                 Name            : {{names}}
@@ -22,6 +23,9 @@
         </b:if>
         <b:defaultmarkups>
             <b:defaultmarkup type='Common'>
+                <b:includable id='headContent'>
+                    @@include("../src/partials/defaultmarkups/Common/headContent.xml")
+                </b:includable>
                 <b:includable id='scriptHead'>
                     <script>@@include("../build/scripts/scripts-head.js")</script>
                     <script type="application/ld+json">@@include("../src/assets/schema-website.txt")</script>

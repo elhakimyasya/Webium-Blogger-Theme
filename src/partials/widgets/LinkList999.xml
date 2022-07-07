@@ -1,7 +1,7 @@
 <b:widget id='LinkList999' locked='true' title='Main Menu' type='LinkList' visible='true' version='2'>
     <b:includable id='main'>
         <b:class name='hidden items-center justify-center lg:flex' />
-        <ul class='flex flex-row items-center justify-center'>
+        <ul class='flex flex-row items-center justify-center text-sm'>
             <b:loop values='data:links' var='link'>
                 <li expr:class='data:blog.canonicalUrl == data:link.target or (data:blog.url == data:link.target) ? "selected ltr:mr-6 ltr:last:mr-0 rtl:ml-6 rtl:last:ml-0" : "item ltr:mr-6 ltr:last:mr-0 rtl:ml-6 rtl:last:ml-0"'>
                     <a expr:href='data:link.target' class='text-[#292929] hover:text-[#000]'>
