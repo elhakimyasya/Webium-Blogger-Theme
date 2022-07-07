@@ -1,4 +1,4 @@
-# Webium Blogger Template
+# Webium Blogger Theme
 [![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](https://www.paypal.me/yasyaelhakim/5)
 
 Webium is a Blogger Template that looks very similar to the Medium.com.
@@ -14,3 +14,6 @@ If you have questions related to this Webium theme, please write in the comments
 # More Info
 - [Documentations](https://webium-blogger.blogspot.com/p/webium-documentations.html);
 - [Official Website](https://www.elcreativeacademy.com/)
+
+# License
+Webium Blogger Theme is licensed under the [MIT License](LICENSE).
