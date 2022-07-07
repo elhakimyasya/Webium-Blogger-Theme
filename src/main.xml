@@ -12,7 +12,9 @@
                 *//*
                 @@include("../src/partials/defaultvariables.xml")
                 */]]>
-                :root {}
+                :root {
+
+                }
             </b:skin>
             <style>@@include("../build/styles/styles.min.css")</style>
             <b:else />
@@ -31,12 +33,27 @@
                     @@include("../src/partials/defaultmarkups/Common/widget-title.xml")
                 </b:includable>
             </b:defaultmarkup>
+            <b:defaultmarkup type='Header'>
+                @@include("../src/partials/defaultmarkups/Header.xml")
+            </b:defaultmarkup>
         </b:defaultmarkups>
         <b:include name='scriptHead' />
     </head>
     <body>
         <div id='app' class='app'>
-            <header id='elcreative_header' class='elcreative_header'></header>
+            <header id='elcreative_header' class='elcreative_header fixed top-0 flex min-h-[75px] w-full flex-col items-center justify-center border-b border-b-[#000] bg-[#ffc017] px-6 xl:px-0'>
+                <div class='mx-auto flex w-full max-w-6xl items-center justify-between'>
+                    <b:section id='section_app_bar' class='section_app_bar' name='Header Logo and Title' maxwidgets='1' showaddelement='false'>
+                        @@include("../src/partials/widgets/Header1.xml")
+                    </b:section>
+                    <div>
+                        <span>Our story</span>
+                        <span>Membership</span>
+                        <span>Write</span>
+                        <span>Sign In</span>
+                    </div>
+                </div>
+            </header>
             <b:section id='hidden' class='invisible hidden' name='Hidden Section'>
                 <b:widget id='ContactForm1' locked='true' title='Contact Form' type='ContactForm' visible='true' version='2' />
             </b:section>
