@@ -39,7 +39,7 @@
         </b:defaultmarkups>
         <b:include name='scriptHead' />
     </head>
-    <body>
+    <body class='bg-[#fff]'>
         <div id='app' class='app'>
             <header id='elcreative_header' class='elcreative_header fixed top-0 flex min-h-[75px] w-full flex-col items-center justify-center border-b border-b-[#000] bg-[#ffc017] px-6 xl:px-0'>
                 <div class='mx-auto flex w-full max-w-6xl items-center justify-between'>
