@@ -1,0 +1,19 @@
+<b:if cond='data:renderAsDetails'>
+    <summary>
+        <div class='collapsible-title'>
+            <h3 class='title'>
+                <b:if cond='data:defaultTitle or data:title'>
+                    <b:eval expr='data:defaultTitle ?: data:title' />
+                    <b:else />
+                    <data:messages.widget />
+                </b:if>
+            </h3>
+            <b:include data='{ iconClass: "chevron-down" }' name='chevronDownIcon' />
+            <b:include data='{ iconClass: "chevron-up" }' name='chevronUpIcon' />
+        </div>
+    </summary>
+    <b:elseif cond='data:defaultTitle or data:title' />
+    <h3 class='title'>
+        <b:eval expr='data:defaultTitle ?: data:title' />
+    </h3>
+</b:if>
