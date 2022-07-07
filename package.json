@@ -1,61 +1,63 @@
 {
-  "name": "webium-blogger-template",
-  "version": "2.0.0",
-  "description": "Webium is a Free Blogger Template that looks very similar to the Medium.com.",
-  "main": "gulpfile.js",
-  "scripts": {
-    "build": "npx tailwindcss -i ./src/assets/styles/tailwind.css -o ./src/assets/styles/styles.min.css --minify && gulp build:production",
-    "tailwind-watch": "gulp clean && npx tailwindcss -i ./src/assets/styles/tailwind.css -o ./src/assets/styles/styles.min.css --minify --watch",
-    "tailwind-watch-dev": "gulp clean && npx tailwindcss -i ./src/assets/styles/tailwind.css -o ./src/assets/styles/styles.min.css --watch"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/elhakimyasya/Webium-Blogger-Template.git"
-  },
-  "keywords": [
-    "blogger",
-    "blogspot",
-    "template",
-    "medium",
-    "webium"
-  ],
-  "author": {
-    "name": "Yasya El Hakim",
-    "email": "yasyaelhakim@gmail.com",
-    "url": "https://www.elcreativeacademy.com"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/elhakimyasya/Webium-Blogger-Template/issues"
-  },
-  "homepage": "https://github.com/elhakimyasya/Webium-Blogger-Template#readme",
-  "dependencies": {
-    "gulp": "^4.0.2"
-  },
-  "devDependencies": {
-    "@babel/preset-env": "^7.16.11",
-    "@tailwindcss/line-clamp": "^0.3.1",
-    "autoprefixer": "^10.4.4",
-    "babel-plugin-transform-remove-console": "^6.9.4",
-    "babel-plugin-transform-remove-debugger": "^6.9.4",
-    "del": "^6.0.0",
-    "gulp-autoprefixer": "^8.0.0",
-    "gulp-babel": "^8.0.0",
-    "gulp-babel-minify": "^0.5.1",
-    "gulp-clean-css": "^4.3.0",
-    "gulp-file-include": "^2.3.0",
-    "gulp-rename": "^2.0.0",
-    "gulp-replace": "^1.1.3",
-    "gulp-token-replace": "^1.1.5",
-    "prettier": "^2.6.2",
-    "prettier-plugin-tailwindcss": "^0.1.8",
-    "tailwindcss": "^3.0.23"
-  },
-  "demo": "https://webium-blogger.blogspot.com/",
-  "config": {
-    "cdataStart": "<![CDATA[",
-    "cdataEnd": "]]>",
-    "cdataStart:alt": "/*<![CDATA[*/",
-    "cdataEnd:alt": "/*]]>*/"
-  }
+	"name": "webium-blogger-template",
+	"version": "2.0.0",
+	"description": "Webium is a Free Blogger Template that looks very similar to the Medium.com.",
+	"main": "gulpfile.js",
+	"scripts": {
+		"build": "npx tailwindcss -i ./src/assets/styles/tailwind.css -o ./src/assets/styles/styles.min.css --minify && gulp build:production",
+		"tailwind-watch": "gulp clean && npx tailwindcss -i ./src/assets/styles/tailwind.css -o ./src/assets/styles/styles.min.css --minify --watch",
+		"tailwind-watch-dev": "gulp clean && npx tailwindcss -i ./src/assets/styles/tailwind.css -o ./src/assets/styles/styles.min.css --watch"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/elhakimyasya/Webium-Blogger-Template.git"
+	},
+	"keywords": [
+		"blogger",
+		"blogspot",
+		"template",
+		"medium",
+		"webium"
+	],
+	"author": {
+		"name": "Yasya El Hakim",
+		"email": "yasyaelhakim@gmail.com",
+		"url": "https://www.elcreativeacademy.com"
+	},
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/elhakimyasya/Webium-Blogger-Template/issues"
+	},
+	"homepage": "https://github.com/elhakimyasya/Webium-Blogger-Template#readme",
+	"dependencies": {
+		"gulp": "^4.0.2"
+	},
+	"devDependencies": {
+		"@babel/preset-env": "^7.16.11",
+		"@tailwindcss/line-clamp": "^0.3.1",
+		"autoprefixer": "^10.4.4",
+		"babel-plugin-transform-remove-console": "^6.9.4",
+		"babel-plugin-transform-remove-debugger": "^6.9.4",
+		"del": "^6.0.0",
+		"gulp-autoprefixer": "^8.0.0",
+		"gulp-babel": "^8.0.0",
+		"gulp-babel-minify": "^0.5.1",
+		"gulp-clean-css": "^4.3.0",
+		"gulp-file-include": "^2.3.0",
+		"gulp-rename": "^2.0.0",
+		"gulp-replace": "^1.1.3",
+		"gulp-token-replace": "^1.1.5",
+		"prettier": "^2.6.2",
+		"prettier-plugin-tailwindcss": "^0.1.8",
+		"tailwindcss": "^3.0.23"
+	},
+	"names": "Webium Blogger Theme",
+	"demo": "https://webium-blogger.blogspot.com/",
+	"config": {
+		"cdataStart": "<![CDATA[",
+		"cdataEnd": "]]>",
+		"cdataStart:alt": "/*<![CDATA[*/",
+		"cdataEnd:alt": "/*]]>*/"
+	},
+	"releasedDate": "July 8, 2022 - 01:12"
 }
