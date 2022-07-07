@@ -43,7 +43,7 @@
         <div id='app' class='app'>
             <header id='elcreative_header' class='elcreative_header fixed top-0 flex min-h-[75px] w-full flex-col items-center justify-center border-b border-b-[#000] bg-[#ffc017] px-6 xl:px-0'>
                 <div class='mx-auto flex w-full max-w-6xl items-center justify-between'>
-                    <b:section id='section_app_bar' class='section_app_bar' name='Header Logo and Title' maxwidgets='1' showaddelement='false'>
+                    <b:section id='section_app_bar' class='section_app_bar flex items-center justify-center ltr:mr-2 rtl:ml-2' name='Header Logo and Title' maxwidgets='1' showaddelement='false'>
                         @@include("../src/partials/widgets/Header1.xml")
                     </b:section>
                     <div>
