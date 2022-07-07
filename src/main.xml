@@ -36,6 +36,7 @@
     </head>
     <body>
         <div id='app' class='app'>
+            <header id='elcreative_header' class='elcreative_header'></header>
             <b:section id='hidden' class='invisible hidden' name='Hidden Section'>
                 <b:widget id='ContactForm1' locked='true' title='Contact Form' type='ContactForm' visible='true' version='2' />
             </b:section>
