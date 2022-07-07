@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:js='true' b:layoutsVersion='3' b:responsive='true' b:templateVersion='{{version}}' expr:class='data:blog.languageDirection + " " + data:blog.pageType' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale'>
+    <head>
+        <b:if cond='!data:view.isLayoutMode'>
+            <b:skin><![CDATA[/*
+                Name            : {{names}}
+                Version         : {{version}}
+                Release Date    : {{releasedDate}}
+                Author          : {{author.name}}
+                Demo URL        : {{demo}}
+                *//*
+                @@include("../src/partials/defaultvariables.xml")
+                */]]>
+                :root {}
+            </b:skin>
+            <style>@@include("../build/styles/styles.min.css")</style>
+            <b:else />
+            <b:template-skin>@@include("../build/styles/layout.css")</b:template-skin>
+        </b:if>
+        <b:defaultmarkups>
+            <b:defaultmarkup type='Common'>
+                <b:includable id='scriptHead'>
+                    <script>@@include("../build/scripts/scripts-head.js")</script>
+                    <script type="application/ld+json">@@include("../src/assets/schema-website.txt")</script>
+                </b:includable>
+                <b:includable id='scriptBody'>
+                    <script>{{config.cdataStart:alt}}@@include("../build/scripts/scripts.js"){{config.cdataEnd:alt}}</script>
+                </b:includable>
+                <b:includable id='widget-title'>
+                    @@include("../src/partials/defaultmarkups/Common/widget-title.xml")
+                </b:includable>
+            </b:defaultmarkup>
+        </b:defaultmarkups>
+        <b:include name='scriptHead' />
+    </head>
+    <body>
+        <div id='app' class='app'>
+            <b:section id='hidden' class='invisible hidden' name='Hidden Section'>
+                <b:widget id='ContactForm1' locked='true' title='Contact Form' type='ContactForm' visible='true' version='2' />
+            </b:section>
+        </div>
+        <b:if cond='!data:view.isPreview or !data:view.isPage'>&lt;textarea class=&quot;hidden&quot; disabled readonly hidden&gt;</b:if>
+    </body>
+    <b:if cond='!data:view.isPreview or !data:view.isPage'>&lt;/textarea&gt;<b:include name='scriptBody'></b:include>&lt;/body&gt;</b:if>
+</html>
