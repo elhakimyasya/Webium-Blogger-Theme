@@ -3,7 +3,7 @@
 
 Webium is a Blogger Template that looks very similar to the Medium.com.
 
-<img style='width:100%' src='https://github.com/elhakimyasya/Webium-Blogger-Template/blob/main/old/preview.png'>
+<img style='width:100%' src='preview.png'>
 
 [Webium Theme Demo](https://webium-blogger.blogspot.com/)
 
