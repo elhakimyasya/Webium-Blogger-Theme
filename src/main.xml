@@ -31,7 +31,7 @@
                     <script type="application/ld+json">@@include("../src/assets/schema-website.txt")</script>
                 </b:includable>
                 <b:includable id='scriptBody'>
-                    <script>{{config.cdataStart:alt}}@@include("../build/scripts/scripts.js"){{config.cdataEnd:alt}}</script>
+                    <script>{{config.cdataStart:alt}}@@include("../build/scripts/lazysizes.js")@@include("../build/scripts/scripts.js"){{config.cdataEnd:alt}}</script>
                 </b:includable>
                 <b:includable id='widget-title'>
                     @@include("../src/partials/defaultmarkups/Common/widget-title.xml")
@@ -45,7 +45,7 @@
     </head>
     <body class='bg-[#fff]'>
         <div id='app' class='app'>
-            <header id='elcreative_header' class='elcreative_header fixed top-0 flex min-h-[75px] w-full flex-col items-center justify-center border-b border-b-[#000] bg-[#ffc017] px-4 xl:px-0'>
+            <header id='elcreative_header' class='elcreative_header fixed top-0 z-50 flex min-h-[75px] w-full flex-col items-center justify-center border-b border-b-[#000] bg-[#ffc017] px-4 xl:px-0'>
                 <div class='mx-auto flex w-full max-w-6xl items-center justify-between'>
                     <b:section id='section_app_bar' class='section_app_bar flex items-center justify-start ltr:mr-2 rtl:ml-2' name='Header Logo and Title' maxwidgets='1' showaddelement='false'>
                         @@include("../src/partials/widgets/Header1.xml")
