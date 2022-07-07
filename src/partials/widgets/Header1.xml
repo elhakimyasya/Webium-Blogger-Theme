@@ -1,16 +1,6 @@
 <b:widget id='Header1' locked='true' title='Blog (Header)' type='Header' visible='true' version='2'>
     <b:includable id='main' var='this'>
         <b:class name='flex items-center justify-center' />
-        <b:if cond='data:widgets any (widget => widget.id == "LinkList999")'>
-            <b:with value='data:blog.locale == "id" ? "Menu Utama" : "Main Menu"' var='languages'>
-                <button id='button_menu' class='elcreative_button_icon text-colorNavbarText hover:bg-colorNavbarTextTrans1 focus:bg-colorNavbarTextTrans1 active:bg-colorNavbarTextTrans2 ltr:mr-1 rtl:ml-1 dark:text-colorColorModeDarkText' expr:aria-label='data:languages' expr:title='data:languages' type='button'>
-                    <b:class cond='data:skin.vars.optionFeatureRippleEffect == "2px"' name='elcreative_ripple' />
-                    <svg height='24' viewBox='0 0 24 24' width='24'>
-                        <b:include data='{iconId: "icon_menu"}' name='defaultIcons' />
-                    </svg>
-                </button>
-            </b:with>
-        </b:if>
         <a class='notranslate inline-flex items-center justify-center text-lg font-medium text-[#000]' expr:href='data:blog.homepageUrl' expr:title='data:blog.title'>
             <b:tag cond='data:imagePlacement in {"REPLACE", "BEFORE_DESCRIPTION"}' name='img' expr:src='resizeImage(data:image, 24)' expr:data-logo-light='resizeImage(data:image, 24)' expr:srcset='sourceSet(data:image, [24, 48, 96, 192])' expr:alt='data:title' expr:width='data:width' expr:height='data:height' class='max-h-6 w-auto overflow-hidden indent-[-9999px] text-transparent ltr:mr-2 rtl:ml-2' />
             <h1 expr:class='data:imagePlacement in {"REPLACE"} ? "sr-only" : data:imagePlacement in {"BEFORE_DESCRIPTION"} ? "relative m-0 text-ellipsis line-clamp-1" : "relative m-0 text-ellipsis line-clamp-1"'>
