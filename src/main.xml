@@ -55,8 +55,8 @@
                     </b:section>
                 </div>
             </header>
-            <div id='elcreative_container' class='elcreative_container mx-auto flex w-full max-w-[1192px] flex-col justify-between px-4 pb-4 pt-28 xl:pt-32 lg:flex-row xl:px-0 xl:pb-5'>
-                <main class='w-full max-w-full lg:max-w-2xl'>
+            <div id='elcreative_container' class='elcreative_container mx-auto flex w-full max-w-[1192px] flex-col justify-between px-6 pb-6 pt-28 sm:px-12 lg:flex-row md:px-16 md:pt-32 xl:px-0'>
+                <main class='w-full max-w-full rtl:mr-0 rtl:ml-0 ltr:md:mr-5 rtl:md:ml-5 lg:max-w-2xl ltr:lg:mr-10 rtl:lg:ml-10 ltr:xl:mr-18 rtl:xl:ml-18'>
                     <b:section id='section_main_widget' class='section_main_widget' name='Main Section' maxwidgets='2' showaddelement='false'>
                         @@include("../src/partials/widgets/Blog1.xml")
                     </b:section>

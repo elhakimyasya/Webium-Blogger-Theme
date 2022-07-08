@@ -25,7 +25,7 @@
                                     </div>
                                     <b:comment>Index: Post Label</b:comment>
                                     <b:if cond='data:blog.isMobileRequest and data:post.labels.notEmpty and data:allBylineItems.labels'>
-                                        <div class='flex max-h-4 flex-row items-center justify-start font-medium leading-4 xl:hidden'>
+                                        <div class='flex max-h-4 flex-row items-center justify-start font-medium leading-4 lg:hidden'>
                                             <b:with value='data:blog.locale == "id" ? "dalam" : "in"' var='languages'>
                                                 <span class='text-[#757575] ltr:mr-1 rtl:ml-1'>
                                                     <data:languages/>
@@ -42,49 +42,54 @@
                         <b:comment>Post Title</b:comment>
                         <b:if cond='data:post.title != ""'>
                             <b:tag cond='data:post.link or (data:post.url and data:view.url != data:post.url)' name='a' expr:href='data:post.link ?: data:post.url' class='flex w-full flex-col items-center justify-center'>
-                                <b:tag expr:name='data:view.isMultipleItems ? "h2" : "h1"' expr:class='data:view.isMultipleItems ? "max-h-12 w-full text-ellipsis text-base font-bold leading-5 text-[#292929] line-clamp-2 xl:max-h-[56px] xl:text-[22px] xl:leading-7" : "w-full font-bold"'>
+                                <b:tag expr:name='data:view.isMultipleItems ? "h2" : "h1"' expr:class='data:view.isMultipleItems ? "max-h-12 w-full text-ellipsis text-base font-bold leading-5 text-[#292929] line-clamp-2 md:max-h-[56px] md:text-[22px] md:leading-7" : "w-full font-bold"'>
                                     <data:post.title />
                                 </b:tag>
                                 <b:comment>Index: Post Summary</b:comment>
                                 <b:if cond='!data:blog.isMobileRequest'>
-                                    <div class='hidden w-full pt-1 text-base leading-5 text-[#757575] xl:text-ellipsis xl:line-clamp-2'>
+                                    <div class='hidden w-full pt-1 text-base leading-5 text-[#757575] md:text-ellipsis md:line-clamp-2'>
                                         <b:eval expr='data:post.snippets.short snippet {length: 120}' />
                                     </div>
                                 </b:if>
                             </b:tag>
                         </b:if>
-                        <div class='flex w-full flex-row items-center justify-start pt-2 text-[13px] text-[#757575]'>
-                            <b:if cond='data:allBylineItems.timestamp and data:skin.vars.optionIndexTimestamp != "1px"'>
-                                <b:comment>Index: Post Timestamp</b:comment>
-                                <div class='flex flex-row items-center justify-center'>
-                                    <b:class cond='!data:blog.isMobileRequest and data:post.labels.notEmpty and data:allBylineItems.labels' name='after:hidden after:px-[6px] after:content-["\00B7"] xl:after:block' />
-                                    <b:if cond='data:allBylineItems.timestamp.label'>
-                                        <span class='hidden ltr:mr-1 rtl:ml-1 md:block'>
-                                            <data:allBylineItems.timestamp.label />
-                                        </span>
-                                    </b:if>
-                                    <time expr:datetime='data:post.date.iso8601' class='flex flex-row items-center justify-center'>
-                                        <span expr:title='data:post.date'>
-                                            <data:post.date />
-                                        </span>
-                                        <b:if cond='!data:blog.isMobileRequest and data:post.date != data:post.lastUpdated'>
-                                            <span class='hidden before:px-[6px] before:content-["\2014"] xl:block' expr:title='data:post.lastUpdated'>
-                                                <data:post.lastUpdated />
+                        <div class='flex w-full flex-row items-center justify-between pt-2'>
+                            <div class='flex w-full flex-row items-center justify-start text-[13px] text-[#757575]'>
+                                <b:if cond='data:allBylineItems.timestamp and data:skin.vars.optionIndexTimestamp != "1px"'>
+                                    <b:comment>Index: Post Timestamp</b:comment>
+                                    <div class='flex flex-row items-center justify-center'>
+                                        <b:class cond='!data:blog.isMobileRequest and data:post.labels.notEmpty and data:allBylineItems.labels' name='after:hidden after:px-[6px] after:content-["\00B7"] xl:after:block' />
+                                        <b:if cond='data:allBylineItems.timestamp.label'>
+                                            <span class='hidden ltr:mr-1 rtl:ml-1 md:block'>
+                                                <data:allBylineItems.timestamp.label />
                                             </span>
                                         </b:if>
-                                    </time>
-                                </div>
-                            </b:if>
-                            <b:comment>Index: Post Label</b:comment>
-                            <b:if cond='!data:blog.isMobileRequest and data:post.labels.notEmpty and data:allBylineItems.labels'>
-                                <a expr:href='data:post.labels.first.url' expr:title='data:post.labels.first.name' rel='tag' class='relative hidden whitespace-nowrap rounded-full bg-[#f2f2f2] py-[2px] px-2 leading-5 transition-colors hover:bg-[#e6e6e6] xl:block'>
-                                    <data:post.labels.first.name />
-                                </a>
-                            </b:if>
+                                        <time expr:datetime='data:post.date.iso8601' class='flex flex-row items-center justify-center'>
+                                            <span expr:title='data:post.date'>
+                                                <data:post.date />
+                                            </span>
+                                            <b:if cond='!data:blog.isMobileRequest and data:post.date != data:post.lastUpdated'>
+                                                <span class='hidden before:px-[6px] before:content-["\2014"] xl:block' expr:title='data:post.lastUpdated'>
+                                                    <data:post.lastUpdated />
+                                                </span>
+                                            </b:if>
+                                        </time>
+                                    </div>
+                                </b:if>
+                                <b:comment>Index: Post Label</b:comment>
+                                <b:if cond='!data:blog.isMobileRequest and data:post.labels.notEmpty and data:allBylineItems.labels'>
+                                    <a expr:href='data:post.labels.first.url' expr:title='data:post.labels.first.name' rel='tag' class='relative hidden whitespace-nowrap rounded-full bg-[#f2f2f2] py-[2px] px-2 leading-5 transition-colors hover:bg-[#e6e6e6] lg:block'>
+                                        <data:post.labels.first.name />
+                                    </a>
+                                </b:if>
+                            </div>
+                            <svg width="25" height="25" viewBox="0 0 25 25" fill="none" class="text-[#292929]">
+                                <path d="M18 2.5a.5.5 0 0 1 1 0V5h2.5a.5.5 0 0 1 0 1H19v2.5a.5.5 0 1 1-1 0V6h-2.5a.5.5 0 0 1 0-1H18V2.5zM7 7a1 1 0 0 1 1-1h3.5a.5.5 0 0 0 0-1H8a2 2 0 0 0-2 2v14a.5.5 0 0 0 .8.4l5.7-4.4 5.7 4.4a.5.5 0 0 0 .8-.4v-8.5a.5.5 0 0 0-1 0v7.48l-5.2-4a.5.5 0 0 0-.6 0l-5.2 4V7z" fill="currentColor"></path>
+                            </svg>
                         </div>
                     </div>
                     <b:comment>Index: Post Thumbnail</b:comment>
-                    <a class='flex h-[100px] w-[100px] flex-shrink-0 flex-grow-0 items-end justify-center bg-slate-300 xl:h-[134px] xl:w-[200px]' expr:href='data:post.url' expr:title='data:post.title'>
+                    <a class='flex h-[100px] w-[100px] flex-shrink-0 flex-grow-0 items-end justify-center bg-slate-300 md:h-[134px] md:w-[200px]' expr:href='data:post.url' expr:title='data:post.title'>
                         <b:class cond='data:post.featuredImage.isYouTube' name='youtube_image' />
                         <b:with value='data:post.featuredImage.isYouTube ? data:post.featuredImage.youtubeMaxResDefaultUrl : data:post.featuredImage ?: "//lh3.googleusercontent.com/-Efigs16DUTQ/YKrJkJaHDKI/AAAAAAAAg_A/_xTHzW1sLmssSTAFEZtZTL_QqseedXjfACLcBGAsYHQ/s1600-rw/index.webp"' var='images'>
                             <span class='lazyload block h-full w-full flex-shrink-0 flex-grow-0 animate-pulse bg-[#cbd5e1] bg-cover bg-center bg-no-repeat' expr:title='data:post.title' expr:data-image='resizeImage(data:images, 200, "100:67")'></span>
