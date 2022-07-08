@@ -12,21 +12,30 @@
                                         <span class='lazyload block h-full w-full flex-shrink-0 flex-grow-0 animate-pulse bg-[#cbd5e1] bg-cover bg-center bg-no-repeat' expr:title='data:post.author.name' expr:data-image='resizeImage(data:images, 20, "1:1")'></span>
                                     </b:with>
                                 </div>
-                                <div class='flex flex-wrap items-center justify-center'>
-                                    <div class='flex max-h-4 flex-row items-center justify-start text-[13px] font-medium leading-4 text-[#292929] ltr:pr-1 rtl:pl-1'>
+                                <div class='flex flex-row flex-wrap items-center justify-center text-[13px]'>
+                                    <div class='flex max-h-4 flex-row items-center justify-start font-medium leading-4 ltr:pr-1 rtl:pl-1'>
                                         <b:if cond='data:allBylineItems.author.label'>
-                                            <span class='hidden ltr:mr-1 rtl:ml-1 md:block'>
+                                            <span class='hidden text-[#757575] ltr:mr-1 rtl:ml-1 md:block'>
                                                 <data:allBylineItems.author.label />
                                             </span>
                                         </b:if>
-                                        <span class='notranslate'>
+                                        <span class='notranslate text-[#292929]'>
                                             <data:post.author.name />
                                         </span>
                                     </div>
-
-                                    <b:with value='data:blog.locale == "id" ? "dalam" : "in"' var='languages'>
-                                        <data:languages/>
-                                    </b:with>
+                                    <b:comment>Index: Post Label</b:comment>
+                                    <b:if cond='data:blog.isMobileRequest and data:post.labels.notEmpty and data:allBylineItems.labels'>
+                                        <div class='flex max-h-4 flex-row items-center justify-start font-medium leading-4 xl:hidden'>
+                                            <b:with value='data:blog.locale == "id" ? "dalam" : "in"' var='languages'>
+                                                <span class='text-[#757575] ltr:mr-1 rtl:ml-1'>
+                                                    <data:languages/>
+                                                </span>
+                                            </b:with>
+                                            <a expr:href='data:post.labels.first.url' expr:title='data:post.labels.first.name' rel='tag' class='text-[#292929]'>
+                                                <data:post.labels.first.name />
+                                            </a>
+                                        </div>
+                                    </b:if>
                                 </div>
                             </div>
                         </b:if>
