@@ -64,7 +64,12 @@
                     </b:section>
                     <b:section id='section_navigation' class='section_navigation flex items-center justify-end' name='Main Menu' maxwidgets='1' showaddelement='false'>
                         @@include("../src/partials/widgets/LinkList999.xml")
+                        @@include("../src/partials/widgets/LinkList998.xml")
                     </b:section>
+                    <b:if cond='!data:view.isHomepage and !data:view.isError'>
+                        <div></div>
+                        <b:else />
+                    </b:if>
                 </div>
             </header>
             <div id='elcreative_container' class='elcreative_container mx-auto flex w-full max-w-[1192px] flex-col justify-between px-6 pb-6 pt-28 sm:px-12 lg:flex-row md:px-16 md:pt-32 xl:px-0'>

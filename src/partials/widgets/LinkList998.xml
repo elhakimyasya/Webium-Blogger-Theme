@@ -1,0 +1,17 @@
+<b:widget id='LinkList998' locked='true' title='Main Menu (Item)' type='LinkList' visible='true' version='2' cond='!data:view.isHomepage and !data:view.isError'>
+    <b:includable id='main'>
+        <b:class name='flex items-center justify-center' />
+        <ul class='flex flex-col items-center justify-center text-sm my-auto'>
+            <b:loop values='data:links' var='link'>
+                <li expr:class='data:blog.canonicalUrl == data:link.target or (data:blog.url == data:link.target) ? "selected" : "item"'>
+                    <a expr:href='data:link.target' class='text-[#292929] hover:text-[#000]'>
+                        <span>
+                            <data:link.name />
+                        </span>
+                    </a>
+                </li>
+            </b:loop>
+        </ul>
+    </b:includable>
+    <b:includable id='content' />
+</b:widget>

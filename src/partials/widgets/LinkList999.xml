@@ -1,4 +1,4 @@
-<b:widget id='LinkList999' locked='true' title='Main Menu' type='LinkList' visible='true' version='2'>
+<b:widget id='LinkList999' locked='true' title='Main Menu (Index)' type='LinkList' visible='true' version='2' cond='data:view.isHomepage'>
     <b:includable id='main'>
         <b:class name='hidden items-center justify-center md:flex' />
         <ul class='flex flex-row items-center justify-center text-sm'>
