@@ -91,7 +91,7 @@
                 <b:if cond='!data:view.isError'>
                     <aside class="w-full max-w-full lg:max-w-xs xl:max-w-sm">
                         <b:if cond='!data:view.isHomepage and !data:view.isError'>
-                            <b:class name='border-[#e6e6e6] p-8 ltr:border-l rtl:border-r' />
+                            <b:class name='border-[#e6e6e6] p-0 lg:p-8 ltr:lg:border-l rtl:lg:border-r' />
                         </b:if>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi iste enim itaque, magni necessitatibus amet recusandae nostrum eum totam fuga repellendus? Rem temporibus odio, modi doloremque hic veniam assumenda ipsum recusandae adipisci explicabo error dignissimos at. Consectetur nisi amet voluptatem pariatur totam, atque itaque repudiandae! Nihil distinctio sed asperiores assumenda doloribus commodi ullam ea.
                         <b:section id='section_aside_widget' class='section_aside_widget sticky top-[82px] flex flex-col items-center justify-center' name='Sidebar Section'>
