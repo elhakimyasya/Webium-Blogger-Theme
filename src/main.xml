@@ -72,17 +72,27 @@
                     </b:if>
                 </div>
             </header>
-            <div id='elcreative_container' class='elcreative_container mx-auto flex w-full max-w-[1192px] flex-col justify-between px-6 pb-6 pt-28 sm:px-12 lg:flex-row md:px-16 md:pt-32 xl:px-0'>
+            <div id='elcreative_container' class='elcreative_container mx-auto flex w-full flex-col justify-between px-6 pb-6 sm:px-12 lg:flex-row md:px-16 xl:px-0'>
                 <b:if cond='!data:view.isHomepage and !data:view.isError'>
                     <b:class name='ltr:xl:pl-20 rtl:xl:pr-20' />
+                    <b:else />
+                    <b:class name='max-w-[1192px] pt-28 md:pt-32' />
                 </b:if>
-                <main class='w-full max-w-full rtl:mr-0 rtl:ml-0 ltr:md:mr-5 rtl:md:ml-5 lg:max-w-[695px] ltr:lg:mr-10 rtl:lg:ml-10 ltr:xl:mr-16 rtl:xl:ml-16'>
+                <main class='w-full max-w-full lg:max-w-[695px]'>
+                    <b:if cond='!data:view.isHomepage and !data:view.isError'>
+                        <b:class name='mx-auto pt-8 md:pt-14' />
+                        <b:else />
+                        <b:class name='rtl:mr-0 rtl:ml-0 ltr:md:mr-5 rtl:md:ml-5 ltr:lg:mr-10 rtl:lg:ml-10 ltr:xl:mr-16 rtl:xl:ml-16' />
+                    </b:if>
                     <b:section id='section_main_widget' class='section_main_widget' name='Main Section' maxwidgets='2' showaddelement='false'>
                         @@include("../src/partials/widgets/Blog1.xml")
                     </b:section>
                 </main>
                 <b:if cond='!data:view.isError'>
                     <aside class="w-full max-w-full lg:max-w-xs xl:max-w-sm">
+                        <b:if cond='!data:view.isHomepage and !data:view.isError'>
+                            <b:class name='border-[#e6e6e6] p-8 ltr:border-l rtl:border-r' />
+                        </b:if>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi iste enim itaque, magni necessitatibus amet recusandae nostrum eum totam fuga repellendus? Rem temporibus odio, modi doloremque hic veniam assumenda ipsum recusandae adipisci explicabo error dignissimos at. Consectetur nisi amet voluptatem pariatur totam, atque itaque repudiandae! Nihil distinctio sed asperiores assumenda doloribus commodi ullam ea.
                         <b:section id='section_aside_widget' class='section_aside_widget sticky top-[82px] flex flex-col items-center justify-center' name='Sidebar Section'>
                         </b:section>
