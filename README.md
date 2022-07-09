@@ -9,7 +9,7 @@
 
 Webium is a Blogger Template or Theme that looks very similar to the Medium.com. [Demo](https://webium-blogger.blogspot.com/)
 
-If you have questions related to this Webium theme, please write in the comments section [Here](https://www.elcreativeacademy.com/2021/03/webium-template-blogger-mirip-medium.html) or [Here](/discussions).
+If you have questions related to this Webium theme, please write in the comments section [Here](https://www.elcreativeacademy.com/2021/03/webium-template-blogger-mirip-medium.html) or [Here](https://github.com/elhakimyasya/Webium-Blogger-Theme/discussions).
 
 <hr>
 
@@ -20,7 +20,7 @@ If you have questions related to this Webium theme, please write in the comments
 - Some Images from [Unsplash](https://unsplash.com/)
 
 # More Info
-- [Documentations](https://webium-blogger.blogspot.com/p/webium-documentations.html);
+- [Documentations](https://webium-blogger.blogspot.com/p/webium-documentations.html)
 - [Official Website](https://www.elcreativeacademy.com/)
 
 # License
