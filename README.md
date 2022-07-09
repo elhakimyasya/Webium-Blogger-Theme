@@ -1,6 +1,10 @@
 # Webium Blogger Theme
 [![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](https://www.paypal.me/yasyaelhakim/5)
 
+> Recently, we are trying to update all the structure and design of the Webium Theme to look very much like the original Website.
+>
+> Always support us by providing Feedback or simply donating via [Ko-Fi](https://ko-fi.com/elhakimyasya) 😃.
+
 Webium is a Blogger Template that looks very similar to the Medium.com.
 
 <img style='width:100%' src='src/assets/images/preview.png'>
