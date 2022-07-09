@@ -1,7 +1,7 @@
 # Webium Blogger Theme
 <img style='width:100%' src='src/assets/images/preview.png'>
 
-[![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](https://www.paypal.me/yasyaelhakim/5)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-blue)](https://www.paypal.me/yasyaelhakim/5)
 
 > *Recently, we are trying to update all the structure and design of the Webium Theme to look very much like the original Website.*
 >
