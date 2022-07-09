@@ -3,15 +3,13 @@
 
 [![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](https://www.paypal.me/yasyaelhakim/5)
 
-Webium is a Blogger Template or Theme that looks very similar to the Medium.com.
-
 > *Recently, we are trying to update all the structure and design of the Webium Theme to look very much like the original Website.*
 >
 > *Always support us by simply donating via [Ko-Fi](https://ko-fi.com/elhakimyasya) or [PayPal](https://www.paypal.me/yasyaelhakim/5) 😃.*
 
-[Webium Theme Demo](https://webium-blogger.blogspot.com/)
+Webium is a Blogger Template or Theme that looks very similar to the Medium.com. [Demo](https://webium-blogger.blogspot.com/)
 
-If you have questions related to this Webium theme, please write in the comments section [HERE](https://www.elcreativeacademy.com/2021/03/webium-template-blogger-mirip-medium.html).
+If you have questions related to this Webium theme, please write in the comments section [Here](https://www.elcreativeacademy.com/2021/03/webium-template-blogger-mirip-medium.html) or [Here](/discussions).
 
 <hr>
 
