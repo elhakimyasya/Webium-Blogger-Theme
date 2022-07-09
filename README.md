@@ -5,6 +5,8 @@
 
 > *Recently, we are trying to update all the structure and design of the Webium Theme to look very much like the original Website.*
 >
+> *Old files can be found in [/old](https://github.com/elhakimyasya/Webium-Blogger-Theme/tree/main/old) directory*
+>
 > *Always support us by simply donating via [Ko-Fi](https://ko-fi.com/elhakimyasya) or [PayPal](https://www.paypal.me/yasyaelhakim/5) 😃.*
 
 Webium is a Blogger Template or Theme that looks very similar to the Medium.com. [Demo](https://webium-blogger.blogspot.com/)
