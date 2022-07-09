@@ -6,50 +6,78 @@
                     <div class='flex w-full flex-col items-start justify-center ltr:mr-5 rtl:ml-5'>
                         <b:comment>Index: Post Author</b:comment>
                         <b:if cond='data:allBylineItems.author'>
-                            <div class='flex w-full flex-row items-center justify-start pb-2'>
-                                <div class='relative flex-shrink-0 flex-grow-0 overflow-hidden rounded-full ltr:mr-2 rtl:ml-2'>
-                                    <b:class expr:name='data:view.isSingleItem ? "h-12 w-12" : "h-5 w-5"' />
+                            <div class='flex w-full flex-row items-center justify-start'>
+                                <b:class expr:name='data:view.isSingleItem ? "mb-6 xl:mb-8" : "pb-2"' />
+                                <div class='relative flex-shrink-0 flex-grow-0 overflow-hidden rounded-full'>
+                                    <b:class expr:name='data:view.isSingleItem ? "h-12 w-12 ltr:mr-4 rtl:ml-4" : "h-5 w-5 ltr:mr-2 rtl:ml-2"' />
                                     <b:with value='data:post.author.authorPhoto.image ? data:post.author.authorPhoto.image : "//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhPzZlVciGeYVCgCEcfFKeNI8IhtFHNShFG_5Xavi8bej56zOpPRIjHEUZsTsLybpnEZkNJ6M-ivL0lcjLs9YEu_xVrD14a9gtcfxBAzIvwrmAY920GO9gkHtlljlwvRnLcRvD8WL5pbEcmgxCpct-7EJsMymUnpFCMxpTk8i0b0P7O82_kzKoEjeb3/s1600-rw/user-icon.webp"' var='images'>
                                         <span class='lazyload block h-full w-full flex-shrink-0 flex-grow-0 animate-pulse bg-[#cbd5e1] bg-cover bg-center bg-no-repeat' expr:title='data:post.author.name'>
                                             <b:attr name='data-image' expr:value='data:view.isSingleItem ? resizeImage(data:images, 48, "1:1") : resizeImage(data:images, 20, "1:1")' />
                                         </span>
                                     </b:with>
                                 </div>
-                                <div class='flex flex-row flex-wrap items-center justify-center text-[13px]'>
-                                    <div class='flex max-h-4 flex-row items-center justify-start font-medium leading-4 ltr:pr-1 rtl:pl-1'>
-                                        <b:if cond='data:allBylineItems.author.label'>
-                                            <span class='hidden text-[#757575] ltr:mr-1 rtl:ml-1 md:block'>
-                                                <data:allBylineItems.author.label />
-                                            </span>
-                                        </b:if>
-                                        <span class='notranslate text-[#292929]'>
-                                            <data:post.author.name />
-                                        </span>
-                                    </div>
-                                    <b:comment>Index: Post Label</b:comment>
-                                    <b:if cond='data:blog.isMobileRequest and data:post.labels.notEmpty and data:allBylineItems.labels'>
-                                        <div class='flex max-h-4 flex-row items-center justify-start font-medium leading-4 lg:hidden'>
-                                            <b:with value='data:blog.locale == "id" ? "dalam" : "in"' var='languages'>
-                                                <span class='text-[#757575] ltr:mr-1 rtl:ml-1'>
-                                                    <data:languages/>
+                                <b:tag cond='data:view.isPost' name='div' class='flex flex-col items-start justify-center'>
+                                    <div class='flex flex-row flex-wrap items-center justify-center'>
+                                        <b:class expr:name='data:view.isSingleItem ? "mb-1 text-base" : "text-[13px]"' />
+                                        <div class='flex flex-row items-center justify-start ltr:pr-1 rtl:pl-1'>
+                                            <b:class expr:name='data:view.isSingleItem ? "leading-6" : "max-h-4 font-medium leading-4"' />
+                                            <b:if cond='data:allBylineItems.author.label'>
+                                                <span class='hidden text-[#757575] ltr:mr-1 rtl:ml-1 md:block'>
+                                                    <data:allBylineItems.author.label />
                                                 </span>
-                                            </b:with>
-                                            <a expr:href='data:post.labels.first.url' expr:title='data:post.labels.first.name' rel='tag' class='text-[#292929]'>
-                                                <data:post.labels.first.name />
-                                            </a>
+                                            </b:if>
+                                            <span class='notranslate text-[#292929]'>
+                                                <data:post.author.name />
+                                            </span>
                                         </div>
+                                        <b:comment>Index: Post Label</b:comment>
+                                        <b:if cond='data:blog.isMobileRequest and data:view.isMultipleItems and data:post.labels.notEmpty and data:allBylineItems.labels'>
+                                            <div class='flex max-h-4 flex-row items-center justify-start font-medium leading-4 lg:hidden'>
+                                                <b:with value='data:blog.locale == "id" ? "dalam" : "in"' var='languages'>
+                                                    <span class='text-[#757575] ltr:mr-1 rtl:ml-1'>
+                                                        <data:languages/>
+                                                    </span>
+                                                </b:with>
+                                                <a expr:href='data:post.labels.first.url' expr:title='data:post.labels.first.name' rel='tag' class='text-[#292929]'>
+                                                    <data:post.labels.first.name />
+                                                </a>
+                                            </div>
+                                        </b:if>
+                                    </div>
+                                    <b:if cond='data:view.isPost'>
+                                        <b:if cond='data:allBylineItems.timestamp and data:skin.vars.optionIndexTimestamp != "1px"'>
+                                            <b:comment>Index: Post Timestamp</b:comment>
+                                            <div class='flex flex-row items-center justify-center text-sm text-[#757575]'>
+                                                <b:if cond='data:allBylineItems.timestamp.label'>
+                                                    <span class='hidden ltr:mr-1 rtl:ml-1 md:block'>
+                                                        <data:allBylineItems.timestamp.label />
+                                                    </span>
+                                                </b:if>
+                                                <time expr:datetime='data:post.date.iso8601' class='flex flex-row items-center justify-center'>
+                                                    <span expr:title='data:post.date'>
+                                                        <data:post.date />
+                                                    </span>
+                                                    <b:if cond='!data:blog.isMobileRequest and data:post.date != data:post.lastUpdated'>
+                                                        <span class='hidden before:px-[6px] before:content-["\2014"] xl:block' expr:title='data:post.lastUpdated'>
+                                                            <data:post.lastUpdated />
+                                                        </span>
+                                                    </b:if>
+                                                </time>
+                                            </div>
+                                        </b:if>
                                     </b:if>
-                                </div>
+                                </b:tag>
                             </div>
+
                         </b:if>
                         <b:comment>Post Title</b:comment>
                         <b:if cond='data:post.title != ""'>
                             <b:tag cond='data:post.link or (data:post.url and data:view.url != data:post.url)' name='a' expr:href='data:post.link ?: data:post.url' class='flex w-full flex-col items-center justify-center'>
-                                <b:tag expr:name='data:view.isMultipleItems ? "h2" : "h1"' expr:class='data:view.isMultipleItems ? "max-h-12 w-full text-ellipsis text-base font-bold leading-5 text-[#292929] line-clamp-2 md:max-h-[56px] md:text-[22px] md:leading-7" : "w-full font-bold"'>
+                                <b:tag expr:name='data:view.isMultipleItems ? "h2" : "h1"' expr:class='data:view.isSingleItem ? "w-full text-[32px] font-bold leading-10 text-[#292929]" : "max-h-12 w-full text-ellipsis text-base font-bold leading-5 text-[#292929] line-clamp-2 md:max-h-[56px] md:text-[22px] md:leading-7"'>
                                     <data:post.title />
                                 </b:tag>
                                 <b:comment>Index: Post Summary</b:comment>
-                                <b:if cond='!data:blog.isMobileRequest'>
+                                <b:if cond='!data:blog.isMobileRequest and data:view.isMultipleItems'>
                                     <div class='hidden w-full pt-1 text-base leading-5 text-[#757575] md:text-ellipsis md:line-clamp-2'>
                                         <b:eval expr='data:post.snippets.short snippet {length: 120}' />
                                     </div>
@@ -96,13 +124,15 @@
                             </svg>
                         </div>
                     </div>
-                    <b:comment>Index: Post Thumbnail</b:comment>
-                    <a class='flex h-[100px] w-[100px] flex-shrink-0 flex-grow-0 items-end justify-center bg-slate-300 md:h-[134px] md:w-[200px]' expr:href='data:post.url' expr:title='data:post.title'>
-                        <b:class cond='data:post.featuredImage.isYouTube' name='youtube_image' />
-                        <b:with value='data:post.featuredImage.isYouTube ? data:post.featuredImage.youtubeMaxResDefaultUrl : data:post.featuredImage ?: "//lh3.googleusercontent.com/-Efigs16DUTQ/YKrJkJaHDKI/AAAAAAAAg_A/_xTHzW1sLmssSTAFEZtZTL_QqseedXjfACLcBGAsYHQ/s1600-rw/index.webp"' var='images'>
-                            <span class='lazyload block h-full w-full flex-shrink-0 flex-grow-0 animate-pulse bg-[#cbd5e1] bg-cover bg-center bg-no-repeat' expr:title='data:post.title' expr:data-image='resizeImage(data:images, 200, "100:67")'></span>
-                        </b:with>
-                    </a>
+                    <b:if cond='data:view.isMultipleItems'>
+                        <b:comment>Index: Post Thumbnail</b:comment>
+                        <a class='flex h-[100px] w-[100px] flex-shrink-0 flex-grow-0 items-end justify-center bg-slate-300 md:h-[134px] md:w-[200px]' expr:href='data:post.url' expr:title='data:post.title'>
+                            <b:class cond='data:post.featuredImage.isYouTube' name='youtube_image' />
+                            <b:with value='data:post.featuredImage.isYouTube ? data:post.featuredImage.youtubeMaxResDefaultUrl : data:post.featuredImage ?: "//lh3.googleusercontent.com/-Efigs16DUTQ/YKrJkJaHDKI/AAAAAAAAg_A/_xTHzW1sLmssSTAFEZtZTL_QqseedXjfACLcBGAsYHQ/s1600-rw/index.webp"' var='images'>
+                                <span class='lazyload block h-full w-full flex-shrink-0 flex-grow-0 animate-pulse bg-[#cbd5e1] bg-cover bg-center bg-no-repeat' expr:title='data:post.title' expr:data-image='resizeImage(data:images, 200, "100:67")'></span>
+                            </b:with>
+                        </a>
+                    </b:if>
                 </article>
             </b:loop>
         </div>

@@ -54,7 +54,7 @@
                 </b:if>
                 <div class='mx-auto flex items-center justify-between'>
                     <b:if cond='!data:view.isHomepage and !data:view.isError'>
-                        <b:class name='h-full w-full flex-row px-6 xl:flex-col' />
+                        <b:class name='h-full w-full flex-row px-6 xl:px-0 xl:flex-col' />
                         <b:else />
                         <b:class name='w-full max-w-[1192px] flex-row' />
                     </b:if>
@@ -80,7 +80,7 @@
                 </b:if>
                 <main class='w-full max-w-full lg:max-w-[695px]'>
                     <b:if cond='!data:view.isHomepage and !data:view.isError'>
-                        <b:class name='mx-auto pt-8 md:pt-14' />
+                        <b:class name='mx-auto pt-24 xl:pt-14' />
                         <b:else />
                         <b:class name='rtl:mr-0 rtl:ml-0 ltr:md:mr-5 rtl:md:ml-5 ltr:lg:mr-10 rtl:lg:ml-10 ltr:xl:mr-16 rtl:xl:ml-16' />
                     </b:if>
