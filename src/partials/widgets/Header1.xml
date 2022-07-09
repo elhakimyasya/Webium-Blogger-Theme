@@ -1,4 +1,4 @@
-<b:widget id='Header1' locked='true' title='Blog (Header)' type='Header' visible='true' version='2'>
+<b:widget id='Header1' locked='true' title='Blog (Header)' type='Header' visible='true' version='2' cond='data:view.isHomePage'>
     <b:includable id='main' var='this'>
         <b:class name='flex items-center justify-center' />
         <a class='notranslate inline-flex items-center justify-center text-lg font-medium text-[#000]' expr:href='data:blog.homepageUrl' expr:title='data:blog.title'>

@@ -60,6 +60,7 @@
                     </b:if>
                     <b:section id='section_app_bar' class='section_app_bar flex items-center justify-start ltr:mr-2 rtl:ml-2' name='Header Logo and Title' maxwidgets='1' showaddelement='false'>
                         @@include("../src/partials/widgets/Header1.xml")
+                        @@include("../src/partials/widgets/Image999.xml")
                     </b:section>
                     <b:section id='section_navigation' class='section_navigation flex items-center justify-end ltr:ml-2 rtl:mr-2' name='Main Menu' maxwidgets='1' showaddelement='false'>
                         @@include("../src/partials/widgets/LinkList999.xml")
