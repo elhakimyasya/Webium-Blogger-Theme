@@ -3,8 +3,8 @@
         <b:class name='flex items-center justify-center' />
         <ul class='flex flex-col items-center justify-center text-sm my-auto'>
             <b:loop values='data:links' var='link'>
-                <li expr:class='data:blog.canonicalUrl == data:link.target or (data:blog.url == data:link.target) ? "selected" : "item"'>
-                    <a expr:href='data:link.target' class='text-[#292929] hover:text-[#000]'>
+                <li expr:class='data:blog.canonicalUrl == data:link.target or (data:blog.url == data:link.target) ? "selected mb-[14px] last:mb-0" : "item mb-[14px] last:mb-0"'>
+                    <a expr:href='data:link.target' class='box-content flex h-6 w-6 items-center justify-center p-3 text-[#757575] transition-colors hover:text-[#292929]'>
                         <span>
                             <data:link.name />
                         </span>
