@@ -54,7 +54,7 @@
                 </b:if>
                 <div class='mx-auto flex items-center justify-between'>
                     <b:if cond='!data:view.isHomepage and !data:view.isError'>
-                        <b:class name='h-full w-full flex-row xl:flex-col' />
+                        <b:class name='h-full w-full flex-row px-6 xl:flex-col' />
                         <b:else />
                         <b:class name='w-full max-w-[1192px] flex-row' />
                     </b:if>
@@ -73,6 +73,9 @@
                 </div>
             </header>
             <div id='elcreative_container' class='elcreative_container mx-auto flex w-full max-w-[1192px] flex-col justify-between px-6 pb-6 pt-28 sm:px-12 lg:flex-row md:px-16 md:pt-32 xl:px-0'>
+                <b:if cond='!data:view.isHomepage and !data:view.isError'>
+                    <b:class name='ltr:xl:pl-20 rtl:xl:pr-20' />
+                </b:if>
                 <main class='w-full max-w-full rtl:mr-0 rtl:ml-0 ltr:md:mr-5 rtl:md:ml-5 lg:max-w-[695px] ltr:lg:mr-10 rtl:lg:ml-10 ltr:xl:mr-16 rtl:xl:ml-16'>
                     <b:section id='section_main_widget' class='section_main_widget' name='Main Section' maxwidgets='2' showaddelement='false'>
                         @@include("../src/partials/widgets/Blog1.xml")

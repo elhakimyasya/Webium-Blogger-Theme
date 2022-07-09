@@ -1,6 +1,6 @@
 <b:widget id='Image999' locked='true' title='Header Logo (Item - 1:1)' type='Image' visible='true' version='2' cond='!data:view.isHomepage and !data:view.isError'>
     <b:includable id='main'>
-        <a class='notranslate inline-flex items-center justify-center text-lg font-medium text-[#000]' expr:href='data:blog.homepageUrl' expr:title='data:blog.title'>
+        <a class='notranslate flex items-center justify-center text-lg font-medium text-[#000]' expr:href='data:blog.homepageUrl' expr:title='data:blog.title'>
             <img class='lazyload max-h-6 w-auto overflow-hidden indent-[-9999px] text-transparent' expr:alt='data:blog.title + " - " + data:caption' expr:src='resizeImage(data:sourceUrl, 40)' />
             <h1 class='sr-only'>
                 <data:blog.title />
