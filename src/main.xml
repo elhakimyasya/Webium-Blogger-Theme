@@ -45,8 +45,19 @@
     </head>
     <body class='bg-[#fff]'>
         <div id='app' class='app'>
-            <header id='elcreative_header' class='elcreative_header fixed top-0 z-50 flex min-h-[75px] w-full flex-col items-center justify-center border-b border-b-[#000] bg-[#ffc017] px-6 md:px-12 lg:px-16'>
-                <div class='mx-auto flex w-full max-w-[1192px] items-center justify-between'>
+            <b:class cond='!data:view.isHomepage and !data:view.isError' name='mx-auto w-full max-w-[1504px]' />
+            <header id='elcreative_header' class='elcreative_header fixed top-0 z-50 flex items-center justify-center '>
+                <b:if cond='!data:view.isHomepage and !data:view.isError'>
+                    <b:class name='h-full min-h-screen w-20 flex-shrink flex-row border-[#e6e6e6] bg-[#fff] py-10 ltr:border-r rtl:border-l' />
+                    <b:else />
+                    <b:class name='min-h-[75px] w-full flex-col border-b border-b-[#000] bg-[#ffc017] px-6 md:px-12 lg:px-16' />
+                </b:if>
+                <div class='mx-auto flex items-center justify-between'>
+                    <b:if cond='!data:view.isHomepage and !data:view.isError'>
+                        <b:class name='h-full w-full flex-col' />
+                        <b:else />
+                        <b:class name='w-full max-w-[1192px] flex-row' />
+                    </b:if>
                     <b:section id='section_app_bar' class='section_app_bar flex items-center justify-start ltr:mr-2 rtl:ml-2' name='Header Logo and Title' maxwidgets='1' showaddelement='false'>
                         @@include("../src/partials/widgets/Header1.xml")
                     </b:section>
