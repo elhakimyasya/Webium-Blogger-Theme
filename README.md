@@ -1,7 +1,7 @@
 # Webium Blogger Theme
 <img style='width:100%' src='src/assets/images/preview.png'>
 
-[![Donate PayPal](https://img.shields.io/badge/Donate-PayPal-blue)](https://www.paypal.me/yasyaelhakim/5) [![Donate Ko-Fi](https://img.shields.io/badge/Donate-Ko--Fi-red)](https://www.paypal.me/yasyaelhakim/5) ![GitHub last commit](https://img.shields.io/github/last-commit/elhakimyasya/Webium-Blogger-Theme?color=green) ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/elhakimyasya/Webium-Blogger-Theme?color=yellow)
+[![Donate PayPal](https://img.shields.io/badge/Donate-PayPal-blue)](https://www.paypal.me/yasyaelhakim/5) [![Donate Ko-Fi](https://img.shields.io/badge/Donate-Ko--Fi-red)](https://ko-fi.com/elhakimyasya) ![GitHub last commit](https://img.shields.io/github/last-commit/elhakimyasya/Webium-Blogger-Theme?color=green) ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/elhakimyasya/Webium-Blogger-Theme?color=yellow)
 
 > *Recently, we are trying to update all the structure and design of the Webium Theme to look very much like the original Website.*
 >
