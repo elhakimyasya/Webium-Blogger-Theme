@@ -8,6 +8,15 @@ module.exports = {
     ],
     theme: {
         extend: {
+            typography: {
+                DEFAULT: {
+                    css: {
+                        img: {
+                            margin: "0 auto"
+                        }
+                    },
+                },
+            }
         },
     },
     plugins: [
