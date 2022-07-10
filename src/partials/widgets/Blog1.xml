@@ -142,7 +142,7 @@
                             </div>
                             <b:else />
                             <b:comment>Item: Post Content</b:comment>
-                            <div id='post_body' class='post_body'>
+                            <div id='post_body' class='post_body prose'>
                                 <data:post.body />
                             </div>
                         </b:if>

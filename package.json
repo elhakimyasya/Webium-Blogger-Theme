@@ -35,6 +35,7 @@
 	"devDependencies": {
 		"@babel/preset-env": "^7.16.11",
 		"@tailwindcss/line-clamp": "^0.3.1",
+		"@tailwindcss/typography": "^0.5.3",
 		"autoprefixer": "^10.4.4",
 		"babel-plugin-transform-remove-console": "^6.9.4",
 		"babel-plugin-transform-remove-debugger": "^6.9.4",
@@ -59,5 +60,5 @@
 		"cdataStart:alt": "/*<![CDATA[*/",
 		"cdataEnd:alt": "/*]]>*/"
 	},
-	"releasedDate": "July 10, 2022 - 07:07"
+	"releasedDate": "July 10, 2022 - 08:40"
 }
