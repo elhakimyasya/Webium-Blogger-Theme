@@ -128,7 +128,7 @@ gulp.task("build:production", gulp.series(
     "timestamp",
     "styles",
     "styles:autoprefixed",
-    "styles:minify",
+    // "styles:minify",
     "scripts",
     "scripts:minify",
     "start"
