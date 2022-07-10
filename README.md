@@ -17,7 +17,8 @@ If you have questions related to this theme, please write in the [Comments](http
 
 # Credits
 - [Tailwind CSS](https://tailwindcss.com/)
-- [Lazysizes.js](https://github.com/aFarkas/lazysizes)
+- [LazySizes.js](https://github.com/aFarkas/lazysizes)
+- [Medium-Zoom.js](https://github.com/francoischalifour/medium-zoom)
 - [Simple AJAX infinite scroll](https://dte.web.id/teknis/blogger-infinite-scroll)
 - Some Images from [Unsplash](https://unsplash.com/)
 
