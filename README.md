@@ -15,16 +15,16 @@ If you have questions related to this theme, please write in the [Comments](http
 
 <hr>
 
-# Credits
+## Credits
 - [Tailwind CSS](https://tailwindcss.com/)
-- [LazySizes.js](https://github.com/aFarkas/lazysizes)
-- [Medium-Zoom.js](https://github.com/francoischalifour/medium-zoom)
+- [LazySizes](https://github.com/aFarkas/lazysizes)
+- [Medium Zoom](https://github.com/francoischalifour/medium-zoom)
 - [Simple AJAX infinite scroll](https://dte.web.id/teknis/blogger-infinite-scroll)
 - Some Images from [Unsplash](https://unsplash.com/)
 
-# More Info
+## More Info
 - [Documentations](https://webium-blogger.blogspot.com/p/webium-documentations.html)
 - [Official Website](https://www.elcreativeacademy.com/)
 
-# License
+## License
 Webium Blogger Theme is licensed under the [MIT License](LICENSE).
