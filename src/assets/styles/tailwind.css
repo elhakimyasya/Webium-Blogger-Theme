@@ -53,3 +53,12 @@ body {
 .post_body .BLOG_video_class {
   @apply aspect-video h-full w-full;
 }
+.post_body.prose :where(img):not(:where([class~="not-prose"] *)) {
+  @apply mx-auto
+}
+.post_body.prose :where(blockquote):not(:where([class~="not-prose"] *)) {
+  @apply border-[#292929] ltr:-ml-4 rtl:-mr-4 rtl:pl-4;
+}
+.post_body.prose :where(code):not(:where([class~="not-prose"] *)) {
+  @apply bg-[#f2f2f2] px-1 py-[2px] text-[75%] font-normal before:content-[""] after:content-[""];
+}
