@@ -31,7 +31,7 @@
                     <script type="application/ld+json">@@include("../src/assets/schema-website.txt")</script>
                 </b:includable>
                 <b:includable id='scriptBody'>
-                    <script>{{config.cdataStart:alt}}@@include("../build/scripts/lazysizes.js")@@include("../build/scripts/scripts.js"){{config.cdataEnd:alt}}</script>
+                    <script>{{config.cdataStart:alt}}@@include("../build/scripts/lazysizes.js")@@include("../build/scripts/medium-zoom.js")@@include("../build/scripts/scripts.js"){{config.cdataEnd:alt}}</script>
                 </b:includable>
                 <b:includable id='widget-title'>
                     @@include("../src/partials/defaultmarkups/Common/widget-title.xml")
