@@ -48,5 +48,8 @@ body {
 }
 .post_body {
   font-family: "webium alt", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  @apply max-w-max text-lg lg:text-xl;
+  @apply max-w-full text-lg lg:text-xl;
+}
+.post_body .BLOG_video_class {
+  @apply aspect-video h-full w-full;
 }
