@@ -3,7 +3,7 @@
 
 [![Donate PayPal](https://img.shields.io/badge/Donate-PayPal-blue)](https://www.paypal.me/yasyaelhakim/5) [![Donate Ko-Fi](https://img.shields.io/badge/Donate-Ko--Fi-red)](https://www.paypal.me/yasyaelhakim/5)
 
-![GitHub last commit](https://img.shields.io/github/last-commit/elhakimyasya/Webium-Blogger-Theme?color=red) ![GitHub commit activity](https://img.shields.io/github/last-commit-activity/w/elhakimyasya/Webium-Blogger-Theme?color=blue)
+![GitHub last commit](https://img.shields.io/github/last-commit/elhakimyasya/Webium-Blogger-Theme?color=green) ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/elhakimyasya/Webium-Blogger-Theme?color=yellow)
 
 > *Recently, we are trying to update all the structure and design of the Webium Theme to look very much like the original Website.*
 >
