@@ -5,13 +5,13 @@
 
 > *Recently, we are trying to update all the structure and design of the Webium Theme to look very much like the original Website.*
 >
-> *Old files can be found in [/old](https://github.com/elhakimyasya/Webium-Blogger-Theme/tree/main/old) directory*
+> *Old files can be found in [/old](https://github.com/elhakimyasya/Webium-Blogger-Theme/tree/main/old) directory.*
 >
 > *Always support us by simply donating via [Ko-Fi](https://ko-fi.com/elhakimyasya) or [PayPal](https://www.paypal.me/yasyaelhakim/5) 😃.*
 
-Webium is a Blogger Template or Theme that looks very similar to the Medium.com. [Demo](https://webium-blogger.blogspot.com/)
+Webium is a Blogger Template or Theme that looks very similar to the Medium.com. [View Demo](https://webium-blogger.blogspot.com/).
 
-If you have questions related to this Webium theme, please write in the comments section [Here](https://www.elcreativeacademy.com/2021/03/webium-template-blogger-mirip-medium.html) or [Here](https://github.com/elhakimyasya/Webium-Blogger-Theme/discussions).
+If you have questions related to this theme, please write in the [Comments Section](https://www.elcreativeacademy.com/2021/03/webium-template-blogger-mirip-medium.html) page or [Discussions](https://github.com/elhakimyasya/Webium-Blogger-Theme/discussions) page.
 
 <hr>
 
