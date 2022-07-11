@@ -103,12 +103,12 @@
                                             </button>
                                         </div>
                                     </b:if>
-                                    <button aria-label='Save' role='button' title='Save' class='box-content flex cursor-pointer items-center justify-center rounded-full border border-[#e6e6e6] py-[6px] text-[#757575] hover:border-[#cccccc] hover:text-[#757575] ltr:mr-3 ltr:pr-[15px] ltr:pl-[10px] rtl:ml-3 rtl:pl-[15px] rtl:pr-[10px] lg:rounded-none lg:border-0 lg:py-2 lg:px-[2px] lg:hover:text-[#191919] ltr:lg:ml-7 ltr:lg:mr-1 rtl:lg:mr-7 rtl:lg:ml-1'>
+                                    <!-- <button aria-label='Save' role='button' title='Save' class='box-content flex cursor-pointer items-center justify-center rounded-full border border-[#e6e6e6] py-[6px] text-[#757575] hover:border-[#cccccc] hover:text-[#757575] ltr:mr-3 ltr:pr-[15px] ltr:pl-[10px] rtl:ml-3 rtl:pl-[15px] rtl:pr-[10px] lg:rounded-none lg:border-0 lg:py-2 lg:px-[2px] lg:hover:text-[#191919] ltr:lg:ml-7 ltr:lg:mr-1 rtl:lg:mr-7 rtl:lg:ml-1'>
                                         <svg width='25' height='25' viewBox='0 0 25 25' fill='none' class='h-[25px] w-[25px] ltr:mr-4 rtl:ml-4 ltr:lg:mr-0 rtl:lg:ml-0'>
                                             <path d='M18 2.5a.5.5 0 0 1 1 0V5h2.5a.5.5 0 0 1 0 1H19v2.5a.5.5 0 1 1-1 0V6h-2.5a.5.5 0 0 1 0-1H18V2.5zM7 7a1 1 0 0 1 1-1h3.5a.5.5 0 0 0 0-1H8a2 2 0 0 0-2 2v14a.5.5 0 0 0 .8.4l5.7-4.4 5.7 4.4a.5.5 0 0 0 .8-.4v-8.5a.5.5 0 0 0-1 0v7.48l-5.2-4a.5.5 0 0 0-.6 0l-5.2 4V7z' fill='currentColor' />
                                         </svg>
                                         <span class='block text-sm lg:hidden'>Save</span>
-                                    </button>
+                                    </button> -->
                                 </div>
                             </b:if>
                         </b:tag>
@@ -173,9 +173,9 @@
                                         </svg>
                                     </b:if>
                                 </div>
-                                <svg width="25" height="25" viewBox="0 0 25 25" fill="none" class="text-[#292929]">
+                                <!-- <svg width="25" height="25" viewBox="0 0 25 25" fill="none" class="text-[#292929]">
                                     <path d="M18 2.5a.5.5 0 0 1 1 0V5h2.5a.5.5 0 0 1 0 1H19v2.5a.5.5 0 1 1-1 0V6h-2.5a.5.5 0 0 1 0-1H18V2.5zM7 7a1 1 0 0 1 1-1h3.5a.5.5 0 0 0 0-1H8a2 2 0 0 0-2 2v14a.5.5 0 0 0 .8.4l5.7-4.4 5.7 4.4a.5.5 0 0 0 .8-.4v-8.5a.5.5 0 0 0-1 0v7.48l-5.2-4a.5.5 0 0 0-.6 0l-5.2 4V7z" fill="currentColor"></path>
-                                </svg>
+                                </svg> -->
                             </div>
                             <b:else />
                             <b:comment>Item: Post Content</b:comment>
@@ -207,11 +207,11 @@
                                                 </svg>
                                             </button>
                                         </b:if>
-                                        <button aria-label='Save' role='button' title='Save' class='box-content flex cursor-pointer items-center justify-center text-[#757575] hover:text-[#292929] ltr:mr-6 last:ltr:mr-0 rtl:ml-6 last:rtl:ml-0'>
+                                        <!-- <button aria-label='Save' role='button' title='Save' class='box-content flex cursor-pointer items-center justify-center text-[#757575] hover:text-[#292929] ltr:mr-6 last:ltr:mr-0 rtl:ml-6 last:rtl:ml-0'>
                                             <svg width='24' height='24' viewBox='0 0 24 24' fill='none' class='h-6 w-6'>
                                                 <path d='M18 2.5a.5.5 0 0 1 1 0V5h2.5a.5.5 0 0 1 0 1H19v2.5a.5.5 0 1 1-1 0V6h-2.5a.5.5 0 0 1 0-1H18V2.5zM7 7a1 1 0 0 1 1-1h3.5a.5.5 0 0 0 0-1H8a2 2 0 0 0-2 2v14a.5.5 0 0 0 .8.4l5.7-4.4 5.7 4.4a.5.5 0 0 0 .8-.4v-8.5a.5.5 0 0 0-1 0v7.48l-5.2-4a.5.5 0 0 0-.6 0l-5.2 4V7z' fill='currentColor' />
                                             </svg>
-                                        </button>
+                                        </button> -->
                                     </div>
                                 </div>
                             </b:if>
