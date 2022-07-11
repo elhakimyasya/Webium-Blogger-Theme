@@ -21,6 +21,11 @@
                         </span>
                     </h2>
                 </div>
+                <div class='mb-6 flex w-full flex-row items-center justify-start border-b border-[#e6e6e6] lg:mb-12'>
+                    <div class='border-b border-[#292929] pb-4 text-sm'>
+                        Posts
+                    </div>
+                </div>
             </b:if>
             <b:loop index='i' values='data:posts' var='post'>
                 <article class='mb-8 flex w-full flex-row items-center justify-between'>
@@ -31,18 +36,33 @@
                             <b:comment>Index: Post Author</b:comment>
                             <b:if cond='data:allBylineItems.author'>
                                 <div class='flex w-full flex-row items-center justify-start'>
-                                    <b:class cond='data:view.isMultipleItems' name='pb-2' />
+                                    <b:if cond='!data:view.isHomepage and !data:view.isError'>
+                                        <b:else />
+                                        <b:class cond='data:view.isMultipleItems' name='pb-2' />
+                                    </b:if>
                                     <div class='relative flex-shrink-0 flex-grow-0 overflow-hidden rounded-full'>
-                                        <b:class expr:name='data:view.isSingleItem ? "h-12 w-12 ltr:mr-4 rtl:ml-4" : "h-5 w-5 ltr:mr-2 rtl:ml-2"' />
+                                        <b:if cond='!data:view.isHomepage and !data:view.isError'>
+                                            <b:class expr:name='data:view.isSingleItem ? "h-12 w-12 ltr:mr-4 rtl:ml-4" : "h-6 w-6 ltr:mr-2 rtl:ml-2"' />
+                                            <b:else />
+                                            <b:class name='h-5 w-5 ltr:mr-2 rtl:ml-2' />
+                                        </b:if>
                                         <b:with value='data:post.author.authorPhoto.image ? data:post.author.authorPhoto.image : "//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhPzZlVciGeYVCgCEcfFKeNI8IhtFHNShFG_5Xavi8bej56zOpPRIjHEUZsTsLybpnEZkNJ6M-ivL0lcjLs9YEu_xVrD14a9gtcfxBAzIvwrmAY920GO9gkHtlljlwvRnLcRvD8WL5pbEcmgxCpct-7EJsMymUnpFCMxpTk8i0b0P7O82_kzKoEjeb3/s1600-rw/user-icon.webp"' var='images'>
                                             <span class='lazyload block h-full w-full flex-shrink-0 flex-grow-0 animate-pulse bg-[#cbd5e1] bg-cover bg-center bg-no-repeat' expr:title='data:post.author.name'>
-                                                <b:attr name='data-image' expr:value='data:view.isSingleItem ? resizeImage(data:images, 48, "1:1") : resizeImage(data:images, 20, "1:1")' />
+                                                <b:if cond='!data:view.isHomepage and !data:view.isError'>
+                                                    <b:attr name='data-image' expr:value='data:view.isSingleItem ? resizeImage(data:images, 48, "1:1") : resizeImage(data:images, 24, "1:1")' />
+                                                    <b:else />
+                                                    <b:attr name='data-image' expr:value='resizeImage(data:images, 20, "1:1")' />
+                                                </b:if>
                                             </span>
                                         </b:with>
                                     </div>
                                     <b:tag cond='data:view.isPost' name='div' class='flex flex-col items-start justify-center'>
                                         <div class='flex flex-row flex-wrap items-center justify-center'>
-                                            <b:class expr:name='data:view.isSingleItem ? "mb-1 text-base" : "text-[13px]"' />
+                                            <b:if cond='!data:view.isHomepage and !data:view.isError'>
+                                                <b:class expr:name='data:view.isSingleItem ? "mb-1 text-base" : "text-sm"' />
+                                                <b:else />
+                                                <b:class name='text-[13px]' />
+                                            </b:if>
                                             <div class='flex flex-row items-center justify-start ltr:pr-1 rtl:pl-1'>
                                                 <b:class expr:name='data:view.isSingleItem ? "leading-6" : "max-h-4 font-medium leading-4"' />
                                                 <b:if cond='data:allBylineItems.author.label'>
@@ -136,14 +156,27 @@
                         <b:comment>Post Title</b:comment>
                         <b:if cond='data:post.title != ""'>
                             <b:tag cond='data:post.link or (data:post.url and data:view.url != data:post.url)' name='a' expr:href='data:post.link ?: data:post.url' class='flex w-full flex-col items-center justify-center'>
+                                <b:if cond='!data:view.isHomepage and !data:view.isError'>
+                                    <b:class expr:name='data:view.isSingleItem ? "no_class" : "mt-3"' />
+                                </b:if>
                                 <b:tag cond='data:view.isSingleItem' name='div' class='mb-10 flex w-full flex-col items-center justify-center xl:mb-14'>
-                                    <b:tag expr:name='data:view.isMultipleItems ? "h2" : "h1"' expr:class='data:view.isSingleItem ? "w-full text-[32px] font-bold leading-10 text-[#292929]" : "w-full max-h-12 w-full text-ellipsis text-base font-bold leading-5 text-[#292929] line-clamp-2 md:max-h-[56px] md:text-[22px] md:leading-7"'>
+                                    <b:tag expr:name='data:view.isMultipleItems ? "h2" : "h1"'>
+                                        <b:if cond='!data:view.isHomepage and !data:view.isError'>
+                                            <b:class expr:name='data:view.isSingleItem ? "w-full text-[32px] font-bold leading-10 text-[#292929]" : "max-h-10 w-full text-ellipsis pb-0 text-base font-bold leading-5 text-[#292929] line-clamp-2 md:max-h-[84px] md:pb-2 md:text-[22px] md:leading-7"' />
+                                            <b:else />
+                                            <b:class name='max-h-12 w-full text-ellipsis text-base font-bold leading-5 text-[#292929] line-clamp-2 md:max-h-[56px] md:text-[22px] md:leading-7' />
+                                        </b:if>
                                         <data:post.title />
                                     </b:tag>
                                     <b:if cond='data:view.isMultipleItems'>
                                         <b:comment>Index: Post Summary</b:comment>
                                         <b:if cond='!data:blog.isMobileRequest'>
-                                            <div class='hidden w-full pt-1 text-base leading-5 text-[#757575] md:text-ellipsis md:line-clamp-2'>
+                                            <div class='hidden w-full text-base md:text-ellipsis md:line-clamp-2'>
+                                                <b:if cond='!data:view.isHomepage and !data:view.isError'>
+                                                    <b:class name='font-webium-alt leading-6 text-[#292929]' />
+                                                    <b:else />
+                                                    <b:class name='pt-1 leading-5 text-[#757575]' />
+                                                </b:if>
                                                 <b:eval expr='data:post.snippets.short snippet {length: 120}' />
                                             </div>
                                         </b:if>
