@@ -2,11 +2,22 @@
     <b:includable id='main' var='this'>
         <div class='flex w-full flex-col items-center justify-center'>
             <b:if cond='data:view.search.query'>
+                <b:if cond='data:blog.isMobile'>
+                    <form expr:action='data:blog.searchUrl' expr:target='!data:view.isPreview ? "_top" : "_blank"' class='mb-6 flex w-full flex-row items-center justify-center rounded-full border border-[#e6e6e6] bg-transparent'>
+                        <b:include name='urlParamsAsFormInput' />
+                        <svg width='25' height='25' viewBox='0 0 25 25' fill='#292929' class='box-content h-[25px] w-[25px] p-2'>
+                            <path d='M20.07 18.93l-4.16-4.15a6 6 0 1 0-.88.88l4.15 4.16a.62.62 0 1 0 .89-.89zM6.5 11a4.75 4.75 0 1 1 9.5 0 4.75 4.75 0 0 1-9.5 0z' />
+                        </svg>
+                        <input id='search_input' class='w-full border-transparent bg-transparent p-0 text-sm leading-10 text-[#292929] outline-0 placeholder:text-[#292929] placeholder:opacity-50 focus:border-transparent focus:outline-none focus:outline-0 ltr:mr-5 rtl:ml-5' autocomplete='off' expr:aria-label='data:messages.searchThisBlog' expr:placeholder='data:messages.searchThisBlog' expr:value='data:view.isSearch ? data:view.search.query.escaped : ""' name='q' required='' />
+                    </form>
+                </b:if>
                 <div class='mb-10 w-full'>
-                    <h2 class='text-[42px] font-bold leading-[52px]'>
-                        <span class='text-[#7e7e7e]'>Results for </span>
+                    <h2 class='text-[22px] font-bold leading-7 lg:text-[42px] lg:leading-[52px]'>
+                        <b:if cond='!data:blog.isMobile'>
+                            <span class='hidden text-[#7e7e7e] lg:inline-block'>Results for </span>
+                        </b:if>
                         <span class='text-[#292929]'>
-                            <data:view.search.query />
+                            <b:eval expr='!data:blog.isMobile ? data:view.search.query : data:messages.search' />
                         </span>
                     </h2>
                 </div>
