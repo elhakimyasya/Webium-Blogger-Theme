@@ -64,7 +64,7 @@
                                                 <b:class name='text-[13px]' />
                                             </b:if>
                                             <div class='flex flex-row items-center justify-start ltr:pr-1 rtl:pl-1'>
-                                                <b:class expr:name='data:view.isSingleItem ? "leading-6" : "max-h-4 font-medium leading-4"' />
+                                                <b:class expr:name='data:view.isSingleItem ? "leading-6" : "max-h-4 leading-4"' />
                                                 <b:if cond='data:allBylineItems.author.label'>
                                                     <span class='hidden text-[#757575] ltr:mr-1 rtl:ml-1 md:block'>
                                                         <data:allBylineItems.author.label />
@@ -74,6 +74,20 @@
                                                     <data:post.author.name />
                                                 </span>
                                             </div>
+                                            <b:if cond='!data:view.isHomepage and !data:view.isError and !data:view.isSingleItem'>
+                                                <b:if cond='data:allBylineItems.timestamp and data:post.date != data:post.lastUpdated'>
+                                                    <time expr:datetime='data:post.date.iso8601' class='flex flex-row items-center justify-center'>
+                                                        <span class='hidden before:px-[6px] before:content-["\00B7"] xl:block' expr:title='data:post.lastUpdated'>
+                                                            <data:post.lastUpdated />
+                                                        </span>
+                                                    </time>
+                                                </b:if>
+                                                <b:if cond='data:i in {0, 1, 2}'>
+                                                    <svg width='15' height='15' viewBox='0 0 15 15' class='box-content h-[15px] w-[15px] px-[6px]'>
+                                                        <path d='M7.44 2.32c.03-.1.09-.1.12 0l1.2 3.53a.29.29 0 0 0 .26.2h3.88c.11 0 .13.04.04.1L9.8 8.33a.27.27 0 0 0-.1.29l1.2 3.53c.03.1-.01.13-.1.07l-3.14-2.18a.3.3 0 0 0-.32 0L4.2 12.22c-.1.06-.14.03-.1-.07l1.2-3.53a.27.27 0 0 0-.1-.3L2.06 6.16c-.1-.06-.07-.12.03-.12h3.89a.29.29 0 0 0 .26-.19l1.2-3.52z' fill='currentColor' />
+                                                    </svg>
+                                                </b:if>
+                                            </b:if>
                                             <b:comment>Index: Post Label</b:comment>
                                             <!-- <b:if cond='data:blog.isMobileRequest and data:view.isMultipleItems and data:post.labels.notEmpty and data:allBylineItems.labels'>
                                                 <div class='flex max-h-4 flex-row items-center justify-start font-medium leading-4 lg:hidden'>
@@ -192,12 +206,26 @@
                             </b:tag>
                         </b:if>
                         <b:if cond='data:view.isMultipleItems'>
-                            <div class='flex w-full flex-row items-center justify-between pt-2'>
-                                <div class='flex flex-row items-center justify-center text-[13px] text-[#757575]'>
+                            <div class='flex w-full flex-row items-center justify-between'>
+                                <b:if cond='!data:view.isHomepage and !data:view.isError'>
+                                    <b:class name='py-4 md:py-8' />
+                                    <b:else />
+                                    <b:class name='pt-2' />
+                                </b:if>
+                                <div class='flex items-center justify-center text-[13px] text-[#757575]'>
+                                    <b:if cond='!data:view.isHomepage and !data:view.isError'>
+                                        <b:class name='flex-row-reverse' />
+                                        <b:else />
+                                        <b:class name='flex-row' />
+                                    </b:if>
                                     <b:if cond='data:allBylineItems.timestamp and data:skin.vars.optionIndexTimestamp != "1px"'>
                                         <b:comment>Index: Post Timestamp</b:comment>
                                         <div class='flex flex-row items-center justify-center'>
-                                            <b:class cond='!data:blog.isMobileRequest and data:post.labels.notEmpty and data:allBylineItems.labels' name='after:hidden after:px-[6px] after:content-["\00B7"] xl:after:block' />
+                                            <b:if cond='!data:view.isHomepage and !data:view.isError'>
+                                                <b:class cond='data:post.labels.notEmpty and data:allBylineItems.labels' name='ltr:ml-2 rtl:mr-2' />
+                                                <b:else />
+                                                <b:class cond='!data:blog.isMobileRequest and data:post.labels.notEmpty and data:allBylineItems.labels' name='after:hidden after:px-[6px] after:content-["\00B7"] xl:after:block' />
+                                            </b:if>
                                             <b:if cond='data:allBylineItems.timestamp.label'>
                                                 <span class='hidden ltr:mr-1 rtl:ml-1 md:block'>
                                                     <data:allBylineItems.timestamp.label />
@@ -216,15 +244,22 @@
                                         </div>
                                     </b:if>
                                     <b:comment>Index: Post Label</b:comment>
-                                    <b:if cond='!data:blog.isMobileRequest and data:post.labels.notEmpty and data:allBylineItems.labels'>
-                                        <a expr:href='data:post.labels.first.url' expr:title='data:post.labels.first.name' rel='tag' class='relative hidden whitespace-nowrap rounded-full bg-[#f2f2f2] py-[2px] px-2 leading-5 transition-colors hover:bg-[#e6e6e6] lg:block'>
+                                    <b:if cond='data:post.labels.notEmpty and data:allBylineItems.labels'>
+                                        <a expr:href='data:post.labels.first.url' expr:title='data:post.labels.first.name' rel='tag' class='relative whitespace-nowrap rounded-full bg-[#f2f2f2] py-[2px] px-2 leading-5 transition-colors hover:bg-[#e6e6e6]'>
+                                            <b:if cond='!data:view.isHomepage and !data:view.isError'>
+                                                <b:class name='text-[#292929]' />
+                                                <b:else />
+                                                <b:class name='hidden lg:block' />
+                                            </b:if>
                                             <data:post.labels.first.name />
                                         </a>
                                     </b:if>
-                                    <b:if cond='data:i in {0, 1, 2}'>
-                                        <svg width='15' height='15' viewBox='0 0 15 15' class='box-content h-[15px] w-[15px] px-[6px]'>
-                                            <path d='M7.44 2.32c.03-.1.09-.1.12 0l1.2 3.53a.29.29 0 0 0 .26.2h3.88c.11 0 .13.04.04.1L9.8 8.33a.27.27 0 0 0-.1.29l1.2 3.53c.03.1-.01.13-.1.07l-3.14-2.18a.3.3 0 0 0-.32 0L4.2 12.22c-.1.06-.14.03-.1-.07l1.2-3.53a.27.27 0 0 0-.1-.3L2.06 6.16c-.1-.06-.07-.12.03-.12h3.89a.29.29 0 0 0 .26-.19l1.2-3.52z' fill='currentColor' />
-                                        </svg>
+                                    <b:if cond='data:view.isHomepage'>
+                                        <b:if cond='data:i in {0, 1, 2}'>
+                                            <svg width='15' height='15' viewBox='0 0 15 15' class='box-content h-[15px] w-[15px] px-[6px]'>
+                                                <path d='M7.44 2.32c.03-.1.09-.1.12 0l1.2 3.53a.29.29 0 0 0 .26.2h3.88c.11 0 .13.04.04.1L9.8 8.33a.27.27 0 0 0-.1.29l1.2 3.53c.03.1-.01.13-.1.07l-3.14-2.18a.3.3 0 0 0-.32 0L4.2 12.22c-.1.06-.14.03-.1-.07l1.2-3.53a.27.27 0 0 0-.1-.3L2.06 6.16c-.1-.06-.07-.12.03-.12h3.89a.29.29 0 0 0 .26-.19l1.2-3.52z' fill='currentColor' />
+                                            </svg>
+                                        </b:if>
                                     </b:if>
                                 </div>
                                 <!-- <svg width="25" height="25" viewBox="0 0 25 25" fill="none" class="text-[#292929]">
