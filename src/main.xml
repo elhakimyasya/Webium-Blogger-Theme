@@ -40,6 +40,15 @@
             <b:defaultmarkup type='Header'>
                 @@include("../src/partials/defaultmarkups/Header.xml")
             </b:defaultmarkup>
+            <b:defaultmarkup type='BlogSearch'>
+                @@include("../src/partials/defaultmarkups/BlogSearch.xml")
+            </b:defaultmarkup>
+            <b:defaultmarkup type='Label'>
+                @@include("../src/partials/defaultmarkups/Label.xml")
+            </b:defaultmarkup>
+            <b:defaultmarkup type='PageList'>
+                @@include("../src/partials/defaultmarkups/PageList.xml")
+            </b:defaultmarkup>
         </b:defaultmarkups>
         <b:include name='scriptHead' />
     </head>
@@ -76,13 +85,13 @@
                 <b:if cond='!data:view.isHomepage and !data:view.isError'>
                     <b:class name='ltr:xl:pl-20 rtl:xl:pr-20' />
                     <b:else />
-                    <b:class name='max-w-[1192px] pt-28 md:pt-32' />
+                    <b:class name='max-w-[1192px]' />
                 </b:if>
                 <main class='w-full max-w-full lg:max-w-[695px]'>
                     <b:if cond='!data:view.isHomepage and !data:view.isError'>
                         <b:class name='mx-auto pt-24 xl:pt-14' />
                         <b:else />
-                        <b:class name='rtl:mr-0 rtl:ml-0 ltr:md:mr-5 rtl:md:ml-5 ltr:lg:mr-10 rtl:lg:ml-10 ltr:xl:mr-16 rtl:xl:ml-16' />
+                        <b:class name='pt-28 rtl:mr-0 rtl:ml-0 md:pt-32 ltr:md:mr-5 rtl:md:ml-5 ltr:lg:mr-10 rtl:lg:ml-10 ltr:xl:mr-16 rtl:xl:ml-16' />
                     </b:if>
                     <b:section id='section_main_widget' class='section_main_widget' name='Main Section' maxwidgets='2' showaddelement='false'>
                         @@include("../src/partials/widgets/Blog1.xml")
@@ -91,10 +100,26 @@
                 <b:if cond='!data:view.isError'>
                     <aside class="w-full max-w-full lg:max-w-xs xl:max-w-sm">
                         <b:if cond='!data:view.isHomepage and !data:view.isError'>
-                            <b:class name='border-[#e6e6e6] p-0 ltr:ml-0 rtl:mr-0 lg:pt-24 ltr:lg:ml-6 ltr:lg:border-l ltr:lg:pl-8 rtl:lg:mr-6 rtl:lg:border-r rtl:lg:pr-8 xl:pt-8 ltr:xl:ml-0 ltr:xl:mr-0 ltr:xl:pl-8 rtl:xl:pr-8' />
+                            <b:class name='border-[#e6e6e6] p-0 ltr:ml-0 rtl:mr-0 xs:ltr:pr-0 xs:rtl:pl-0 lg:px-8 lg:pt-24 ltr:lg:ml-6 ltr:lg:border-l rtl:lg:mr-6 rtl:lg:border-r xl:pt-8 ltr:xl:ml-0 ltr:xl:mr-0' />
                         </b:if>
-                        <b:section id='section_aside_widget' class='section_aside_widget sticky top-[calc(75px+8rem)] flex flex-col items-center justify-center' name='Sidebar Section'>
-                        </b:section>
+                        <div class='sticky flex flex-col items-center justify-center'>
+                            <b:if cond='!data:view.isHomepage and !data:view.isError'>
+                                <b:class name='top-8' />
+                                <b:else />
+                                <b:class name='top-[130px]' />
+                            </b:if>
+                            <b:if cond='!data:view.isHomepage and !data:view.isError'>
+                                <form expr:action='data:blog.searchUrl' expr:target='!data:view.isPreview ? "_top" : "_blank"' class='mb-[38px] flex w-full flex-row items-center justify-center rounded-full border border-[#e6e6e6] bg-transparent'>
+                                    <b:include name='urlParamsAsFormInput' />
+                                    <svg width='25' height='25' viewBox='0 0 25 25' fill='#292929' class='box-content h-[25px] w-[25px] p-2'>
+                                        <path d='M20.07 18.93l-4.16-4.15a6 6 0 1 0-.88.88l4.15 4.16a.62.62 0 1 0 .89-.89zM6.5 11a4.75 4.75 0 1 1 9.5 0 4.75 4.75 0 0 1-9.5 0z' />
+                                    </svg>
+                                    <input id='search_input' class='w-full border-transparent bg-transparent p-0 text-sm leading-10 text-[#292929] outline-0 placeholder:text-[#292929] placeholder:opacity-50 focus:border-transparent focus:outline-none focus:outline-0 ltr:mr-5 rtl:ml-5' autocomplete='off' expr:aria-label='data:messages.searchThisBlog' expr:placeholder='data:messages.searchThisBlog' expr:value='data:view.isSearch ? data:view.search.query.escaped : ""' name='q' required='' />
+                                </form>
+                            </b:if>
+                            <b:section id='section_aside_widget' class='section_aside_widget flex flex-col items-center justify-center' name='Sidebar Section'>
+                            </b:section>
+                        </div>
                     </aside>
                 </b:if>
             </div>

@@ -1,3 +1,4 @@
+
 // Lazysizes
 document.addEventListener("lazybeforeunveil", function (event) {
     var attrDataImage = event.target.getAttribute("data-image");
