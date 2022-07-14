@@ -1,0 +1,11 @@
+{
+    "presets": [
+        [
+            "@babel/preset-env", {"modules": false}
+        ]
+    ],
+    "plugins": [
+        "transform-remove-debugger",
+        "transform-remove-console"
+    ]
+}

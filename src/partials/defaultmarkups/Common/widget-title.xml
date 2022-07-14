@@ -1,0 +1,5 @@
+<b:if cond='data:defaultTitle or data:title'>
+    <div class="mb-4 w-full text-xs font-bold uppercase tracking-wider text-[#292929]">
+        <b:eval expr='data:defaultTitle ?: data:title' />
+    </div>
+</b:if>
