@@ -24,7 +24,7 @@ If you have questions related to this theme, please write in the [Comments](http
 
 ## More Info
 - [Documentation](https://webium-blogger.blogspot.com/p/webium-documentations.html)
-- [Website](https://www.elcreativeacademy.com/)
+- [Official Website](https://www.elcreativeacademy.com/)
 
 ## License
 Webium Blogger Theme is licensed under the [MIT License](LICENSE).
