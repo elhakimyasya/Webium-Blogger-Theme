@@ -23,7 +23,7 @@ If you have questions related to this theme, please write in the [Comments](http
 - Some Images from [Unsplash](https://unsplash.com/)
 
 ## More Info
-- [Documentations](https://webium-blogger.blogspot.com/p/webium-documentations.html)
+- [Documentation](https://webium-blogger.blogspot.com/p/webium-documentations.html)
 - [Official Website](https://www.elcreativeacademy.com/)
 
 ## License
