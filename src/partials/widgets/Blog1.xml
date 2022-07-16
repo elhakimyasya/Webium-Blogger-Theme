@@ -48,6 +48,7 @@
                     </b:if>
                     <div class='flex w-full flex-col items-start justify-center'>
                         <b:if cond='!data:view.isHomepage and !data:view.isError'>
+                            <b:class name='mb-20 lg:mb-10' />
                             <b:else />
                             <b:class expr:name='data:view.isSingleItem ? "no_class" : "ltr:mr-5 rtl:ml-5"' />
                         </b:if>
