@@ -126,10 +126,10 @@
             <b:section id='hidden' class='invisible hidden' name='Hidden Section'>
                 <b:widget id='ContactForm1' locked='true' title='Contact Form' type='ContactForm' visible='true' version='2' />
             </b:section>
-            <b:if cond='data:view.isPost'>
-                <nav class='fixed w-full bottom-0 z-50 flex items-center justify-between'>
-                    <a class='box-content flex h-6 w-6 items-center justify-center p-3 text-[#757575] transition-colors hover:text-[#292929]' href='/'>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-label="Home">
+            <b:if cond='!data:blog.isMobile and data:view.isPost'>
+                <nav class='fixed bottom-0 z-50 flex h-14 w-full flex-shrink flex-row items-center justify-between bg-[#fff] shadow-md ltr:left-0 rtl:right-0'>
+                    <a class='box-content flex h-6 w-full items-center justify-center p-3 text-[#757575] transition-colors hover:text-[#292929]' href='/'>
+                        <svg width='24' height='24' viewBox='0 0 24 24' fill='none' aria-label='Home' class='h-6 w-6'>
                             <path d='M4.5 10.75v10.5c0 .14.11.25.25.25h5c.14 0 .25-.11.25-.25v-5.5c0-.14.11-.25.25-.25h3.5c.14 0 .25.11.25.25v5.5c0 .14.11.25.25.25h5c.14 0 .25-.11.25-.25v-10.5M22 9l-9.1-6.83a1.5 1.5 0 0 0-1.8 0L2 9' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' />
                         </svg>
                     </a>
