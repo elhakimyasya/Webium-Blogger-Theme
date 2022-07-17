@@ -17,7 +17,7 @@ If you have questions related to this theme, please write in the [Comments](http
 <hr>
 
 ## To-Do List (Latest Update Progress)
-[Live Demo (Beta)](#)
+[Live Demo (Beta)](https://idpdthemes.blogspot.com/)
 
 - ✅ Home Page
 - ✅ Post Page
