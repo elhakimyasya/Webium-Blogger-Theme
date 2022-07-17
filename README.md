@@ -31,6 +31,7 @@ If you have questions related to this theme, please write in the [Comments](http
 - [Tailwind CSS](https://tailwindcss.com/)
 - [LazySizes](https://github.com/aFarkas/lazysizes)
 - [Medium Zoom](https://github.com/francoischalifour/medium-zoom)
+- [Easy Toggle State](https://github.com/Twikito/easy-toggle-state)
 - [Simple AJAX infinite scroll](https://dte.web.id/teknis/blogger-infinite-scroll)
 - Some Images from [Unsplash](https://unsplash.com/)
 
