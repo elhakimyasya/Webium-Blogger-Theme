@@ -16,18 +16,12 @@ If you have questions related to this theme, please write in the [Comments](http
 
 ## To-Do List (Progress)
 
-✅ Home Page
-
-✅ Post Page
-
-❌ Static Page
-
-✅ Search Page
-
-✅ Archive Page
-
-✅ Label Page
-
+✅ Home Page  
+✅ Post Page  
+❌ Static Page  
+✅ Search Page  
+✅ Archive Page  
+✅ Label Page  
 ❌ Widgets
 
 <hr>
