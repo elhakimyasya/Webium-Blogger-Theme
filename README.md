@@ -14,7 +14,7 @@ Webium is a Blogger Template or Theme that looks very similar to the Medium.com.
 
 If you have questions related to this theme, please write in the [Comments](https://www.elcreativeacademy.com/2021/03/webium-template-blogger-mirip-medium.html) or [Discussions](https://github.com/elhakimyasya/Webium-Blogger-Theme/discussions) page.
 
-## To-Do List (Progress)
+## To-Do List (Latest Update Progress)
 
 ✅ Home Page  
 ✅ Post Page  
