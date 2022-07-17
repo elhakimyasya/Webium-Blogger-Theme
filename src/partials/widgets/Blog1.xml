@@ -48,8 +48,9 @@
                     </b:if>
                     <div class='flex w-full flex-col items-start justify-center'>
                         <b:if cond='!data:view.isHomepage and !data:view.isError'>
+                            <b:class cond='data:view.isPost' name='mb-20 lg:mb-10' />
                             <b:else />
-                            <b:class expr:name='data:view.isSingleItem ? "mb-20 lg:mb-10" : "ltr:mr-5 rtl:ml-5"' />
+                            <b:class expr:name='data:view.isSingleItem ? "no_class" : "ltr:mr-5 rtl:ml-5"' />
                         </b:if>
                         <b:tag cond='data:view.isPost' name='div' class='mb-6 flex w-full flex-col items-start justify-between lg:mb-8 lg:flex-row lg:items-center'>
                             <b:comment>Index: Post Author</b:comment>
