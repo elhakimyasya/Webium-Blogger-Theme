@@ -393,7 +393,7 @@
                                                 <b:if cond='data:post.numberOfComments > 0'>
                                                     <div id='comment_holder'>
                                                         <b:loop values='data:post.comments where (c => not c.inReplyTo)' var='commentThreadPrimary'>
-                                                            <div class='flex flex-col items-center justify-center p-6'>
+                                                            <div class='flex flex-col items-center justify-center border-b border-[#e6e6e6] p-6 last:border-b-0'>
                                                                 <b:include data='{level: data:commentThreadPrimary, d: true}' name='commentBlock' />
                                                                 <div class='mt-[14px] flex w-full items-center justify-end'>
                                                                     <a expr:aria-label='data:messages.postAComment' expr:data-reply-to='data:commentThreadPrimary.id' expr:href='"#comment_id_" + data:commentThreadPrimary.id' role='button' target='_self' class='reply_to text-sm font-normal text-[#292929] no-underline hover:underline'>
@@ -450,9 +450,16 @@
     <b:includable id='commentBlock' var='cb'>
         <div class='flex w-full flex-col items-center justify-center'>
             <div class='flex w-full flex-row items-center justify-center'>
-                <b:with value='data:cb.level.authorAvatarSrc ? data:cb.level.authorAvatarSrc : "//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhPzZlVciGeYVCgCEcfFKeNI8IhtFHNShFG_5Xavi8bej56zOpPRIjHEUZsTsLybpnEZkNJ6M-ivL0lcjLs9YEu_xVrD14a9gtcfxBAzIvwrmAY920GO9gkHtlljlwvRnLcRvD8WL5pbEcmgxCpct-7EJsMymUnpFCMxpTk8i0b0P7O82_kzKoEjeb3/s1600-rw/user-icon.webp"' var='images'>
-                    <span class='lazyload block h-8 w-8 flex-shrink-0 flex-grow-0 rounded-full bg-[#cbd5e1] bg-cover bg-center bg-no-repeat' expr:data-image='resizeImage(data:images, 32, "1:1")' expr:title='data:cb.level.author' />
-                </b:with>
+                <div class='relative'>
+                    <b:with value='data:cb.level.authorAvatarSrc ? data:cb.level.authorAvatarSrc : "//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhPzZlVciGeYVCgCEcfFKeNI8IhtFHNShFG_5Xavi8bej56zOpPRIjHEUZsTsLybpnEZkNJ6M-ivL0lcjLs9YEu_xVrD14a9gtcfxBAzIvwrmAY920GO9gkHtlljlwvRnLcRvD8WL5pbEcmgxCpct-7EJsMymUnpFCMxpTk8i0b0P7O82_kzKoEjeb3/s1600-rw/user-icon.webp"' var='images'>
+                        <span class='lazyload block h-8 w-8 flex-shrink-0 flex-grow-0 rounded-full bg-[#cbd5e1] bg-cover bg-center bg-no-repeat' expr:data-image='resizeImage(data:images, 32, "1:1")' expr:title='data:cb.level.author' />
+                    </b:with>
+                    <div class='absolute top-2/4 left-2/4 flex -translate-x-2/4 -translate-y-2/4 items-center justify-center text-[#1a8917]'>
+                        <svg width="39" height="39" viewBox="0 0 39 39" fill="currentColor">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.5 1C11.83 1 5.17 5.75 1.9 12.71L1 12.3C4.4 5.02 11.4 0 19.5 0S34.6 5.02 38 12.29l-.9.42C33.82 5.75 27.16 1 19.5 1zM1.9 26.29C5.18 33.25 11.84 38 19.5 38c7.67 0 14.33-4.75 17.6-11.71l.9.42C34.6 33.98 27.6 39 19.5 39S4.4 33.98 1 26.71l.9-.42z" />
+                        </svg>
+                    </div>
+                </div>
                 <div class='flex w-full flex-col items-start justify-center ltr:ml-3 rtl:mr-3'>
                     <b:if cond='data:cb.level.author != "Anonymous"'>
                         <span class='text-sm font-normal text-[#292929]'>
