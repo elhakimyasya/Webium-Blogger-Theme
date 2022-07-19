@@ -379,7 +379,7 @@
                                         <b:if cond='data:allBylineItems.comments and data:post.allowNewComments'>
                                             <section id='comments' class='fixed top-0 z-50 h-[calc(100vh+30px)] w-full max-w-full translate-x-0 translate-y-[100%] overflow-y-auto overflow-x-hidden rounded-tl-[20px] rounded-tr-[20px] bg-[#fff] shadow-[0_4px_12px_rgba(0,0,0,0.15)] transition-transform duration-500 ltr:right-0 rtl:left-0 lg:h-screen lg:max-w-[414px] lg:translate-y-0 lg:translate-x-[420px] lg:rounded-tl-none lg:rounded-tr-none' expr:data-src='data:post.commentFormIframeSrc appendParams {skin: "contempo"}'>
                                                 <div class='flex flex-row flex-nowrap items-center justify-between p-6'>
-                                                    <h2 class='text-xl font-medium text-[#292929]'>
+                                                    <h2 class='text-xl font-medium capitalize text-[#292929]'>
                                                         <b:message name='messages.numberOfComments'>
                                                             <b:param expr:value='data:post.numberOfComments' name='numComments' />
                                                         </b:message>
@@ -390,8 +390,25 @@
                                                         </svg>
                                                     </button>
                                                 </div>
-                                                
-                                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores cumque corrupti doloremque qui libero, sapiente iste facere voluptate dolor facilis, consectetur quo totam ab ipsum deleniti ut velit nulla fuga. Nostrum, similique. Veniam quos, voluptate quam itaque quas consequatur deleniti. Veritatis voluptatum nemo ut, sunt iusto incidunt officia vitae voluptates quidem blanditiis! Aliquam iure cum unde dolor magni id magnam incidunt. Distinctio atque fuga eligendi earum explicabo animi, possimus consequatur, dolorum dolor illum facilis. Possimus nesciunt ad aspernatur quisquam ipsam, temporibus molestiae amet odit sit nobis hic dolorem beatae assumenda. Quod, voluptas. Adipisci molestias nisi eaque quos iste esse tenetur molestiae possimus dolorum delectus. Vel, eos et pariatur quasi laudantium sapiente laboriosam non reprehenderit voluptatem esse assumenda velit mollitia impedit eligendi deleniti! Molestias voluptates consectetur quia, dolorum reprehenderit laboriosam fuga! Praesentium beatae illo quibusdam explicabo amet ut, quia vel a, iure dolorum reiciendis saepe eveniet? Laudantium et aliquam eius mollitia, doloribus cupiditate eaque asperiores.
+                                                <b:if cond='data:post.numberOfComments > 0'>
+                                                    <div id='comment_holder'>
+                                                        <b:loop values='data:post.comments where (c => not c.inReplyTo)' var='commentThreadPrimary'>
+                                                            <b:include data='{level: data:commentThreadPrimary, d: true}' name='commentBlock' />
+                                                            <b:with value='data:post.comments where (c => c.inReplyTo == data:commentThreadPrimary.id)' var='commentThreadSecondary'>
+                                                                <b:if cond='data:commentThreadSecondary.size != "0"'>
+                                                                    <b:loop values='data:commentThreadSecondary' var='commentLevel2'>
+                                                                        <b:include data='{level: data:commentLevel2, d: true}' name='commentBlock' />
+                                                                    </b:loop>
+                                                                </b:if>
+                                                            </b:with>
+                                                            <b:if cond='data:commentThreadSecondary.size != "1" and data:post.allowNewComments'>
+                                                                <b:with value='data:blog.locale == "id" ? "Balas Komentar" : "Reply to This Comment"' var='languages'>
+                                                                    <data:languages />
+                                                                </b:with>
+                                                            </b:if>
+                                                        </b:loop>
+                                                    </div>
+                                                </b:if>
                                             </section>
                                         </b:if>
                                     </b:if>
@@ -418,6 +435,38 @@
                     </b:if>
                 </article>
             </b:loop>
+        </div>
+    </b:includable>
+    <b:includable id='commentBlock' var='cb'>
+        <div class='flex flex-col items-center justify-center p-6'>
+            <div class='flex w-full flex-col items-center justify-center'>
+                <div class='flex w-full flex-row items-center justify-center'>
+                    <b:with value='data:cb.level.authorAvatarSrc ? data:cb.level.authorAvatarSrc : "//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhPzZlVciGeYVCgCEcfFKeNI8IhtFHNShFG_5Xavi8bej56zOpPRIjHEUZsTsLybpnEZkNJ6M-ivL0lcjLs9YEu_xVrD14a9gtcfxBAzIvwrmAY920GO9gkHtlljlwvRnLcRvD8WL5pbEcmgxCpct-7EJsMymUnpFCMxpTk8i0b0P7O82_kzKoEjeb3/s1600-rw/user-icon.webp"' var='images'>
+                        <span class='lazyload block h-8 w-8 flex-shrink-0 flex-grow-0 rounded-full bg-[#cbd5e1] bg-cover bg-center bg-no-repeat' expr:data-image='resizeImage(data:images, 32, "1:1")' expr:title='data:cb.level.author' />
+                    </b:with>
+                    <div class='flex w-full flex-col items-start justify-center ltr:ml-3 rtl:mr-3'>
+                        <b:if cond='data:cb.level.author != "Anonymous"'>
+                            <span class='text-sm font-normal text-[#292929]'>
+                                <data:cb.level.author />
+                            </span>
+                            <b:else />
+                            <strong class='text-sm font-normal text-[#292929]'>User</strong>
+                        </b:if>
+                        <time class='text-sm font-normal text-[#757575]' expr:data-datetime='data:cb.level.timestamp'>
+                            <data:cb.level.timestamp />
+                        </time>
+                    </div>
+                </div>
+            </div>
+            <b:if cond='data:cb.level.authorUrl != data:post.author.profileUrl'>
+                <div class='text-sm font-normal text-[#292929]'>
+                    <b:eval expr='data:cb.level.body snippet {links: false}' />
+                </div>
+                <b:else />
+                <div class='text-sm font-normal text-[#292929]'>
+                    <data:cb.level.body />
+                </div>
+            </b:if>
         </div>
     </b:includable>
 
