@@ -2,6 +2,7 @@
     <b:includable id='main' var='this'>
         <div class='flex w-full flex-col items-center justify-center'>
             <b:if cond='data:view.search or data:view.isArchive'>
+                <b:comment>Index: Search Form for Search Page</b:comment>
                 <b:if cond='data:blog.isMobile and data:view.search.query'>
                     <form expr:action='data:blog.searchUrl' expr:target='!data:view.isPreview ? "_top" : "_blank"' class='mb-6 flex w-full flex-row items-center justify-center rounded-full border border-[#e6e6e6] bg-transparent'>
                         <b:include name='urlParamsAsFormInput' />
@@ -14,14 +15,21 @@
                 <div class='mb-10 w-full'>
                     <h2 class='text-[22px] font-bold leading-7 lg:text-[42px] lg:leading-[52px]'>
                         <b:class cond='data:view.search.label' name='flex items-center justify-start flex-row' />
+                        <b:comment>Index: Label Icon</b:comment>
                         <b:if cond='data:view.search.label'>
                             <svg width='21' height='21' class='box-content rounded-full bg-[#ededed] p-1 text-[#292929] ltr:mr-2 rtl:ml-2'>
                                 <path d='M4.66 8.72L3.43 9.95a1.75 1.75 0 0 0 0 2.48l5.14 5.13c.7.7 1.8.69 2.48 0l1.23-1.22 5.35-5.35a2 2 0 0 0 .51-1.36l-.32-4.29a2.42 2.42 0 0 0-2.15-2.14l-4.3-.33c-.43-.03-1.05.2-1.36.51l-.79.8-2.27 2.28-2.28 2.27zm9.83-.98a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5z' fill='currentColor' fill-rule='evenodd' />
                             </svg>
                         </b:if>
+                        <b:comment>Index: Search Result Prefix</b:comment>
                         <b:if cond='!data:blog.isMobile and data:view.search.query'>
-                            <span class='hidden text-[#7e7e7e] lg:inline-block'>Results for </span>
+                            <b:with value='data:blog.locale == "id" ? "Hasil untuk " : "Results for "' var='languages'>
+                                <span class='hidden text-[#7e7e7e] lg:inline-block'>
+                                    <data:languages/>
+                                </span>
+                            </b:with>
                         </b:if>
+                        <b:comment>Index: Search Result Query</b:comment>
                         <span class='text-[#292929]'>
                             <b:if cond='data:view.search.query'>
                                 <b:eval expr='!data:blog.isMobile ? data:view.search.query : data:messages.search' />
@@ -35,7 +43,7 @@
                 </div>
                 <div class='mb-6 flex w-full flex-row items-center justify-start border-b border-[#e6e6e6] lg:mb-12'>
                     <div class='border-b border-[#292929] pb-4 text-sm'>
-                        Posts
+                        <data:messages.posts />
                     </div>
                 </div>
             </b:if>
@@ -53,7 +61,7 @@
                             <b:class expr:name='data:view.isSingleItem ? "no_class" : "ltr:mr-5 rtl:ml-5"' />
                         </b:if>
                         <b:tag cond='data:view.isPost' name='div' class='mb-6 flex w-full flex-col items-start justify-between lg:mb-8 lg:flex-row lg:items-center'>
-                            <b:comment>Index: Post Author</b:comment>
+                            <b:comment>Item: Post Author</b:comment>
                             <b:if cond='data:allBylineItems.author'>
                                 <div class='flex w-full flex-row items-center justify-start'>
                                     <b:if cond='!data:view.isHomepage and !data:view.isError'>
@@ -66,6 +74,7 @@
                                             <b:else />
                                             <b:class name='h-5 w-5 ltr:mr-2 rtl:ml-2' />
                                         </b:if>
+                                        <b:comment>Item: Post Author Image</b:comment>
                                         <b:with value='data:post.author.authorPhoto.image ? data:post.author.authorPhoto.image : "//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhPzZlVciGeYVCgCEcfFKeNI8IhtFHNShFG_5Xavi8bej56zOpPRIjHEUZsTsLybpnEZkNJ6M-ivL0lcjLs9YEu_xVrD14a9gtcfxBAzIvwrmAY920GO9gkHtlljlwvRnLcRvD8WL5pbEcmgxCpct-7EJsMymUnpFCMxpTk8i0b0P7O82_kzKoEjeb3/s1600-rw/user-icon.webp"' var='images'>
                                             <span class='lazyload block h-full w-full flex-shrink-0 flex-grow-0 animate-pulse bg-[#cbd5e1] bg-cover bg-center bg-no-repeat' expr:title='data:post.author.name'>
                                                 <b:if cond='!data:view.isHomepage and !data:view.isError'>
@@ -83,6 +92,7 @@
                                                 <b:else />
                                                 <b:class name='flex-wrap text-[13px]' />
                                             </b:if>
+                                            <b:comment>Item: Post Author Label and Name</b:comment>
                                             <div class='flex flex-row items-center justify-start ltr:pr-1 rtl:pl-1'>
                                                 <b:class expr:name='data:view.isSingleItem ? "leading-6" : "max-h-4 leading-4"' />
                                                 <b:if cond='data:allBylineItems.author.label'>
@@ -94,6 +104,7 @@
                                                     <data:post.author.name />
                                                 </span>
                                             </div>
+                                            <b:comment>Item: Post Timestamp</b:comment>
                                             <b:if cond='!data:view.isHomepage and !data:view.isError and !data:view.isSingleItem'>
                                                 <b:if cond='data:allBylineItems.timestamp and data:post.date != data:post.lastUpdated'>
                                                     <time expr:datetime='data:post.date.iso8601' class='flex flex-row items-center justify-center text-[#757575] '>
@@ -124,7 +135,7 @@
                                         </div>
                                         <b:if cond='data:view.isPost'>
                                             <b:if cond='data:allBylineItems.timestamp'>
-                                                <b:comment>Index: Post Timestamp</b:comment>
+                                                <b:comment>Item: Post Timestamp</b:comment>
                                                 <div class='flex flex-row items-center justify-center text-sm text-[#757575]'>
                                                     <b:if cond='data:allBylineItems.timestamp.label'>
                                                         <span class='hidden ltr:mr-1 rtl:ml-1 md:block'>
