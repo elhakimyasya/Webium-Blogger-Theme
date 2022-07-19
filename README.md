@@ -20,11 +20,12 @@ If you have questions related to this theme, please write in the [Comments](http
 [Live Demo (Beta)](https://idpdthemes.blogspot.com/)
 
 - ✅ Home Page
-- ✅ Post Page
-- ❌ Static Page
 - ✅ Search Page
 - ✅ Archive Page
 - ✅ Label Page
+- ❌ Error Page
+- ✅ Post Page
+- ❌ Static Page
 - ❌ Widgets
 
 ## Credits
