@@ -84,9 +84,10 @@ body {
   @apply bg-inherit p-0 text-base font-normal;
 }
 
-.elcreative_comment .check_show_thread:checked ~ .comment_toggle .showless,
-.elcreative_comment .check_show_thread:checked ~ .comment_actions,
+.elcreative_comment .check_show_thread:not(:checked) ~ div .comment_toggle .showall,
+.elcreative_comment .check_show_thread:checked ~ div .comment_toggle .showless,
 .elcreative_comment .check_show_thread:checked ~ .comment_thread,
-.elcreative_comment .check_show_thread:checked ~ .threaded_comment_form {
+.elcreative_comment .check_show_thread:checked ~ div .comment_actions,
+.elcreative_comment .check_show_thread:checked ~ div .threaded_comment_form {
   @apply hidden;
 }
