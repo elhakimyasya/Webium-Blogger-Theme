@@ -83,3 +83,10 @@ body {
 .post_body.prose :where(pre code):not(:where([class~="not-prose"] *)) {
   @apply bg-inherit p-0 text-base font-normal;
 }
+
+.elcreative_comment .check_show_thread:checked ~ .comment_toggle .showless,
+.elcreative_comment .check_show_thread:checked ~ .comment_actions,
+.elcreative_comment .check_show_thread:checked ~ .comment_thread,
+.elcreative_comment .check_show_thread:checked ~ .threaded_comment_form {
+  @apply hidden;
+}
