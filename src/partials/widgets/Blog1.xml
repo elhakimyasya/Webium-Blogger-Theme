@@ -377,7 +377,7 @@
                                         </b:if>
                                         <b:comment>Item: Post Comments</b:comment>
                                         <b:if cond='data:allBylineItems.comments and data:post.allowNewComments'>
-                                            <section id='comments' class='elcreative_comment fixed top-0 z-[60] h-[calc(100vh-30px)] w-full max-w-full translate-x-0 translate-y-[100%] overflow-y-auto overflow-x-hidden rounded-tl-[20px] rounded-tr-[20px] bg-[#fff] shadow-[0_4px_12px_rgba(0,0,0,0.15)] transition-transform duration-500 ltr:right-0 rtl:left-0 lg:h-screen lg:max-w-[414px] lg:translate-y-0 lg:rounded-tl-none lg:rounded-tr-none ltr:lg:translate-x-[420px] rtl:lg:translate-x-[-420px]' expr:data-src='data:post.commentFormIframeSrc appendParams {skin: "contempo"}'>
+                                            <section id='comments' class='elcreative_comment fixed top-0 z-[60] h-[calc(100vh-30px)] w-full max-w-full translate-x-0 translate-y-[100%] overflow-y-auto overflow-x-hidden rounded-tl-[20px] rounded-tr-[20px] bg-[#fff] shadow-[0_4px_12px_rgba(0,0,0,0.15)] transition-transform duration-500 ltr:right-0 rtl:left-0 lg:h-screen lg:max-w-[414px] lg:translate-y-0 lg:rounded-tl-none lg:rounded-tr-none ltr:lg:translate-x-[420px] rtl:lg:translate-x-[-420px]' expr:data-src='data:post.commentFormIframeSrc'>
                                                 <div class='flex flex-row flex-nowrap items-center justify-between p-6'>
                                                     <h2 class='text-xl font-medium capitalize text-[#292929]'>
                                                         <b:message name='messages.numberOfComments'>
@@ -393,12 +393,12 @@
                                                 <b:if cond='data:post.numberOfComments > 0'>
                                                     <div id='comment_holder'>
                                                         <b:loop values='data:post.comments where (c => not c.inReplyTo)' var='commentThreadPrimary'>
-                                                            <div class='flex flex-col items-center justify-center border-b border-[#e6e6e6] p-6 last:border-b-0'>
+                                                            <div expr:id='"c" + data:commentThreadPrimary.id' class='flex flex-col items-center justify-center border-b border-[#e6e6e6] p-6 last:border-b-0'>
                                                                 <b:include data='{level: data:commentThreadPrimary, d: true}' name='commentBlock' />
                                                                 <b:with value='data:post.comments where (c => c.inReplyTo == data:commentThreadPrimary.id)' var='commentThreadSecondary'>
                                                                     <input class='check_show_thread hidden' expr:id='"elcreative_comments_" + data:commentThreadPrimary.id' type='checkbox' checked='true' />
-                                                                    <div class='flex w-full items-center'>
-                                                                        <b:class expr:name='data:commentThreadSecondary.size != "0" ? "my-[14px] justify-between" : "mt-[14px] justify-end"' />
+                                                                    <div class='mt-[14px] flex w-full items-center'>
+                                                                        <b:class expr:name='data:commentThreadSecondary.size != "0" ? "justify-between" : "justify-end"' />
                                                                         <b:if cond='data:commentThreadSecondary.size != "0"'>
                                                                             <div class='comment_toggle'>
                                                                                 <label expr:for='"elcreative_comments_" + data:commentThreadPrimary.id' class='flex cursor-pointer select-none flex-row items-center justify-center text-sm font-normal capitalize text-[#292929]'>
@@ -423,7 +423,7 @@
                                                                         </b:if>
                                                                     </div>
                                                                     <b:if cond='data:commentThreadSecondary.size != "0"'>
-                                                                        <div expr:id='"comment_thread_" + data:commentThreadPrimary.id' class='comment_thread flex w-full flex-col items-center justify-center border-[#e6e6e6] ltr:border-l-[3px] ltr:pl-6 rtl:border-r-[3px] rtl:pr-6'>
+                                                                        <div expr:id='"comment_thread_" + data:commentThreadPrimary.id' class='comment_thread mt-[14px] flex w-full flex-col items-center justify-center border-[#e6e6e6] ltr:border-l-[3px] ltr:pl-6 rtl:border-r-[3px] rtl:pr-6'>
                                                                             <b:loop values='data:commentThreadSecondary' var='commentLevel2'>
                                                                                 <div class='w-full py-6'>
                                                                                     <b:include data='{level: data:commentLevel2, d: true}' name='commentBlock' />
@@ -435,6 +435,19 @@
                                                             </div>
                                                         </b:loop>
                                                     </div>
+                                                    <b:if cond='data:post.allowNewComments'>
+                                                        <div class='comment_add flex w-full items-center justify-center'>
+                                                            <button id='comment_add' class='add_comment elcreative_button m-2 hidden' expr:aria-label='data:messages.postAComment' type='button' role='button' data-comments='true'>
+                                                                <b:class cond='data:skin.vars.optionFeatureRippleEffect == "2px"' name='elcreative_ripple' />
+                                                                <b:class expr:name='data:skin.vars.optionItemCommentButtonStyle == "2px" ? "raised" : data:skin.vars.optionItemCommentButtonStyle == "3px" ? "unelevated" : data:skin.vars.optionItemCommentButtonStyle == "4px" ? "outlined" : "default"' />
+                                                                <b:with value='data:blog.locale == "id" ? "Tulis Komentar Baru" : "Post a New Comment"' var='languages'>
+                                                                    <data:languages />
+                                                                </b:with>
+                                                            </button>
+                                                        </div>
+                                                    </b:if>
+                                                    <b:else />
+                                                    <div id='comment_add' class='add_comment' data-comments='false' />
                                                 </b:if>
                                                 <div class='comment_form flex w-full items-center justify-center'>
                                                     <b:if cond='data:post.allowNewComments'>
