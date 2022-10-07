@@ -1,1 +1,34 @@
-<div class="flex cursor-pointer select-none flex-row items-center justify-center text-sm font-normal capitalize text-[#292929]"></div>
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html b:css="false" b:defaultwidgetversion="2" b:js="false" b:layoutsVersion="3" b:responsive="true" b:templateVersion="{{version}}" expr:class='data:blog.languageDirection + " " + data:blog.pageType' expr:dir="data:blog.languageDirection" expr:lang="data:blog.locale" xmlns="http://www.w3.org/1999/xhtml" xmlns:b="http://www.google.com/2005/gml/b" xmlns:data="http://www.google.com/2005/gml/data" xmlns:expr="http://www.google.com/2005/gml/expr">
+    <head>
+        <b:include data="blog" name="headContent" />
+        <!-- prettier-ignore -->
+        <b:if cond="!data:view.isLayoutMode">
+            <b:skin>/*
+                * Name            : {{names}}
+                * Version         : {{version}}
+                * Release Date    : {{releasedDate}}
+                * Author          : {{author.name}}
+                * Demo URL        : {{demo}}
+                */
+                {{config.cdataStart}}/*
+                */{{config.cdataEnd}}
+                :root {
+                }
+                @@include("../build/styles/styles.min.css")
+            </b:skin>
+            <b:else />
+            <b:template-skin>@@include("../build/styles/layout.css")</b:template-skin>
+        </b:if>
+        <b:defaultmarkups>
+            <b:defaultmarkup type="Common">
+                <!-- prettier-ignore -->
+                <b:includable id="headContent">
+                    @@include("../src/partials/defaultmarkups/Common/headContent.html")
+                </b:includable>
+            </b:defaultmarkup>
+        </b:defaultmarkups>
+    </head>
+    <body></body>
+</html>
