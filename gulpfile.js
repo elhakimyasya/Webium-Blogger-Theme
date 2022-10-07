@@ -1,37 +1,60 @@
-const gulpAutoprefixer = require("gulp-autoprefixer");
-const gulpTokenReplace = require("gulp-token-replace");
-const gulpBabelMinify = require("gulp-babel-minify");
-const gulpFileInclude = require("gulp-file-include");
-const gulpCleanCSS = require("gulp-clean-css");
-const gulpReplace = require("gulp-replace");
-const gulpRename = require("gulp-rename");
-const gulpBabel = require("gulp-babel");
-const gulp = require("gulp");
-const del = require("del");
+const del = require('del');
 const fs = require("fs");
+const gulp = require('gulp');
+const gulpAutoPrefixer = require('gulp-autoprefixer');
+const gulpBabelMinify = require('gulp-babel-minify');
+const gulpCleanCSS = require('gulp-clean-css');
+const gulpFileInclude = require('gulp-file-include');
+const gulpRename = require('gulp-rename');
+const gulpReplace = require('gulp-replace');
+const gulpSass = require('gulp-sass')(require('sass'));
+const gulpStripComments = require('gulp-strip-comments');
+const gulpTokenReplace = require('gulp-token-replace');
+const webpack = require('webpack');
+const webpackStream = require('webpack-stream');
 
-gulp.task("clean", function () {
-    return del(["build/**"], {
-        force: true
-    });
+const packages = './package.json';
+
+// Clean everything inside ./build directory
+gulp.task('clean', () => {
+    const sources = [
+        './build/**'
+    ];
+
+    return del(sources, {
+        force: true,
+    })
 });
 
-gulp.task("styles", function () {
-    return gulp.src("./src/assets/styles/*.css")
-        // .pipe(gulpSass())
-        .pipe(gulp.dest("./build/styles"))
-});
+// Generate styles
+gulp.task('styles', () => {
+    const sources = [
+        './src/assets/styles/*.{css,scss}'
+    ];
 
-gulp.task("styles:autoprefixed", function () {
-    return gulp.src("./build/styles/*.css")
-        .pipe(gulpAutoprefixer({
+    return gulp.src(sources)
+        .pipe(gulpSass())
+        .pipe(gulp.dest('./build/styles'))
+});
+// Generate prefixed styles
+gulp.task('styles:autoprefixed', () => {
+    const sources = [
+        './build/styles/*.{css}'
+    ];
+
+    return gulp.src(sources)
+        .pipe(gulpAutoPrefixer({
             cascade: false
         }))
-        .pipe(gulp.dest("./build/styles"))
+        .pipe(gulp.dest('./build/styles'))
 });
+// Generate minified styles
+gulp.task('styles:minified', () => {
+    const sources = [
+        './build/styles/*.{css,scss}'
+    ];
 
-gulp.task("styles:minify", function () {
-    return gulp.src("./build/styles/*.css")
+    return gulp.src(sources)
         .pipe(gulpCleanCSS({
             level: {
                 1: {
@@ -39,17 +62,32 @@ gulp.task("styles:minify", function () {
                 }
             }
         }))
-        .pipe(gulp.dest("./build/styles"))
+        .pipe(gulp.dest('./build/styles'))
 });
 
-gulp.task("scripts", function () {
-    return gulp.src(["./src/assets/scripts/*.js", "./src/assets/scripts/libraries/*.js"])
-        .pipe(gulpBabel())
-        .pipe(gulp.dest("./build/scripts"))
-});
+// Generate scripts
+gulp.task('scripts', () => {
+    const sources = [
+        './src/assets/scripts/*.js'
+    ];
 
-gulp.task("scripts:minify", function () {
-    return gulp.src("./build/scripts/*.js")
+    return gulp.src(sources)
+        .pipe(webpackStream({
+            mode: 'production',
+            output: {
+                filename: 'scripts.js'
+            },
+            watch: false
+        }, webpack))
+        .pipe(gulp.dest('./build/scripts'))
+});
+// Generate minified scripts
+gulp.task('scripts:minified', () => {
+    const sources = [
+        './build/scripts/*.js'
+    ];
+
+    return gulp.src(sources)
         .pipe(gulpBabelMinify({
             mangle: {
                 keepClassName: false
@@ -57,79 +95,103 @@ gulp.task("scripts:minify", function () {
             evaluate: false,
             builtIns: false,
             removeDebugger: true,
-            removeConsole: true
+            removeConsole: false
         }))
-        .pipe(gulp.dest("./build/scripts"))
+        .pipe(gulp.dest('./build/scripts'))
 });
 
-gulp.task("timestamp", function (done) {
-    var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    var date = new Date();
-    var releasedDate = `${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()} - ${("0" + date.getHours()).slice(-2)}:${("0" + date.getMinutes()).slice(-2)}`;
+// Generate Timestamp
+gulp.task('timestamp', (done) => {
+    const monthNames = [
+        'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+    const date = new Date();
+    const timestamps = `${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()} - ${("0" + date.getHours()).slice(-2)}:${("0" + date.getMinutes()).slice(-2)}`;
 
-    function jsonReader(filePath, cb) {
+    !((filePath, results) => {
         fs.readFile(filePath, (error, fileData) => {
             if (error) {
-                return cb && cb(error);
-            };
+                return results && results(error)
+            } else {
+                try {
+                    const object = JSON.parse(fileData);
 
-            try {
-                const object = JSON.parse(fileData);
-                return cb && cb(null, object);
-            } catch (error) {
-                return cb && cb(error);
+                    return results && results(null, object);
+                } catch (errors) {
+                    return results && results(errors)
+                }
             }
-        });
-    };
-
-    jsonReader("./package.json", function (error, object) {
+        })
+    })(packages, (error, object) => {
         if (error) {
-            console.log("Error reading file:", error);
-            return;
-        };
+            return console.log("Error Reading File: ", error)
+        } else {
+            object.releasedDate = timestamps;
+            fs.writeFile(packages, JSON.stringify(object, null, '\t'), {
+                flag: 'w'
+            }, (errors) => {
+                if (errors) {
+                    console.log("Error Writting File: ", errors)
+                }
+            })
+        }
+    })
 
-        object.releasedDate = releasedDate;
-        fs.writeFile("./package.json", JSON.stringify(object, null, '\t'), {
-            flag: "w",
-        }, function (error) {
-            if (error) {
-                console.log("Error writing file:", error)
-            }
-        });
-    });
-
-    done();
+    return done()
 });
 
-gulp.task("start", function () {
-    delete require.cache[require.resolve("./package.json")];
-    var package = require("./package.json");
+// Remove all comments
+gulp.task('comments', () => {
+    const sources = [
+        './dist/*.{xml,html}'
+    ];
 
-    return gulp.src("./src/main.xml")
+    return gulp.src(sources)
+        .pipe(gulpStripComments({
+            trim: true
+        }))
+        .pipe(gulp.dest('./dist'))
+});
+
+gulp.task('start', () => {
+    const tokenData = require(packages);
+    const sources = [
+        './src/index.html'
+    ];
+
+    return gulp.src(sources)
         .pipe(gulpTokenReplace({
-            global: package
+            global: tokenData
         }))
         .pipe(gulpFileInclude({
             indent: true,
-            basepath: "@file",
-            prefix: "@@"
+            basepath: '@@file',
+            prefix: '@@'
         }))
-        .pipe(gulpReplace("-tw", "-elcreative"))
-        .pipe(gulpReplace(/<b:comment>.*?<\/b:comment>(\n|\r|\n\r)/gm, "\r"))
+        .pipe(gulpReplace('-tw', '-elcreative'))
         .pipe(gulpRename({
-            basename: "theme",
-            extname: ".xml"
+            basename: 'theme',
+            extname: '.xml'
         }))
-        .pipe(gulp.dest("./dist"))
-});
+        .pipe(gulp.dest('./dist'))
+})
 
-gulp.task("build:production", gulp.series(
-    "clean",
-    "timestamp",
-    "styles",
-    "styles:autoprefixed",
-    // "styles:minify",
-    "scripts",
-    "scripts:minify",
-    "start"
-))
+// Final task: Production Mode
+gulp.task('build:production', gulp.series(
+    'clean',
+    'styles',
+    'styles:autoprefixed',
+    'styles:minified',
+    'scripts',
+    'scripts:minified',
+    'timestamp',
+    'start',
+    'comments'
+));
+// Final task: Development Mode
+gulp.task('build:development', gulp.series(
+    'clean',
+    'styles',
+    'scripts',
+    'start'
+));
