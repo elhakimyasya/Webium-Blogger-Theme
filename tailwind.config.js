@@ -5,7 +5,17 @@ module.exports = {
         './src/*.{xml,html,js}'
     ],
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                colorBackground: 'var(--colorBackground)',
+                colorText: 'var(--colorText)',
+                colorBorder: 'var(--colorBorder)',
+                
+                colorDarkBackground: 'var(--colorDarkBackground)',
+                colorDarkText: 'var(--colorDarkText)',
+                colorDarkBorder: 'var(--colorDarkBorder)'
+            }
+        },
     },
     plugins: [
         require('tailwindcss'),

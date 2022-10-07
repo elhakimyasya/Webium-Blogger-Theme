@@ -1,0 +1,25 @@
+<b:widget id="Header1" locked="true" title="Blog (Header)" type="Header" visible="true" version="2">
+    <b:includable id="main" var="this">
+        <a expr:href="data:blog.homepageUrl" expr:title="data:blog.title">
+            <b:tag cond='data:imagePlacement in {"REPLACE", "BEFORE_DESCRIPTION"}' name="img" expr:src="data:image" expr:alt="data:title" expr:width="data:width" expr:height="data:height" class="max-h-9 w-auto flex-shrink-0 flex-grow-0 overflow-hidden indent-[-9999px] text-transparent ltr:mr-2 rtl:ml-2 dark:text-colorColorModeDarkBackground" />
+            <b:tag cond='data:this.description != "" and data:skin.vars.optionNavbarDescription == "2px"' name="div" class="flex flex-col items-start justify-center leading-6">
+                <!-- prettier-ignore -->
+                <b:tag expr:name='data:view.isMultipleItems ? "h1" : "div"' expr:class='data:imagePlacement in {"REPLACE"} ? "sr-only" : data:imagePlacement in {"BEFORE_DESCRIPTION"} ? "relative text-ellipsis text-lg font-medium line-clamp-1" : "relative text-ellipsis text-lg font-medium line-clamp-1"'>
+                    <b:class cond='data:this.description != ""' name="leading-6" />
+                    <data:title />
+                </b:tag>
+                <!-- prettier-ignore -->
+                <b:if cond='data:this.description != "" and data:skin.vars.optionNavbarDescription == "2px"'>
+                    <small class="relative text-ellipsis text-xs line-clamp-1">
+                        <b:class cond='data:imagePlacement in {"REPLACE"}' name="sr-only" />
+                        <data:this.description />
+                    </small>
+                </b:if>
+            </b:tag>
+        </a>
+    </b:includable>
+    <b:includable id="image" />
+    <b:includable id="title" />
+    <b:includable id="description" />
+    <b:includable id="behindImageStyle" />
+</b:widget>

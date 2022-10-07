@@ -13,9 +13,18 @@
                 * Demo URL        : {{demo}}
                 */
                 {{config.cdataStart}}/*
+                @@include("../src/partials/defaultVariables.html")
                 */{{config.cdataEnd}}
                 :root {
+                    --colorBackground: $(colorBackground);
+                    --colorText: $(colorText);
+                    --colorBorder: $(colorBorder);
+                    
+                    --colorDarkBackground: $(colorDarkBackground);
+                    --colorDarkText: $(colorDarkText);
+                    --colorDarkBorder: $(colorDarkBorder);
                 }
+                
                 @@include("../build/styles/styles.min.css")
             </b:skin>
             <b:else />
@@ -30,5 +39,18 @@
             </b:defaultmarkup>
         </b:defaultmarkups>
     </head>
-    <body></body>
+    <body class="bg-colorBackground text-colorText dark:bg-colorDarkBackground dark:text-colorDarkText">
+        <div id="app" class="app mx-auto max-w-7xl">
+            <div class="flex w-full flex-row items-center justify-between">
+                <div class="flex h-screen w-full max-w-[80px] flex-shrink flex-col items-center justify-between border-colorBorder ltr:border-r rtl:border-l dark:border-colorDarkBorder">
+                    <!-- prettier-ignore -->
+                    <b:section id="section_app_bar" class="section_app_bar" name="Header Logo and Title" maxwidgets="1" showaddelement="false">
+                        @@include("../src/partials/widgets/Header1.html")
+                    </b:section>
+                </div>
+            </div>
+        </div>
+
+        <b:section id="hidden" />
+    </body>
 </html>
