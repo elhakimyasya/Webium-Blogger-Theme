@@ -33,6 +33,7 @@
 	},
 	"devDependencies": {
 		"@babel/preset-env": "^7.19.3",
+		"@popperjs/core": "^2.11.6",
 		"@tailwindcss/line-clamp": "^0.4.2",
 		"autoprefixer": "^10.4.12",
 		"del": "6.0.0",
@@ -63,5 +64,5 @@
 		"cdataStart:alt": "/*<![CDATA[*/",
 		"cdataEnd:alt": "/*]]>*/"
 	},
-	"releasedDate": "October 8, 2022 - 20:39"
+	"releasedDate": "October 8, 2022 - 23:53"
 }
