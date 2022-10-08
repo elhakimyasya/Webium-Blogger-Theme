@@ -43,13 +43,13 @@
         <div id="app" class="app mx-auto w-full max-w-[1504px]">
             <div class="flex w-full flex-row items-center justify-between">
                 <!-- prettier-ignore -->
-                <b:section id="section_navigation" class="section_navigation flex h-screen min-w-[80px] flex-shrink flex-col items-center justify-between border-colorBorder p-5 ltr:border-r rtl:border-l dark:border-colorDarkBorder" name="Main Navigation" maxwidgets="1" showaddelement="false">
+                <b:section id="section_navigation" class="section_navigation fixed top-0 flex w-full flex-shrink flex-row items-start justify-between border-colorBorder py-2 px-4 shadow-md dark:border-colorDarkBorder lg:relative lg:h-screen lg:max-w-[80px] lg:flex-col lg:items-center lg:p-5 lg:shadow-none ltr:lg:border-r rtl:lg:border-l" name="Main Navigation" maxwidgets="1" showaddelement="false">
                     @@include("../src/partials/widgets/Header1.html")
                     @@include("../src/partials/widgets/LinkList999.html")
+                    @@include("../src/partials/widgets/LinkList998.html")
                 </b:section>
             </div>
+            <b:section id="hidden" />
         </div>
-
-        <b:section id="hidden" />
     </body>
 </html>
