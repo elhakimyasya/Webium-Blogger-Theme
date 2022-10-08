@@ -2,7 +2,8 @@
 module.exports = {
     darkMode: "class",
     content: [
-        './src/*.{xml,html,js}'
+        './src/*.{xml,html,js}',
+        './src/partials/*/*.{xml,html,js}',
     ],
     theme: {
         extend: {
@@ -10,7 +11,7 @@ module.exports = {
                 colorBackground: 'var(--colorBackground)',
                 colorText: 'var(--colorText)',
                 colorBorder: 'var(--colorBorder)',
-                
+
                 colorDarkBackground: 'var(--colorDarkBackground)',
                 colorDarkText: 'var(--colorDarkText)',
                 colorDarkBorder: 'var(--colorDarkBorder)'

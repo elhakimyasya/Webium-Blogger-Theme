@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html>
-<html b:css="false" b:defaultwidgetversion="2" b:js="false" b:layoutsVersion="3" b:responsive="true" b:templateVersion="{{version}}" expr:class='data:blog.languageDirection + " " + data:blog.pageType' expr:dir="data:blog.languageDirection" expr:lang="data:blog.locale" xmlns="http://www.w3.org/1999/xhtml" xmlns:b="http://www.google.com/2005/gml/b" xmlns:data="http://www.google.com/2005/gml/data" xmlns:expr="http://www.google.com/2005/gml/expr">
+<html b:css="false" b:defaultwidgetversion="2" b:js="true" b:layoutsVersion="3" b:responsive="true" b:templateVersion="{{version}}" expr:class='data:blog.languageDirection + " " + data:blog.pageType' expr:dir="data:blog.languageDirection" expr:lang="data:blog.locale" xmlns="http://www.w3.org/1999/xhtml" xmlns:b="http://www.google.com/2005/gml/b" xmlns:data="http://www.google.com/2005/gml/data" xmlns:expr="http://www.google.com/2005/gml/expr">
     <head>
         <b:include data="blog" name="headContent" />
         <!-- prettier-ignore -->
@@ -19,12 +19,12 @@
                     --colorBackground: $(colorBackground);
                     --colorText: $(colorText);
                     --colorBorder: $(colorBorder);
-                    
+
                     --colorDarkBackground: $(colorDarkBackground);
                     --colorDarkText: $(colorDarkText);
                     --colorDarkBorder: $(colorDarkBorder);
                 }
-                
+
                 @@include("../build/styles/styles.min.css")
             </b:skin>
             <b:else />
@@ -40,14 +40,13 @@
         </b:defaultmarkups>
     </head>
     <body class="bg-colorBackground text-colorText dark:bg-colorDarkBackground dark:text-colorDarkText">
-        <div id="app" class="app mx-auto max-w-7xl">
+        <div id="app" class="app mx-auto w-full max-w-[1504px]">
             <div class="flex w-full flex-row items-center justify-between">
-                <div class="flex h-screen w-full max-w-[80px] flex-shrink flex-col items-center justify-between border-colorBorder ltr:border-r rtl:border-l dark:border-colorDarkBorder">
-                    <!-- prettier-ignore -->
-                    <b:section id="section_app_bar" class="section_app_bar" name="Header Logo and Title" maxwidgets="1" showaddelement="false">
-                        @@include("../src/partials/widgets/Header1.html")
-                    </b:section>
-                </div>
+                <!-- prettier-ignore -->
+                <b:section id="section_navigation" class="section_navigation flex h-screen min-w-[80px] flex-shrink flex-col items-center justify-between border-colorBorder p-5 ltr:border-r rtl:border-l dark:border-colorDarkBorder" name="Main Navigation" maxwidgets="1" showaddelement="false">
+                    @@include("../src/partials/widgets/Header1.html")
+                    @@include("../src/partials/widgets/LinkList999.html")
+                </b:section>
             </div>
         </div>
 
