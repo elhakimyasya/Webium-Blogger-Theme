@@ -13,32 +13,50 @@
                                 <!-- prettier-ignore -->
                                 <b:if cond="data:allBylineItems.author.label"><span class="hidden ltr:mr-1 rtl:ml-1 lg:inline-flex text-colorMeta dark:colorDarkMeta"><data:allBylineItems.author.label /></span></b:if>
                                 <span class="notranslate text-colorText ltr:mr-1 rtl:ml-1 dark:text-colorDarkText"><data:post.author.name /></span>
+                                <b:comment>Index: Post Timestamp Updated</b:comment>
                                 <b:if cond="data:post.date != data:post.lastUpdated">
                                     <time expr:datetime="data:post.date.iso8601" class="text-colorMeta before:text-xs before:content-[var(--contentBullet)] ltr:before:mr-1 rtl:before:ml-1 dark:text-colorMeta"><data:post.lastUpdated /></time>
                                 </b:if>
                             </div>
                         </b:if>
-                        <b:comment>Post Title</b:comment>
-                        <b:if cond='data:post.title != ""'>
-                            <b:tag cond="data:post.link or (data:post.url and data:view.url != data:post.url)" name="a" expr:href="data:post.link ?: data:post.url" class="text-ellipsis text-colorText dark:text-colorDarkText">
-                                <!-- prettier-ignore -->
-                                <b:tag expr:name='data:view.isMultipleItems ? "h2" : "h1"' expr:class='data:view.isMultipleItems ? "post_title mt-3 w-full font-bold line-clamp-2 lg:text-[22px] lg:leading-7 lg:line-clamp-3" : "post_title"'>
+                        <div class="mt-3 flex w-full flex-row items-start justify-center pb-4 lg:pb-8">
+                            <div class="flex w-full flex-col items-start justify-center ltr:ml-6 rtl:mr-6 ltr:lg:mr-14 rtl:lg:ml-14">
+                                <b:comment>Post Title</b:comment>
+                                <b:if cond='data:post.title != ""'>
+                                    <b:tag cond="data:post.link or (data:post.url and data:view.url != data:post.url)" name="a" expr:href="data:post.link ?: data:post.url" class="text-ellipsis text-colorText dark:text-colorDarkText">
+                                        <!-- prettier-ignore -->
+                                        <b:tag expr:name='data:view.isMultipleItems ? "h2" : "h1"' expr:class='data:view.isMultipleItems ? "post_title w-full font-bold line-clamp-2 lg:text-[22px] lg:leading-7 lg:line-clamp-3" : "post_title"'>
                                     <data:post.title />
                                 </b:tag>
-                            </b:tag>
-                        </b:if>
-                        <b:comment>Index: Post Summary</b:comment>
-                        <div class="relative mt-2 hidden text-ellipsis text-colorText dark:text-colorDarkText lg:inline-flex">
-                            <b:eval expr="data:post.snippets.short snippet {length: 150}" />
-                        </div>
-
-                        <div class="flex w-full flex-row items-center justify-between py-4 lg:py-8">
-                            <div class="flex w-full flex-row items-center justify-start">
-                                <b:comment>Index: Post Label</b:comment>
-                                <b:if cond="data:post.labels.notEmpty">
-                                    <a expr:href="data:post.labels.first.url" expr:title="data:post.labels.first.name" rel="tag" class="rounded-full bg-colorTextTrans1 px-2 py-[2px] text-[13px] text-colorText ltr:mr-1 rtl:ml-1 dark:bg-colorDarkTextTrans1 dark:text-colorDarkText"><data:post.labels.first.name /></a>
+                                    </b:tag>
                                 </b:if>
+                                <b:comment>Index: Post Summary</b:comment>
+                                <div class="relative mt-2 hidden text-ellipsis text-colorText dark:text-colorDarkText lg:inline-flex">
+                                    <b:eval expr="data:post.snippets.short snippet {length: 150}" />
+                                </div>
+
+                                <div class="flex w-full flex-row items-center justify-between pt-4 lg:pt-8">
+                                    <div class="flex w-full flex-row items-center justify-start">
+                                        <b:comment>Index: Post Label</b:comment>
+                                        <b:if cond="data:post.labels.notEmpty">
+                                            <a expr:href="data:post.labels.first.url" expr:title="data:post.labels.first.name" rel="tag" class="rounded-full bg-colorTextTrans1 px-2 py-[2px] text-[13px] text-colorText ltr:mr-2 rtl:ml-2 dark:bg-colorDarkTextTrans1 dark:text-colorDarkText"><data:post.labels.first.name /></a>
+                                        </b:if>
+                                        <b:comment>Index: Post Timestamp</b:comment>
+                                        <div class="flex w-full flex-row items-center justify-start text-sm text-colorMeta dark:text-colorDarkMeta">
+                                            <b:if cond="data:allBylineItems.timestamp.label">
+                                                <span class="hidden ltr:mr-1 rtl:ml-1 md:block"><data:allBylineItems.timestamp.label /></span>
+                                            </b:if>
+                                            <time expr:datetime="data:post.date.iso8601" class="ltr:mr-1 rtl:ml-1"><data:post.date /></time>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+                            <b:comment>Index: Post Thumbnail</b:comment>
+                            <a class="relative h-14 w-14 flex-shrink-0 flex-grow-0 overflow-hidden lg:h-28 lg:w-28" expr:href="data:post.url" expr:title="data:post.title">
+                                <b:with value='data:post.featuredImage.isYouTube ? data:post.featuredImage.youtubeMaxResDefaultUrl : data:post.featuredImage ?: "//lh3.googleusercontent.com/-Efigs16DUTQ/YKrJkJaHDKI/AAAAAAAAg_A/_xTHzW1sLmssSTAFEZtZTL_QqseedXjfACLcBGAsYHQ/s1600-rw/index.webp"' var="images">
+                                    <span class="lazyload block h-full w-full flex-shrink-0 flex-grow-0 animate-pulse bg-colorMeta bg-cover bg-center bg-no-repeat" expr:title="data:post.title" expr:data-image='data:blog.isMobileRequest ? resizeImage(data:images, 56, "1:1") : resizeImage(data:images, 112, "1:1")'></span>
+                                </b:with>
+                            </a>
                         </div>
                     </div>
                 </article>
