@@ -1,13 +1,13 @@
 <b:widget id="Header1" locked="true" title="Blog Logo (Mobile)" type="Header" visible="true" version="2">
     <b:includable id="main" var="this">
-        <b:class name="flex w-full flex-row items-center justify-between lg:h-full lg:flex-col" />
+        <b:class name="flex w-full flex-row items-center justify-between xl:h-full xl:flex-col" />
         <b:tag expr:href="data:blog.homepageUrl" name="a" expr:title="data:blog.title" class="flex flex-row items-center justify-center">
-            <b:tag cond='data:imagePlacement in {"REPLACE", "BEFORE_DESCRIPTION"}' name="img" expr:src="data:image" expr:alt="data:title" expr:width="data:width" expr:height="data:height" class="notranslate max-h-10 w-auto flex-shrink-0 flex-grow-0 text-transparent ltr:mr-2 rtl:ml-2 lg:sr-only" />
+            <b:tag cond='data:imagePlacement in {"REPLACE", "BEFORE_DESCRIPTION"}' name="img" expr:src="data:image" expr:alt="data:title" expr:width="data:width" expr:height="data:height" class="notranslate max-h-10 w-auto flex-shrink-0 flex-grow-0 text-transparent ltr:mr-2 rtl:ml-2 xl:sr-only" />
             <!-- prettier-ignore -->
-            <b:tag expr:name='data:view.isMultipleItems ? "h1" : "div"' expr:class='data:imagePlacement in {"REPLACE"} ? "sr-only" : data:imagePlacement in {"BEFORE_DESCRIPTION"} ? "relative text-ellipsis text-lg font-medium line-clamp-1 lg:sr-only" : "relative text-ellipsis text-lg font-medium line-clamp-1 lg:sr-only"'><data:title /></b:tag>
+            <b:tag expr:name='data:view.isMultipleItems ? "h1" : "div"' expr:class='data:imagePlacement in {"REPLACE"} ? "sr-only" : data:imagePlacement in {"BEFORE_DESCRIPTION"} ? "relative text-ellipsis text-xl font-medium line-clamp-1 xl:sr-only" : "relative text-ellipsis text-xl font-medium line-clamp-1 xl:sr-only"'><data:title /></b:tag>
         </b:tag>
         <b:if cond='data:widgets any (widget => widget.id == "LinkList999")'>
-            <div class="hidden flex-col items-center justify-center lg:flex">
+            <div class="hidden flex-col items-center justify-center xl:flex">
                 <a expr:href="data:blog.homepageUrl" expr:title="data:messages.home" class="mt-3 p-3 first:mt-0">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                         <b:if cond="data:view.isHomepage">
@@ -19,7 +19,7 @@
                     </svg>
                 </a>
             </div>
-            <button type="button" aria-label="Menu" title="Menu" aria-expanded="false" data-toggle-class-on-target="hidden" data-toggle-target="#LinkList999" data-toggle-escape="" data-toggle-outside="" class="hidden rounded-full p-3 lg:inline-flex">
+            <button type="button" aria-label="Menu" title="Menu" aria-expanded="false" data-toggle-class-on-target="hidden" data-toggle-target="#LinkList999" data-toggle-escape="" data-toggle-outside="" class="hidden rounded-full p-3 xl:inline-flex">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.39 12c0 .55.2 1.02.59 1.41.39.4.86.59 1.4.59.56 0 1.03-.2 1.42-.59.4-.39.59-.86.59-1.41 0-.55-.2-1.02-.6-1.41A1.93 1.93 0 0 0 6.4 10c-.55 0-1.02.2-1.41.59-.4.39-.6.86-.6 1.41zM10 12c0 .55.2 1.02.58 1.41.4.4.87.59 1.42.59.54 0 1.02-.2 1.4-.59.4-.39.6-.86.6-1.41 0-.55-.2-1.02-.6-1.41a1.93 1.93 0 0 0-1.4-.59c-.55 0-1.04.2-1.42.59-.4.39-.58.86-.58 1.41zm5.6 0c0 .55.2 1.02.57 1.41.4.4.88.59 1.43.59.57 0 1.04-.2 1.43-.59.39-.39.57-.86.57-1.41 0-.55-.2-1.02-.57-1.41A1.93 1.93 0 0 0 17.6 10c-.55 0-1.04.2-1.43.59-.38.39-.57.86-.57 1.41z" fill="#000"></path></svg>
             </button>
         </b:if>

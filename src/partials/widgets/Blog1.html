@@ -1,5 +1,21 @@
 <b:widget id="Blog1" locked="true" title="Blog Posts (Mobile)" type="Blog" visible="true" version="2">
     <b:includable id="main" var="this">
+        <b:comment>Index: Label Page, Search Page and Archive Page</b:comment>
+        <b:if cond="data:view.search.query or data:view.search.label or data:view.isArchive">
+            <div class="my-6 flex w-full flex-wrap items-center justify-between lg:mb-12 lg:mt-8">
+                <b:with value='data:view.search.query ? data:view.search.query : data:view.search.label ? data:view.search.label : data:view.isArchive ? data:messages.archive + ": " + data:blog.pageName : ""' var="message">
+                    <h2 class="break-words text-[22px] font-bold text-colorText line-clamp-1 dark:text-colorDarkText lg:text-[42px]">
+                        <b:if cond="data:view.search.query">
+                            <span class="text-colorMeta dark:text-colorDarkMeta"><data:messages.search /></span>
+                        </b:if>
+                        <data:message />
+                    </h2>
+                </b:with>
+                <div class="mt-4 w-full select-none shadow-[var(--colorBorder)_0_-1px_0_inset] dark:shadow-[var(--colorDarkBorder)_0_-1px_0_inset]">
+                    <div class="w-max border-b border-colorText py-4 text-sm dark:border-colorDarkText"><data:messages.posts /></div>
+                </div>
+            </div>
+        </b:if>
         <div class="flex w-full flex-col items-center justify-center">
             <b:loop index="i" values="data:posts" var="post">
                 <article class="mb-4 flex w-full flex-col items-center justify-center border-b border-colorBorder last:mb-0 last:border-b-0 dark:border-colorDarkBorder lg:mb-8">
@@ -20,7 +36,7 @@
                             </div>
                         </b:if>
                         <div class="mt-3 flex w-full flex-row items-start justify-center pb-4 lg:pb-8">
-                            <div class="flex w-full flex-col items-start justify-center ltr:ml-6 rtl:mr-6 ltr:lg:mr-14 rtl:lg:ml-14">
+                            <div class="flex w-full flex-col items-start justify-center ltr:mr-6 rtl:ml-6 ltr:lg:mr-14 rtl:lg:ml-14">
                                 <b:comment>Post Title</b:comment>
                                 <b:if cond='data:post.title != ""'>
                                     <b:tag cond="data:post.link or (data:post.url and data:view.url != data:post.url)" name="a" expr:href="data:post.link ?: data:post.url" class="text-ellipsis text-colorText dark:text-colorDarkText">
@@ -39,7 +55,7 @@
                                     <div class="flex w-full flex-row items-center justify-start">
                                         <b:comment>Index: Post Label</b:comment>
                                         <b:if cond="data:post.labels.notEmpty">
-                                            <a expr:href="data:post.labels.first.url" expr:title="data:post.labels.first.name" rel="tag" class="rounded-full bg-colorTextTrans1 px-2 py-[2px] text-[13px] text-colorText ltr:mr-2 rtl:ml-2 dark:bg-colorDarkTextTrans1 dark:text-colorDarkText"><data:post.labels.first.name /></a>
+                                            <a expr:href="data:post.labels.first.url" expr:title="data:post.labels.first.name" rel="tag" class="select-none rounded-full bg-colorTextTrans1 px-2 py-[2px] text-[13px] text-colorText ltr:mr-2 rtl:ml-2 dark:bg-colorDarkTextTrans1 dark:text-colorDarkText"><data:post.labels.first.name /></a>
                                         </b:if>
                                         <b:comment>Index: Post Timestamp</b:comment>
                                         <div class="flex w-full flex-row items-center justify-start text-sm text-colorMeta dark:text-colorDarkMeta">

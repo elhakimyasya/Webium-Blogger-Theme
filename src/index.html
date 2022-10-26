@@ -50,24 +50,24 @@
     </head>
     <body class="bg-colorBackground text-colorText dark:bg-colorDarkBackground dark:text-colorDarkText">
         <div id="app" class="app mx-auto w-full max-w-[1504px]">
-            <div class="relative flex flex-col justify-between lg:flex-row">
+            <div class="relative flex flex-col justify-between xl:flex-row">
                 <!-- prettier-ignore -->
-                <b:section showaddelement="false" maxwidgets="2" id="section_header" name="Navbar Section" class="section_header sticky top-0 z-20 flex min-h-[56px] w-full select-none flex-row items-center justify-between border-colorBorder bg-colorBackground px-5 py-2 shadow-[rgba(0,0,0,0.15)_0_-2px_10px] dark:border-colorDarkBorder dark:bg-colorDarkBackground lg:h-screen lg:max-w-[80px] lg:flex-col lg:px-2 lg:shadow-none ltr:lg:border-r rtl:lg:border-l">
+                <b:section showaddelement="false" maxwidgets="2" id="section_header" name="Navbar Section" class="section_header sticky top-0 z-20 flex min-h-[56px] w-full select-none flex-row items-center justify-between border-colorBorder bg-colorBackground px-5 py-2 shadow-[rgba(0,0,0,0.15)_0_-2px_10px] dark:border-colorDarkBorder dark:bg-colorDarkBackground xl:h-screen xl:max-w-[80px] xl:flex-col xl:px-2 xl:shadow-none ltr:xl:border-r rtl:xl:border-l">
                     @@include("../src/partials/widgets/Image999.html")
                     @@include("../src/partials/widgets/Header1.html")
                 </b:section>
-                <div class="flex w-full flex-col lg:flex-row">
+                <div class="flex w-full flex-col xl:flex-row">
                     <!-- prettier-ignore -->
-                    <b:section showaddelement="false" maxwidgets="2" id="section_main" name="Main Section" class="section_main mx-auto w-full py-4 px-5 lg:max-w-2xl">
+                    <b:section showaddelement="false" maxwidgets="2" id="section_main" name="Main Section" class="section_main mx-auto w-full py-4 px-5 xl:max-w-3xl">
                         @@include("../src/partials/widgets/LinkList999.html")
                         @@include("../src/partials/widgets/Blog1.html")
                     </b:section>
-                    <aside class="w-full border-colorBorder py-4 px-5 dark:border-colorDarkBorder lg:max-w-[395px] lg:px-8 ltr:lg:border-l rtl:lg:border-r">
+                    <aside class="w-full border-colorBorder py-4 px-5 dark:border-colorDarkBorder xl:max-w-[395px] xl:px-8 ltr:xl:border-l rtl:xl:border-r">
                         <b:section id="section_sidebar" name="Sidebar Section" class="section_sidebar sticky top-0 w-full"></b:section>
                     </aside>
                 </div>
             </div>
-            <nav class="bottom fixed bottom-0 z-20 flex min-h-[56px] w-full flex-row items-center justify-around bg-colorBackground px-4 py-2 shadow-[rgba(0,0,0,0.15)_0_2px_10px] dark:bg-colorDarkBackground lg:hidden">
+            <nav class="bottom fixed bottom-0 z-20 flex min-h-[56px] w-full flex-row items-center justify-around bg-colorBackground px-4 py-2 shadow-[rgba(0,0,0,0.15)_0_2px_10px] dark:bg-colorDarkBackground xl:hidden">
                 <a expr:href="data:blog.homepageUrl" expr:title="data:messages.home" class="p-2">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                         <b:if cond="data:view.isHomepage">
