@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html>
-<html b:css="false" b:defaultwidgetversion="2" b:js="true" b:layoutsVersion="3" b:responsive="true" b:templateVersion="{{version}}" expr:class='data:blog.languageDirection + " " + data:blog.pageType' expr:dir="data:blog.languageDirection" expr:lang="data:blog.locale" xmlns="http://www.w3.org/1999/xhtml" xmlns:b="http://www.google.com/2005/gml/b" xmlns:data="http://www.google.com/2005/gml/data" xmlns:expr="http://www.google.com/2005/gml/expr">
+<html b:css="false" b:defaultwidgetversion="2" b:js="true" b:layoutsVersion="3" b:responsive="true" b:templateVersion="{{version}}" expr:class='data:blog.languageDirection + " " + data:blog.pageType' expr:dir="data:blog.languageDirection" expr:lang="data:blog.locale">
     <head>
         <b:include data="blog" name="headContent" />
         <!-- prettier-ignore -->
@@ -24,9 +24,8 @@
                     --colorDarkText: $(colorDarkText);
                     --colorDarkBorder: $(colorDarkBorder);
                 }
-
-                @@include("../build/styles/styles.min.css")
             </b:skin>
+            <b:tag name="style">@@include("../build/styles/styles.min.css")</b:tag>
             <b:else />
             <b:template-skin>@@include("../build/styles/layout.css")</b:template-skin>
         </b:if>
@@ -45,78 +44,6 @@
     </head>
     <body class="bg-colorBackground text-colorText dark:bg-colorDarkBackground dark:text-colorDarkText">
         <div id="app" class="app mx-auto w-full max-w-[1504px]">
-            <div class="flex w-full flex-row items-start justify-between">
-                <div class="fixed top-0 flex min-h-[56px] w-full flex-shrink flex-row items-start justify-between border-colorBorder bg-colorBackground py-2 px-4 shadow-[rgba(0,0,0,0.15)_0_-2px_10px] dark:border-colorDarkBorder dark:bg-colorDarkBackground lg:relative lg:h-screen lg:max-w-[80px] lg:flex-col lg:items-center lg:p-5 lg:shadow-none ltr:lg:border-r rtl:lg:border-l">
-                    <!-- prettier-ignore -->
-                    <b:section id="section_header" class="section_header" name="Header" maxwidgets="1" showaddelement="false">
-                        @@include("../src/partials/widgets/Header1.html")
-                    </b:section>
-                    <div class="hidden flex-col items-center justify-center lg:flex">
-                        <a expr:href="data:blog.homepageUrl" class="mb-5 flex flex-col items-center justify-center p-2 text-colorText hover:opacity-100 dark:text-colorDarkText">
-                            <b:class expr:name='data:blog.homepageUrl ? "opacity-100" : "opacity-70"' />
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-label="Home">
-                                <b:if cond="data:view.isHomepage">
-                                    <path d="M4.5 21.25V10.87c0-.07.04-.15.1-.2l7.25-5.43a.25.25 0 0 1 .3 0l7.25 5.44c.06.04.1.12.1.2v10.37c0 .14-.11.25-.25.25h-4.5a.25.25 0 0 1-.25-.25v-5.5a.25.25 0 0 0-.25-.25h-4.5a.25.25 0 0 0-.25.25v5.5c0 .14-.11.25-.25.25h-4.5a.25.25 0 0 1-.25-.25z" fill="currentColor" stroke="currentColor" stroke-linejoin="round" />
-                                    <path d="M22 9l-9.1-6.83a1.5 1.5 0 0 0-1.8 0L2 9" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
-                                    <b:else />
-                                    <path d="M4.5 10.75v10.5c0 .14.11.25.25.25h5c.14 0 .25-.11.25-.25v-5.5c0-.14.11-.25.25-.25h3.5c.14 0 .25.11.25.25v5.5c0 .14.11.25.25.25h5c.14 0 .25-.11.25-.25v-10.5M22 9l-9.1-6.83a1.5 1.5 0 0 0-1.8 0L2 9" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
-                                </b:if>
-                            </svg>
-                        </a>
-                        <a expr:href="data:blog.homepageUrl" class="mb-5 flex flex-col items-center justify-center p-2 text-colorText opacity-70 hover:opacity-100 dark:text-colorDarkText">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-label="Home">
-                                <path d="M15 18.5a3 3 0 1 1-6 0" stroke="currentColor" stroke-linecap="round"></path>
-                                <path d="M5.5 10.53V9a6.5 6.5 0 0 1 13 0v1.53c0 1.42.56 2.78 1.57 3.79l.03.03c.26.26.4.6.4.97v2.93c0 .14-.11.25-.25.25H3.75a.25.25 0 0 1-.25-.25v-2.93c0-.37.14-.71.4-.97l.03-.03c1-1 1.57-2.37 1.57-3.79z" stroke="currentColor" stroke-linejoin="round"></path>
-                            </svg>
-                        </a>
-                        <a expr:href="data:blog.homepageUrl" class="mb-5 flex flex-col items-center justify-center p-2 text-colorText opacity-70 hover:opacity-100 dark:text-colorDarkText">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-label="Home">
-                                <path d="M4.5 6.25V21c0 .2.24.32.4.2l5.45-4.09a.25.25 0 0 1 .3 0l5.45 4.09c.16.12.4 0 .4-.2V6.25a.25.25 0 0 0-.25-.25H4.75a.25.25 0 0 0-.25.25z" stroke="currentColor" stroke-linecap="round"></path>
-                                <path d="M8 6V3.25c0-.14.11-.25.25-.25h11.5c.14 0 .25.11.25.25V16.5" stroke="currentColor" stroke-linecap="round"></path>
-                            </svg>
-                        </a>
-                        <a expr:href="data:blog.homepageUrl" class="mb-5 flex flex-col items-center justify-center p-2 text-colorText opacity-70 hover:opacity-100 dark:text-colorDarkText">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-label="Home">
-                                <path d="M4.75 21.5h14.5c.14 0 .25-.11.25-.25V2.75a.25.25 0 0 0-.25-.25H4.75a.25.25 0 0 0-.25.25v18.5c0 .14.11.25.25.25z" stroke="currentColor"></path>
-                                <path d="M8 8.5h8M8 15.5h5M8 12h8" stroke="currentColor" stroke-linecap="round"></path>
-                            </svg>
-                        </a>
-                        <div class="my-2 h-[1px] w-1/2 bg-colorBorder dark:border-colorDarkBorder"></div>
-                        <a expr:href="data:blog.homepageUrl" class="mt-5 flex flex-col items-center justify-center p-2 text-colorText opacity-70 hover:opacity-100 dark:text-colorDarkText">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-label="Home">
-                                <path d="M14 4a.5.5 0 0 0 0-1v1zm7 6a.5.5 0 0 0-1 0h1zm-7-7H4v1h10V3zM3 4v16h1V4H3zm1 17h16v-1H4v1zm17-1V10h-1v10h1zm-1 1a1 1 0 0 0 1-1h-1v1zM3 20a1 1 0 0 0 1 1v-1H3zM4 3a1 1 0 0 0-1 1h1V3z" fill="currentColor"></path>
-                                <path d="M17.5 4.5l-8.46 8.46a.25.25 0 0 0-.06.1l-.82 2.47c-.07.2.12.38.31.31l2.47-.82a.25.25 0 0 0 .1-.06L19.5 6.5m-2-2l2.32-2.32c.1-.1.26-.1.36 0l1.64 1.64c.1.1.1.26 0 .36L19.5 6.5m-2-2l2 2" stroke="currentColor"></path>
-                            </svg>
-                        </a>
-                    </div>
-                    <button id="dropdownDefault" data-dropdown-toggle="LinkList999" data-dropdown-placement="top" class="mt-3 box-content hidden h-6 w-6 flex-shrink-0 flex-grow-0 rounded-full p-2 text-colorText opacity-70 hover:opacity-100 dark:text-colorDarkText lg:block" aria-label="More" title="More" type="button" data-toggle-class-on-target="active" data-toggle-target="#LinkList999">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.39 12c0 .55.2 1.02.59 1.41.39.4.86.59 1.4.59.56 0 1.03-.2 1.42-.59.4-.39.59-.86.59-1.41 0-.55-.2-1.02-.6-1.41A1.93 1.93 0 0 0 6.4 10c-.55 0-1.02.2-1.41.59-.4.39-.6.86-.6 1.41zM10 12c0 .55.2 1.02.58 1.41.4.4.87.59 1.42.59.54 0 1.02-.2 1.4-.59.4-.39.6-.86.6-1.41 0-.55-.2-1.02-.6-1.41a1.93 1.93 0 0 0-1.4-.59c-.55 0-1.04.2-1.42.59-.4.39-.58.86-.58 1.41zm5.6 0c0 .55.2 1.02.57 1.41.4.4.88.59 1.43.59.57 0 1.04-.2 1.43-.59.39-.39.57-.86.57-1.41 0-.55-.2-1.02-.57-1.41A1.93 1.93 0 0 0 17.6 10c-.55 0-1.04.2-1.43.59-.38.39-.57.86-.57 1.41z" fill="currentColor" /></svg>
-                    </button>
-                </div>
-                <!-- prettier-ignore -->
-                <b:section id="section_navigation" class="section_navigation" name="Navigation" maxwidgets="1" showaddelement="false">
-                    @@include("../src/partials/widgets/LinkList999.html")
-                </b:section>
-                <main class="block flex-auto">
-                    <div style="max-width: 692px" class="mx-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit corporis velit nobis, numquam error expedita ex porro totam debitis eos harum cumque quis incidunt magnam voluptatibus asperiores placeat facilis molestiae id accusantium, labore esse mollitia! Rem iure libero alias fugiat fugit, ad magnam mollitia laborum culpa animi cumque iste eum repellat molestiae dicta rerum veniam itaque eos unde! Vero eos exercitationem quisquam a cumque magnam necessitatibus quae aspernatur delectus vitae nisi iusto totam incidunt accusantium, quam veniam, doloremque quod qui porro est facilis. Ducimus sit cupiditate earum officiis, sunt illo soluta? Ut labore quam cumque reprehenderit, consectetur officia provident distinctio voluptatum totam, vel repellat autem sunt sit. Eius nam deleniti cum iste porro, eos facere est quaerat sunt? Ab amet earum repudiandae dolorum? Qui voluptatem, vitae amet dicta iste praesentium doloribus minus fuga repudiandae doloremque laboriosam necessitatibus mollitia aliquam cupiditate ullam quasi et animi nihil dolores distinctio! Ut molestiae perferendis eum consequuntur dolor minima harum. Error quo at magni autem mollitia commodi doloremque accusamus enim ipsa suscipit fugit id necessitatibus nam eaque tempora voluptas dolorum sequi, rerum dicta modi ad sint rem recusandae? Id veniam eligendi neque aliquid sequi culpa atque fugit, illum corrupti sunt error deserunt distinctio, fugiat alias veritatis. Ad blanditiis neque fuga assumenda mollitia ex non repellat suscipit aut fugiat, quae eum fugit perferendis hic aperiam, est iste exercitationem ipsam? Tempora nihil nisi neque ea! Molestias quia praesentium nihil odit deleniti veritatis error blanditiis aut, nulla enim repellendus magnam est, tempore quas in saepe neque, sed veniam?</div>
-                </main>
-            </div>
-            <div class="fixed bottom-0 flex min-h-[56px] w-full items-center justify-around bg-colorBackground py-2 px-4 shadow-[rgba(0,0,0,0.15)_0_2px_10px] dark:bg-colorDarkBackground lg:hidden">
-                <a expr:href="data:blog.homepageUrl" class="box-content h-6 w-6 flex-shrink-0 flex-grow-0 rounded-full p-2 text-colorText hover:opacity-100 dark:text-colorDarkText">
-                    <b:class expr:name='data:blog.homepageUrl ? "opacity-100" : "opacity-70"' />
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-label="Home">
-                        <b:if cond="data:view.isHomepage">
-                            <path d="M4.5 21.25V10.87c0-.07.04-.15.1-.2l7.25-5.43a.25.25 0 0 1 .3 0l7.25 5.44c.06.04.1.12.1.2v10.37c0 .14-.11.25-.25.25h-4.5a.25.25 0 0 1-.25-.25v-5.5a.25.25 0 0 0-.25-.25h-4.5a.25.25 0 0 0-.25.25v5.5c0 .14-.11.25-.25.25h-4.5a.25.25 0 0 1-.25-.25z" fill="currentColor" stroke="currentColor" stroke-linejoin="round" />
-                            <path d="M22 9l-9.1-6.83a1.5 1.5 0 0 0-1.8 0L2 9" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
-                            <b:else />
-                            <path d="M4.5 10.75v10.5c0 .14.11.25.25.25h5c.14 0 .25-.11.25-.25v-5.5c0-.14.11-.25.25-.25h3.5c.14 0 .25.11.25.25v5.5c0 .14.11.25.25.25h5c.14 0 .25-.11.25-.25v-10.5M22 9l-9.1-6.83a1.5 1.5 0 0 0-1.8 0L2 9" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
-                        </b:if>
-                    </svg>
-                </a>
-                <button id="dropdownDefault" data-dropdown-toggle="LinkList999" data-dropdown-placement="top" class="box-content h-6 w-6 flex-shrink-0 flex-grow-0 rounded-full p-2 opacity-70 hover:opacity-100" aria-label="More" title="More" type="button" data-toggle-class-on-target="active" data-toggle-target="#LinkList999">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.39 12c0 .55.2 1.02.59 1.41.39.4.86.59 1.4.59.56 0 1.03-.2 1.42-.59.4-.39.59-.86.59-1.41 0-.55-.2-1.02-.6-1.41A1.93 1.93 0 0 0 6.4 10c-.55 0-1.02.2-1.41.59-.4.39-.6.86-.6 1.41zM10 12c0 .55.2 1.02.58 1.41.4.4.87.59 1.42.59.54 0 1.02-.2 1.4-.59.4-.39.6-.86.6-1.41 0-.55-.2-1.02-.6-1.41a1.93 1.93 0 0 0-1.4-.59c-.55 0-1.04.2-1.42.59-.4.39-.58.86-.58 1.41zm5.6 0c0 .55.2 1.02.57 1.41.4.4.88.59 1.43.59.57 0 1.04-.2 1.43-.59.39-.39.57-.86.57-1.41 0-.55-.2-1.02-.57-1.41A1.93 1.93 0 0 0 17.6 10c-.55 0-1.04.2-1.43.59-.38.39-.57.86-.57 1.41z" fill="currentColor" /></svg>
-                </button>
-            </div>
             <b:section id="hidden" />
         </div>
         <b:include data="blog" name="scriptBody" />
