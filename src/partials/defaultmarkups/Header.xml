@@ -1,7 +1,0 @@
-<b:includable id='main' var='this'>
-    <b:class name='hidden invisible' />
-</b:includable>
-<b:includable id='behindImageStyle' />
-<b:includable id='description' />
-<b:includable id='image' />
-<b:includable id='title' />
