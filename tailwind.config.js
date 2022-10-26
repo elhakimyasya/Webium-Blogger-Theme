@@ -10,11 +10,15 @@ module.exports = {
             colors: {
                 colorBackground: 'var(--colorBackground)',
                 colorText: 'var(--colorText)',
+                colorTextTrans1: 'var(--colorTextTrans1)',
+                colorMeta: 'var(--colorMeta)',
                 colorBorder: 'var(--colorBorder)',
-
+                
                 colorDarkBackground: 'var(--colorDarkBackground)',
                 colorDarkText: 'var(--colorDarkText)',
-                colorDarkBorder: 'var(--colorDarkBorder)'
+                colorDarkTextTrans1: 'var(--colorDarkTextTrans1)',
+                colorDarkMeta: 'var(--colorDarkMeta)',
+                colorDarkBorder: 'var(--colorDarkBorder)',
             }
         },
     },

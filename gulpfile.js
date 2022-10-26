@@ -71,8 +71,9 @@ gulp.task('styles:minified', () => {
 // Generate scripts
 gulp.task('scripts', () => {
     const sources = [
-        './src/assets/scripts/*.js',
-        './src/assets/scripts/libraries/*.js',
+        './build/scripts/easy-toggle-state.js',
+        './build/scripts/lazysizes.js',
+        './build/scripts/scripts.js',
     ];
 
     return gulp.src(sources)
@@ -80,7 +81,7 @@ gulp.task('scripts', () => {
             mode: 'production',
             output: {
                 clean: true,
-                filename: 'scripts.js'
+                filename: 'bundle.js'
             },
             optimization: {
                 minimize: true,
@@ -99,12 +100,12 @@ gulp.task('scripts', () => {
             },
             watch: false
         }, webpack))
-        .pipe(gulpBabel())
         .pipe(gulp.dest('./build/scripts'))
 });
 gulp.task('scripts:babel', () => {
     const sources = [
         './src/assets/scripts/*.js',
+        './src/assets/scripts/libraries/*.js',
     ];
 
     return gulp.src(sources)
@@ -252,8 +253,8 @@ gulp.task('build:production', gulp.series(
     'styles',
     'styles:autoprefixed',
     'styles:minified',
-    'scripts',
     'scripts:babel',
+    'scripts',
     'scripts:minified',
     'json:minify',
     'json:replace',

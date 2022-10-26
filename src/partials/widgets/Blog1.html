@@ -1,0 +1,420 @@
+<b:widget id="Blog1" locked="true" title="Blog Posts (Mobile)" type="Blog" visible="true" version="2">
+    <b:includable id="main" var="this">
+        <div class="flex w-full flex-col items-center justify-center">
+            <b:loop index="i" values="data:posts" var="post">
+                <article class="mb-4 flex w-full flex-col items-center justify-center border-b border-colorBorder last:mb-0 last:border-b-0 dark:border-colorDarkBorder lg:mb-8">
+                    <div class="flex w-full flex-col items-start justify-center">
+                        <b:if cond="data:allBylineItems.author">
+                            <div class="flex w-full flex-row items-center justify-start text-sm">
+                                <b:with value='data:post.author.authorPhoto.image ? data:post.author.authorPhoto.image : "//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhPzZlVciGeYVCgCEcfFKeNI8IhtFHNShFG_5Xavi8bej56zOpPRIjHEUZsTsLybpnEZkNJ6M-ivL0lcjLs9YEu_xVrD14a9gtcfxBAzIvwrmAY920GO9gkHtlljlwvRnLcRvD8WL5pbEcmgxCpct-7EJsMymUnpFCMxpTk8i0b0P7O82_kzKoEjeb3/s1600-rw/user-icon.webp"' var="images">
+                                    <span class="lazyload block h-6 w-6 flex-shrink-0 flex-grow-0 animate-pulse rounded-full bg-colorMeta bg-cover bg-center bg-no-repeat ltr:mr-2 rtl:ml-2" expr:title="data:post.author.name" expr:data-image='resizeImage(data:images, "24", "1:1")'></span>
+                                </b:with>
+                                <b:comment>Index: Post Author</b:comment>
+                                <!-- prettier-ignore -->
+                                <b:if cond="data:allBylineItems.author.label"><span class="hidden ltr:mr-1 rtl:ml-1 lg:inline-flex text-colorMeta dark:colorDarkMeta"><data:allBylineItems.author.label /></span></b:if>
+                                <span class="notranslate text-colorText ltr:mr-1 rtl:ml-1 dark:text-colorDarkText"><data:post.author.name /></span>
+                                <b:if cond="data:post.date != data:post.lastUpdated">
+                                    <time expr:datetime="data:post.date.iso8601" class="text-colorMeta before:text-xs before:content-[var(--contentBullet)] ltr:before:mr-1 rtl:before:ml-1 dark:text-colorMeta"><data:post.lastUpdated /></time>
+                                </b:if>
+                            </div>
+                        </b:if>
+                        <b:comment>Post Title</b:comment>
+                        <b:if cond='data:post.title != ""'>
+                            <b:tag cond="data:post.link or (data:post.url and data:view.url != data:post.url)" name="a" expr:href="data:post.link ?: data:post.url" class="text-ellipsis text-colorText dark:text-colorDarkText">
+                                <!-- prettier-ignore -->
+                                <b:tag expr:name='data:view.isMultipleItems ? "h2" : "h1"' expr:class='data:view.isMultipleItems ? "post_title mt-3 w-full font-bold line-clamp-2 lg:text-[22px] lg:leading-7 lg:line-clamp-3" : "post_title"'>
+                                    <data:post.title />
+                                </b:tag>
+                            </b:tag>
+                        </b:if>
+                        <b:comment>Index: Post Summary</b:comment>
+                        <div class="relative mt-2 hidden text-ellipsis text-colorText dark:text-colorDarkText lg:inline-flex">
+                            <b:eval expr="data:post.snippets.short snippet {length: 150}" />
+                        </div>
+
+                        <div class="flex w-full flex-row items-center justify-between py-4 lg:py-8">
+                            <div class="flex w-full flex-row items-center justify-start">
+                                <b:comment>Index: Post Label</b:comment>
+                                <b:if cond="data:post.labels.notEmpty">
+                                    <a expr:href="data:post.labels.first.url" expr:title="data:post.labels.first.name" rel="tag" class="rounded-full bg-colorTextTrans1 px-2 py-[2px] text-[13px] text-colorText ltr:mr-1 rtl:ml-1 dark:bg-colorDarkTextTrans1 dark:text-colorDarkText"><data:post.labels.first.name /></a>
+                                </b:if>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </b:loop>
+        </div>
+    </b:includable>
+    <b:includable id="aboutPostAuthor">
+        <div class="author-name">
+            <a class="g-profile" expr:href="data:post.author.profileUrl" rel="author" title="author profile">
+                <span>
+                    <data:post.author.name />
+                </span>
+            </a>
+        </div>
+        <div>
+            <span class="author-desc">
+                <data:post.author.aboutMe />
+            </span>
+        </div>
+    </b:includable>
+    <b:includable id="addComments">
+        <a expr:href="data:post.commentsUrl" expr:onclick="data:post.commentsUrlOnclick">
+            <b:message name="messages.postAComment" />
+        </a>
+    </b:includable>
+    <b:includable id="commentAuthorAvatar">
+        <div class="avatar-image-container">
+            <img class="author-avatar" expr:src="data:comment.authorAvatarSrc" height="35" width="35" />
+        </div>
+    </b:includable>
+    <b:includable id="commentDeleteIcon" var="comment">
+        <span expr:class='"item-control " + data:comment.adminClass'>
+            <b:if cond="data:showCmtPopup">
+                <div class="goog-toggle-button">
+                    <div class="goog-inline-block comment-action-icon" />
+                </div>
+                <b:else />
+                <a class="comment-delete" expr:href="data:comment.deleteUrl" expr:title="data:messages.deleteComment">
+                    <img src="https://resources.blogblog.com/img/icon_delete13.gif" />
+                </a>
+            </b:if>
+        </span>
+    </b:includable>
+    <b:includable id="commentForm" var="post">
+        <div class="comment-form">
+            <a name="comment-form" />
+            <h4 id="comment-post-message"><data:messages.postAComment /></h4>
+            <b:if cond='data:this.messages.blogComment != ""'>
+                <p><data:this.messages.blogComment /></p>
+            </b:if>
+            <b:include data="post" name="commentFormIframeSrc" />
+            <iframe allowtransparency="allowtransparency" class="blogger-iframe-colorize blogger-comment-from-post" expr:height='data:cmtIframeInitialHeight ?: "90px"' frameborder="0" id="comment-editor" name="comment-editor" src="" width="100%" />
+            <data:post.cmtfpIframe />
+            <script type="text/javascript">
+                BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
+            </script>
+        </div>
+    </b:includable>
+    <b:includable id="commentFormIframeSrc" var="post">
+        <a expr:href="data:post.commentFormIframeSrc" id="comment-editor-src" />
+    </b:includable>
+    <b:includable id="commentItem" var="comment">
+        <div class="comment" expr:id='"c" + data:comment.id'>
+            <b:include cond="data:blog.enabledCommentProfileImages" name="commentAuthorAvatar" />
+
+            <div class="comment-block">
+                <div class="comment-author">
+                    <b:if cond="data:comment.authorUrl">
+                        <b:message name="messages.authorSaidWithLink">
+                            <b:param expr:value="data:comment.author" name="authorName" />
+                            <b:param expr:value="data:comment.authorUrl" name="authorUrl" />
+                        </b:message>
+                        <b:else />
+                        <b:message name="messages.authorSaid">
+                            <b:param expr:value="data:comment.author" name="authorName" />
+                        </b:message>
+                    </b:if>
+                </div>
+                <div expr:class='"comment-body" + (data:comment.isDeleted ? " deleted" : "")'>
+                    <data:comment.body />
+                </div>
+                <div class="comment-footer">
+                    <span class="comment-timestamp">
+                        <a expr:href="data:comment.url" title="comment permalink">
+                            <data:comment.timestamp />
+                        </a>
+                        <b:include data="comment" name="commentDeleteIcon" />
+                    </span>
+                </div>
+            </div>
+        </div>
+    </b:includable>
+    <b:includable id="commentList" var="comments">
+        <div id="comments-block">
+            <b:loop values="data:comments" var="comment">
+                <b:include data="comment" name="commentItem" />
+            </b:loop>
+        </div>
+    </b:includable>
+    <b:includable id="commentPicker" var="post">
+        <b:if cond="data:post.showThreadedComments">
+            <b:include data="post" name="threadedComments" />
+            <b:else />
+            <b:include data="post" name="comments" />
+        </b:if>
+    </b:includable>
+    <b:includable id="comments" var="post">
+        <section expr:class='"comments" + (data:post.embedCommentForm ? " embed" : "")' expr:data-num-comments="data:post.numberOfComments" id="comments">
+            <a name="comments" />
+            <b:if cond="data:post.allowComments">
+                <b:include name="commentsTitle" />
+
+                <div expr:id='data:widget.instanceId + "_comments-block-wrapper"'>
+                    <b:include cond="data:post.comments" data="post.comments" name="commentList" />
+                </div>
+
+                <b:if cond="data:post.commentPagingRequired">
+                    <div class="paging-control-container">
+                        <b:if cond="data:post.hasOlderLinks">
+                            <a expr:class="data:post.oldLinkClass" expr:href="data:post.oldestLinkUrl">
+                                <data:messages.oldest />
+                            </a>
+                            <a expr:class="data:post.oldLinkClass" expr:href="data:post.olderLinkUrl">
+                                <data:messages.older />
+                            </a>
+                        </b:if>
+
+                        <span class="comment-range-text">
+                            <data:post.commentRangeText />
+                        </span>
+
+                        <b:if cond="data:post.hasNewerLinks">
+                            <a expr:class="data:post.newLinkClass" expr:href="data:post.newerLinkUrl">
+                                <data:messages.newer />
+                            </a>
+                            <a expr:class="data:post.newLinkClass" expr:href="data:post.newestLinkUrl">
+                                <data:messages.newest />
+                            </a>
+                        </b:if>
+                    </div>
+                </b:if>
+
+                <div class="footer">
+                    <b:if cond="data:post.embedCommentForm">
+                        <b:if cond="data:post.allowNewComments">
+                            <b:include data="post" name="commentForm" />
+                            <b:else />
+                            <data:post.noNewCommentsText />
+                        </b:if>
+                        <b:else />
+                        <b:if cond="data:post.allowComments">
+                            <b:include data="post" name="addComments" />
+                        </b:if>
+                    </b:if>
+                </div>
+            </b:if>
+            <b:if cond="data:showCmtPopup">
+                <div id="comment-popup">
+                    <iframe allowtransparency="allowtransparency" frameborder="0" id="comment-actions" name="comment-actions" scrolling="no"> </iframe>
+                </div>
+            </b:if>
+        </section>
+    </b:includable>
+    <b:includable id="commentsTitle">
+        <h3 class="title"><data:messages.comments /></h3>
+    </b:includable>
+    <b:includable id="feedLinks">
+        <b:if cond="!data:view.isPost">
+            <!-- Blog feed links -->
+            <b:if cond="data:feedLinks">
+                <div class="blog-feeds">
+                    <b:include data="feedLinks" name="feedLinksBody" />
+                </div>
+            </b:if>
+            <b:else />
+            <!--Post feed links -->
+            <div class="post-feeds">
+                <b:loop values="data:posts" var="post">
+                    <b:if cond="data:post.allowComments and data:post.feedLinks">
+                        <b:include data="post.feedLinks" name="feedLinksBody" />
+                    </b:if>
+                </b:loop>
+            </div>
+        </b:if>
+    </b:includable>
+    <b:includable id="feedLinksBody" var="links">
+        <div class="feed-links">
+            <data:messages.subscribeTo />
+            <b:loop values="data:links" var="f">
+                <a class="feed-link" expr:href="data:f.url" expr:type="data:f.mimeType" target="_blank"><data:f.name /> (<data:f.feedType />)</a>
+            </b:loop>
+        </div>
+    </b:includable>
+    <b:includable id="homePageLink">
+        <a class="home-link" expr:href="data:blog.homepageUrl">
+            <data:messages.home />
+        </a>
+    </b:includable>
+    <b:includable id="iframeComments" var="post">
+        <!-- G+ comments, no longer available. The includable is retained for backwards-compatibility. -->
+    </b:includable>
+    <b:includable id="inlineAd" var="post">
+        <b:if cond="!data:view.isPreview">
+            <b:if cond="data:this.adCode or data:this.adClientId or data:blog.adsenseClientId">
+                <!-- Ad -->
+                <div class="inline-ad">
+                    <b:if cond='data:this.adCode != ""'>
+                        <data:this.adCode />
+                        <b:else />
+                        <b:include cond="data:this.adClientId or data:blog.adsenseClientId" name="defaultAdUnit" />
+                    </b:if>
+                </div>
+            </b:if>
+            <b:else />
+            <div class="inline-ad">
+                <div class="inline-ad-placeholder">
+                    <span><b:message name="messages.adsGoHere" /></span>
+                </div>
+            </div>
+        </b:if>
+    </b:includable>
+    <b:includable id="nextPageLink">
+        <a class="blog-pager-older-link" expr:href="data:olderPageUrl" expr:id='data:widget.instanceId + "_blog-pager-older-link"' expr:title="data:messages.olderPosts">
+            <data:messages.olderPosts />
+        </a>
+    </b:includable>
+    <b:includable id="post" var="post">
+        <div class="post">
+            <b:include data="post" name="postMeta" />
+            <b:include data="post" name="postTitle" />
+            <b:include name="headerByline" />
+            <b:if cond="data:view.isSingleItem">
+                <b:include data="post" name="postBody" />
+                <b:else />
+                <b:include data="post" name="postBodySnippet" />
+                <b:include data="post" name="postJumpLink" />
+            </b:if>
+            <b:include data="post" name="postFooter" />
+        </div>
+    </b:includable>
+    <b:includable id="postBody" var="post">
+        <!-- If metaDescription is empty, use the post body as the schema.org description too, for G+/FB snippeting. -->
+        <div class="post-body entry-content float-container" expr:id='"post-body-" + data:post.id'>
+            <data:post.body />
+        </div>
+    </b:includable>
+    <b:includable id="postBodySnippet" var="post">
+        <b:include data="post" name="postBody" />
+    </b:includable>
+    <b:includable id="postCommentsAndAd" var="post">
+        <article class="post-outer-container">
+            <!-- Post title and body -->
+            <div class="post-outer">
+                <b:include data="post" name="post" />
+            </div>
+
+            <!-- Comments -->
+            <b:include cond="data:view.isSingleItem" data="post" name="commentPicker" />
+
+            <!-- Show ad inside post container, after comments, if single item. -->
+            <b:include cond="data:view.isSingleItem and data:post.includeAd" data="post" name="inlineAd" />
+        </article>
+
+        <!-- Show ad outside post container (between posts) for feed pages. -->
+        <b:include cond="data:view.isMultipleItems and data:post.includeAd" data="post" name="inlineAd" />
+    </b:includable>
+    <b:includable id="postCommentsLink">
+        <b:if cond="data:view.isMultipleItems">
+            <span class="byline post-comment-link container">
+                <b:include cond="data:post.commentSource != 1" name="commentsLink" />
+            </span>
+        </b:if>
+    </b:includable>
+    <b:includable id="postFooter" var="post">
+        <div class="post-footer">
+            <b:include name="footerBylines" />
+            <b:include data="post" name="postFooterAuthorProfile" />
+        </div>
+    </b:includable>
+    <b:includable id="postFooterAuthorProfile" var="post">
+        <b:if cond="data:post.author.aboutMe and data:view.isPost">
+            <div class="author-profile">
+                <b:if cond="data:post.author.authorPhoto.url">
+                    <img class="author-image" expr:src="data:post.author.authorPhoto.url" width="50px" />
+                    <div class="author-about">
+                        <b:include data="post" name="aboutPostAuthor" />
+                    </div>
+                    <b:else />
+                    <b:include data="post" name="aboutPostAuthor" />
+                </b:if>
+            </div>
+        </b:if>
+    </b:includable>
+    <b:includable id="postHeader" var="post">
+        <b:include name="headerByline" />
+    </b:includable>
+    <b:includable id="postMeta" var="post">
+        <b:include data="post" name="postMetadataJSON" />
+    </b:includable>
+    <b:includable id="postPagination">
+        <div class="blog-pager container" id="blog-pager">
+            <b:include cond="data:newerPageUrl" name="previousPageLink" />
+            <b:include cond="data:olderPageUrl" name="nextPageLink" />
+            <b:include cond="data:view.url != data:blog.homepageUrl" name="homePageLink" />
+        </div>
+    </b:includable>
+    <b:includable id="postTitle" var="post">
+        <a expr:name="data:post.id" />
+        <b:if cond='data:post.title != ""'>
+            <h3 class="post-title entry-title">
+                <b:if cond="data:post.link or (data:post.url and data:view.url != data:post.url)">
+                    <a expr:href="data:post.link ?: data:post.url"><data:post.title /></a>
+                    <b:else />
+                    <data:post.title />
+                </b:if>
+            </h3>
+        </b:if>
+    </b:includable>
+    <b:includable id="previousPageLink">
+        <a class="blog-pager-newer-link" expr:href="data:newerPageUrl" expr:id='data:widget.instanceId + "_blog-pager-newer-link"' expr:title="data:messages.newerPosts">
+            <data:messages.newerPosts />
+        </a>
+    </b:includable>
+    <b:includable id="threadedCommentForm" var="post">
+        <div class="comment-form">
+            <a name="comment-form" />
+            <h4 id="comment-post-message"><data:messages.postAComment /></h4>
+            <b:if cond='data:this.messages.blogComment != ""'>
+                <p><data:this.messages.blogComment /></p>
+            </b:if>
+            <b:include data="post" name="commentFormIframeSrc" />
+            <iframe allowtransparency="allowtransparency" class="blogger-iframe-colorize blogger-comment-from-post" expr:height='data:cmtIframeInitialHeight ?: "90px"' frameborder="0" id="comment-editor" name="comment-editor" src="" width="100%" />
+            <data:post.cmtfpIframe />
+            <script type="text/javascript">
+                BLOG_CMT_createIframe('<data:post.appRpcRelayPath/>');
+            </script>
+        </div>
+    </b:includable>
+    <b:includable id="threadedCommentJs" var="post">
+        <script async="async" expr:src="data:post.commentSrc" type="text/javascript"></script>
+        <b:template-script inline="true" name="threaded_comments" />
+        <script type="text/javascript">
+            blogger.widgets.blog.initThreadedComments(<data:post.commentJso/>, <data:post.commentMsgs/>, <data:post.commentConfig/>);
+        </script>
+    </b:includable>
+    <b:includable id="threadedComments" var="post">
+        <section class="comments threaded" expr:data-embed="data:post.embedCommentForm" expr:data-num-comments="data:post.numberOfComments" id="comments">
+            <a name="comments" />
+
+            <b:include name="commentsTitle" />
+
+            <div class="comments-content">
+                <b:if cond="data:post.embedCommentForm">
+                    <b:include data="post" name="threadedCommentJs" />
+                </b:if>
+                <div id="comment-holder">
+                    <data:post.commentHtml />
+                </div>
+            </div>
+
+            <p class="comment-footer">
+                <b:if cond="data:post.allowNewComments">
+                    <b:include data="post" name="threadedCommentForm" />
+                    <b:else />
+                    <data:post.noNewCommentsText />
+                </b:if>
+                <b:if cond="data:post.showManageComments">
+                    <b:include data="post" name="manageComments" />
+                </b:if>
+            </p>
+
+            <b:if cond="data:showCmtPopup">
+                <div id="comment-popup">
+                    <iframe allowtransparency="allowtransparency" frameborder="0" id="comment-actions" name="comment-actions" scrolling="no"> </iframe>
+                </div>
+            </b:if>
+        </section>
+    </b:includable>
+</b:widget>

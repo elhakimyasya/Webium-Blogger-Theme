@@ -1,8 +1,8 @@
 <b:widget id="LinkList998" locked="true" title="Main Menu" type="LinkList" visible="true" version="2">
     <b:includable id="main">
-        <b:class name="flex flex-col items-center justify-center" />
+        <b:class name="hidden lg:flex flex-col items-center justify-center" />
         <b:loop values="data:links" var="link">
-            <a expr:href="data:link.target"><b:class cond="data:blog.canonicalUrl == data:link.target or (data:blog.url == data:link.target)" name="selected" /><data:link.name /></a>
+            <a expr:href="data:link.target" class="mt-3 p-3 first:mt-0"><b:class cond="data:blog.canonicalUrl == data:link.target or (data:blog.url == data:link.target)" name="selected" /><data:link.name /></a>
         </b:loop>
     </b:includable>
     <b:includable id="content" />

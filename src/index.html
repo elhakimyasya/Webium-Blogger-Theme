@@ -16,13 +16,19 @@
                 @@include("../src/partials/defaultVariables.html")
                 */{{config.cdataEnd}}
                 :root {
-                    --colorBackground: $(colorBackground);
-                    --colorText: $(colorText);
-                    --colorBorder: $(colorBorder);
+                    --contentBullet: "\0000a0\002022\0000a0";
 
-                    --colorDarkBackground: $(colorDarkBackground);
-                    --colorDarkText: $(colorDarkText);
-                    --colorDarkBorder: $(colorDarkBorder);
+                    --colorBackground: #ffffff;
+                    --colorText: #202124;
+                    --colorTextTrans1: #2021241f;
+                    --colorMeta: #5F6368;
+                    --colorBorder: #DADCE4;
+
+                    --colorDarkBackground: #202124;
+                    --colorDarkText: #E4E6E9;
+                    --colorDarkTextTrans1: #E4E6E91f;
+                    --colorDarkMeta: #9AA0A6;
+                    --colorDarkBorder: #5F6368;
                 }
             </b:skin>
             <b:tag name="style">@@include("../build/styles/styles.min.css")</b:tag>
@@ -37,23 +43,53 @@
                 </b:includable>
                 <!-- prettier-ignore -->
                 <b:includable id="scriptBody">
-                    <b:tag name="script">{{config.cdataStart:alt}}@@include("../build/scripts/scripts.js"){{config.cdataEnd:alt}}</b:tag>
+                    <b:tag name="script">{{config.cdataStart:alt}}@@include("../build/scripts/bundle.js"){{config.cdataEnd:alt}}</b:tag>
                 </b:includable>
             </b:defaultmarkup>
         </b:defaultmarkups>
     </head>
     <body class="bg-colorBackground text-colorText dark:bg-colorDarkBackground dark:text-colorDarkText">
         <div id="app" class="app mx-auto w-full max-w-[1504px]">
-            <div class="flex flex-col items-center justify-between lg:flex-row">
+            <div class="relative flex flex-col justify-between lg:flex-row">
                 <!-- prettier-ignore -->
-                <b:section showaddelements="false" maxwidgets="3" id="section_header" name="Navbar Section" class="section_header sticky flex min-h-[56px] w-full select-none flex-row items-center justify-between border-colorBorder px-4 py-2 shadow-md dark:border-colorDarkBorder lg:h-screen lg:max-w-[80px] lg:flex-col lg:px-2 lg:shadow-none ltr:lg:border-r rtl:lg:border-l">
+                <b:section showaddelement="false" maxwidgets="2" id="section_header" name="Navbar Section" class="section_header sticky top-0 z-20 flex min-h-[56px] w-full select-none flex-row items-center justify-between border-colorBorder bg-colorBackground px-4 py-2 shadow-[rgba(0,0,0,0.15)_0_-2px_10px] dark:border-colorDarkBorder dark:bg-colorDarkBackground lg:h-screen lg:max-w-[80px] lg:flex-col lg:px-2 lg:shadow-none ltr:lg:border-r rtl:lg:border-l">
                     @@include("../src/partials/widgets/Image999.html")
                     @@include("../src/partials/widgets/Header1.html")
-                    @@include("../src/partials/widgets/LinkList998.html")
                 </b:section>
-                <main></main>
-                <aside></aside>
+                <div class="flex w-full flex-col lg:flex-row">
+                    <!-- prettier-ignore -->
+                    <b:section showaddelement="false" maxwidgets="2" id="section_main" name="Main Section" class="section_main mx-auto w-full py-4 px-5 lg:max-w-2xl">
+                        @@include("../src/partials/widgets/LinkList999.html")
+                        @@include("../src/partials/widgets/Blog1.html")
+                    </b:section>
+                    <aside class="w-full border-colorBorder py-4 px-5 dark:border-colorDarkBorder lg:max-w-[395px] lg:px-8 ltr:lg:border-l rtl:lg:border-r">
+                        <b:section id="section_sidebar" name="Sidebar Section" class="section_sidebar sticky top-0 w-full"></b:section>
+                    </aside>
+                </div>
             </div>
+            <nav class="bottom fixed bottom-0 z-20 flex min-h-[56px] w-full flex-row items-center justify-around bg-colorBackground px-4 py-2 shadow-[rgba(0,0,0,0.15)_0_2px_10px] dark:bg-colorDarkBackground lg:hidden">
+                <a expr:href="data:blog.homepageUrl" expr:title="data:messages.home" class="p-2">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <b:if cond="data:view.isHomepage">
+                            <path d="M4.5 21.25V10.87c0-.07.04-.15.1-.2l7.25-5.43a.25.25 0 0 1 .3 0l7.25 5.44c.06.04.1.12.1.2v10.37c0 .14-.11.25-.25.25h-4.5a.25.25 0 0 1-.25-.25v-5.5a.25.25 0 0 0-.25-.25h-4.5a.25.25 0 0 0-.25.25v5.5c0 .14-.11.25-.25.25h-4.5a.25.25 0 0 1-.25-.25z" fill="currentColor" stroke="#A8A8A8" stroke-linejoin="round"></path>
+                            <path d="M22 9l-9.1-6.83a1.5 1.5 0 0 0-1.8 0L2 9" stroke="#A8A8A8" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <b:else />
+                            <path d="M4.5 10.75v10.5c0 .14.11.25.25.25h5c.14 0 .25-.11.25-.25v-5.5c0-.14.11-.25.25-.25h3.5c.14 0 .25.11.25.25v5.5c0 .14.11.25.25.25h5c.14 0 .25-.11.25-.25v-10.5M22 9l-9.1-6.83a1.5 1.5 0 0 0-1.8 0L2 9" stroke="#A8A8A8" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </b:if>
+                    </svg>
+                </a>
+                <a expr:href="data:blog.homepageUrl" expr:title="data:messages.search" class="p-2">
+                    <svg width="25" height="24" fill="none" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.8 10.69a6.95 6.95 0 1 1 13.9 0 6.95 6.95 0 0 1-13.9 0zm6.95-8.05a8.05 8.05 0 1 0 5.13 14.26l3.75 3.75a.56.56 0 1 0 .79-.79l-3.73-3.73a8.05 8.05 0 0 0-5.94-13.5z" fill="#A8A8A8"></path></svg>
+                </a>
+                <a expr:href="data:blog.homepageUrl" expr:title="data:messages.search" class="p-2">
+                    <svg width="25" height="24" fill="none" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 3a2 2 0 0 0-2 2v1H6a2 2 0 0 0-2 2v14a.5.5 0 0 0 .8.4l5.7-4.4 5.7 4.4a.5.5 0 0 0 .8-.4V8a2 2 0 0 0-2-2H9V5a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v12a.5.5 0 1 0 1 0V5a2 2 0 0 0-2-2h-9zM5 8a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v12.98l-5.2-4a.5.5 0 0 0-.6 0l-5.2 4V8z" fill="#757575"></path></svg>
+                </a>
+                <b:if cond='data:widgets any (widget => widget.id == "LinkList999")'>
+                    <button type="button" aria-label="Menu" title="Menu" aria-expanded="false" data-toggle-class-on-target="hidden" data-toggle-target="#LinkList999" data-toggle-escape="" data-toggle-outside="" class="p-2">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.39 12c0 .55.2 1.02.59 1.41.39.4.86.59 1.4.59.56 0 1.03-.2 1.42-.59.4-.39.59-.86.59-1.41 0-.55-.2-1.02-.6-1.41A1.93 1.93 0 0 0 6.4 10c-.55 0-1.02.2-1.41.59-.4.39-.6.86-.6 1.41zM10 12c0 .55.2 1.02.58 1.41.4.4.87.59 1.42.59.54 0 1.02-.2 1.4-.59.4-.39.6-.86.6-1.41 0-.55-.2-1.02-.6-1.41a1.93 1.93 0 0 0-1.4-.59c-.55 0-1.04.2-1.42.59-.4.39-.58.86-.58 1.41zm5.6 0c0 .55.2 1.02.57 1.41.4.4.88.59 1.43.59.57 0 1.04-.2 1.43-.59.39-.39.57-.86.57-1.41 0-.55-.2-1.02-.57-1.41A1.93 1.93 0 0 0 17.6 10c-.55 0-1.04.2-1.43.59-.38.39-.57.86-.57 1.41z" fill="#000"></path></svg>
+                    </button>
+                </b:if>
+            </nav>
             <b:section id="hidden" />
         </div>
         <b:include data="blog" name="scriptBody" />

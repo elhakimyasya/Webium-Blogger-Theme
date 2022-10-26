@@ -9,3 +9,51 @@
 ::placeholder {
     color: inherit;
 }
+
+html {
+    font-family: sohne, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+}
+
+#LinkList999 li svg {
+    @apply ltr:mr-2 rtl:ml-2;
+}
+
+@font-face {
+    font-family: 'sohne';
+    src: url('https://glyph.medium.com/font/b492c44/0-3j_4g_53_6bu_6c4_6c8_6c9_6cc_6cd_6ci_6cm/sohne-400-normal.woff') format('woff');
+    font-style: normal;
+    font-weight: 400;
+    unicode-range: U+0-7F, U+A0, U+B7, U+200A, U+2014, U+2018, U+2019, U+201C, U+201D, U+2022, U+2026;
+}
+
+@font-face {
+    font-family: 'sohne';
+    src: url('https://glyph.medium.com/font/df9ba7f/0-3j_4g_53_6bu_6c4_6c8_6c9_6cc_6cd_6ci_6cm/sohne-500-normal.woff') format('woff');
+    font-style: normal;
+    font-weight: 500;
+    unicode-range: U+0-7F, U+A0, U+B7, U+200A, U+2014, U+2018, U+2019, U+201C, U+201D, U+2022, U+2026;
+}
+
+@font-face {
+    font-family: 'sohne';
+    src: url('https://glyph.medium.com/font/cf896f3/0-3j_4g_53_6bu_6c4_6c8_6c9_6cc_6cd_6ci_6cm/sohne-700-normal.woff') format('woff');
+    font-style: normal;
+    font-weight: 700;
+    unicode-range: U+0-7F, U+A0, U+B7, U+200A, U+2014, U+2018, U+2019, U+201C, U+201D, U+2022, U+2026;
+}
+
+@font-face {
+    font-family: 'sohne';
+    src: url('https://glyph.medium.com/font/cf896f3/3k-4f_4h-52_54-6bt_6bv-6c3_6c5-6c7_6ca-6cb_6ce-6ch_6cj-6cl_6cn-nvnj/sohne-700-normal.woff') format('woff');
+    font-style: normal;
+    font-weight: 700;
+    unicode-range: U+80-9F, U+A1-B6, U+B8-2009, U+200B-2013, U+2015-2017, U+201A-201B, U+201E-2021, U+2023-2025, U+2027-10FFFF;
+}
+
+@font-face {
+    font-family: 'source-serif-pro';
+    src: url('https://glyph.medium.com/font/8e059b2/0-3j_4g_53_6bu_6c4_6c8_6c9_6cc_6cd_6ci_6cm/source-serif-pro-400-normal.woff') format('woff');
+    font-style: normal;
+    font-weight: 400;
+    unicode-range: U+0-7F, U+A0, U+B7, U+200A, U+2014, U+2018, U+2019, U+201C, U+201D, U+2022, U+2026;
+}
