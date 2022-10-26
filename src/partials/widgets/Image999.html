@@ -1,0 +1,9 @@
+<b:widget id="Image999" locked="true" title="Blog Logo (Desktop)" type="Image" visible="true" version="2">
+    <b:includable id="main">
+        <b:class name="hidden lg:inline-flex lg:pt-8" />
+        <b:tag expr:href="data:link ? data:link : data:blog.homepageUrl" name="a" expr:title="data:title ? data:title : data:blog.title.escaped">
+            <img expr:alt="data:caption ? data:caption : (data:caption ? data:caption : data:blog.title)" height="40" expr:id='data:widget.instanceId + "_img"' expr:src='resizeImage(data:sourceUrl, "40", "1:1")' width="40" expr:srcset="data:sourceSet ? data:sourceSet : data:sourceUrl" loading="lazy" class="notranslate max-h-10 flex-shrink-0 flex-grow-0 text-transparent" />
+        </b:tag>
+    </b:includable>
+    <b:includable id="content" />
+</b:widget>

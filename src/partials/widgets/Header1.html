@@ -1,0 +1,15 @@
+<b:widget id="Header1" locked="true" title="Blog Logo (Mobile)" type="Header" visible="true" version="2">
+    <b:includable id="main" var="this">
+        <b:class name="inline-flex lg:hidden lg:pt-8" />
+        <b:tag expr:href="data:blog.homepageUrl" name="a" expr:title="data:blog.title" class="flex flex-row items-center justify-center">
+            <b:tag cond='data:imagePlacement in {"REPLACE", "BEFORE_DESCRIPTION"}' name="img" expr:src="data:image" expr:alt="data:title" expr:width="data:width" expr:height="data:height" class="notranslate max-h-10 w-auto flex-shrink-0 flex-grow-0 text-transparent ltr:mr-2 rtl:ml-2" />
+            <!-- prettier-ignore -->
+            <b:tag expr:name='data:view.isMultipleItems ? "h1" : "div"' expr:class='data:imagePlacement in {"REPLACE"} ? "sr-only" : data:imagePlacement in {"BEFORE_DESCRIPTION"} ? "relative text-ellipsis text-lg font-medium line-clamp-1" : "relative text-ellipsis text-lg font-medium line-clamp-1"'><data:title /></b:tag>
+            <!-- prettier-ignore -->
+        </b:tag>
+    </b:includable>
+    <b:includable id="image" />
+    <b:includable id="title" />
+    <b:includable id="description" />
+    <b:includable id="behindImageStyle" />
+</b:widget>
