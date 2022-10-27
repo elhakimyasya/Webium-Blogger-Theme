@@ -23,10 +23,10 @@ If you have questions related to this theme, please write in the [Comments](http
 - ✅ Search Page
 - ✅ Archive Page
 - ✅ Label Page
-- ❌ Error Page
+- ✅ Error Page
 - ✅ Post Page
 - ❌ Static Page
-- ✅ Comments
+- ❌ Comments
 - ❌ Widgets
 
 ## Credits
