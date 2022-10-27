@@ -27,7 +27,7 @@ If you have questions related to this theme, please write in the [Comments](http
 - ✅ Post Page
 - ❌ Static Page
 - ❌ Comments
-- ❌ Widgets
+- ❌ Gadgets
 
 ## Credits
 
