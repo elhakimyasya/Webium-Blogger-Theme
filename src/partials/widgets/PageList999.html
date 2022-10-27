@@ -1,9 +1,9 @@
 <b:widget id="PageList999" locked="true" title="Sticky Page Menu (Homepage)" type="PageList" visible="true" version="2" cond="data:view.isHomepage">
     <b:includable id="main">
         <b:class name='sticky top-[55px] z-10 mb-12 w-full select-none bg-colorBackground shadow-[var(--colorBorder)_0_-1px_0_inset] after:pointer-events-none after:absolute after:top-0 after:h-[calc(100%-2px)] after:w-1/6 after:from-colorBackground after:to-transparent after:content-[""] ltr:after:right-0 ltr:after:bg-gradient-to-l rtl:after:left-0 rtl:after:bg-gradient-to-r dark:bg-colorDarkBackground dark:shadow-[var(--colorDarkBorder)_0_-1px_0_inset] dark:after:from-colorDarkBackground xl:top-0' />
-        <ul class="flex flex-row items-center justify-start overflow-hidden overflow-x-auto lg:overflow-x-hidden lg:hover:overflow-x-auto">
+        <ul class="flex snap-x flex-row items-center justify-start overflow-hidden overflow-x-auto lg:overflow-x-hidden lg:hover:overflow-x-auto">
             <b:loop values="data:links" var="link">
-                <li class="mx-4 ltr:first:ml-0 rtl:first:mr-0">
+                <li class="mx-4 snap-start ltr:first:ml-0 rtl:first:mr-0">
                     <a expr:href="data:link.href" class="block w-max border-b py-4 text-sm hover:text-colorText dark:hover:text-colorDarkText"><b:class expr:name='(data:link.isCurrentPage or data:blog.canonicalUrl == data:link.href) ? "text-colorText dark:text-colorDarkText border-colorText dark:border-colorDarkText" : "text-colorMeta border-transparent dark:text-colorDarkMeta"' /><data:link.title /></a>
                 </li>
             </b:loop>

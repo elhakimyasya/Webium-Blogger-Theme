@@ -1,5 +1,6 @@
-<b:widget id="BlogSearch999" locked="true" title="Sticky Page Menu (Homepage)" type="BlogSearch" visible="true" version="2">
+<b:widget id="BlogSearch999" locked="true" title="Blog Search" type="BlogSearch" visible="true" version="2">
     <b:includable id="main">
+        <b:class name="fixed inset-0 z-30 mb-8 hidden h-screen w-full bg-colorBackground py-20 px-5 dark:bg-colorDarkBackground lg:relative lg:z-auto lg:inline-flex lg:h-auto lg:px-0 lg:py-0" />
         <form expr:action="data:blog.searchUrl" expr:target='!data:view.isPreview ? "_top" : "_blank"' class="flex w-full flex-row items-center justify-center rounded-full border border-colorBorder bg-colorBackground dark:border-colorDarkBorder dark:bg-colorDarkBackground">
             <b:include name="urlParamsAsFormInput" />
             <!-- prettier-ignore -->

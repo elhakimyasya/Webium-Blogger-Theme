@@ -10,8 +10,41 @@
     color: inherit;
 }
 
-html {
-    font-family: sohne, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+/* RTL Prose */
+.prose ol,
+.prose ul {
+    @apply rtl:pl-0 rtl:pr-[1.625em];
+}
+.prose ol > li,
+.prose ul > li {
+    @apply rtl:pl-0 rtl:pr-[0.375em];
+}
+.prose blockquote {
+    @apply rtl:border-l-0 rtl:border-r-[.25rem] rtl:pl-0 rtl:pr-[1em];
+}
+
+.prose-lg ol,
+.prose-lg ul {
+    @apply rtl:pl-0 rtl:pr-[1.5555556em];
+}
+.prose-lg ol > li,
+.prose-lg ul > li {
+    @apply rtl:pl-0 rtl:pr-[.4444444em];
+}
+.prose-lg blockquote {
+    @apply rtl:pl-0 rtl:pr-[1em];
+}
+
+.lg\:prose-xl ol,
+.lg\:prose-xl ul {
+    @apply rtl:pl-0 rtl:pr-[1.6em];
+}
+.lg\:prose-xl ol > li,
+.lg\:prose-xl ul > li {
+    @apply rtl:pl-0 rtl:pr-[0.4em];
+}
+.prose-xl blockquote {
+    @apply rtl:pl-0 rtl:pr-[1.0666667em];
 }
 
 #LinkList999 li svg {
@@ -55,6 +88,22 @@ html {
     src: url('https://glyph.medium.com/font/8e059b2/0-3j_4g_53_6bu_6c4_6c8_6c9_6cc_6cd_6ci_6cm/source-serif-pro-400-normal.woff') format('woff');
     font-style: normal;
     font-weight: 400;
+    unicode-range: U+0-7F, U+A0, U+B7, U+200A, U+2014, U+2018, U+2019, U+201C, U+201D, U+2022, U+2026;
+}
+
+@font-face {
+    font-family: 'source-serif-pro';
+    src: url('https://glyph.medium.com/font/76c214a/0-3j_4g_53_6bu_6c4_6c8_6c9_6cc_6cd_6ci_6cm/source-serif-pro-400-italic.woff') format('woff');
+    font-style: italic;
+    font-weight: 400;
+    unicode-range: U+0-7F, U+A0, U+B7, U+200A, U+2014, U+2018, U+2019, U+201C, U+201D, U+2022, U+2026;
+}
+
+@font-face {
+    font-family: 'source-serif-pro';
+    src: url('https://glyph.medium.com/font/b156742/0-3j_4g_53_6bu_6c4_6c8_6c9_6cc_6cd_6ci_6cm/source-serif-pro-700-normal.woff') format('woff');
+    font-style: normal;
+    font-weight: 700;
     unicode-range: U+0-7F, U+A0, U+B7, U+200A, U+2014, U+2018, U+2019, U+201C, U+201D, U+2022, U+2026;
 }
 

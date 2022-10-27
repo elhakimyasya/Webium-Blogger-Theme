@@ -7,13 +7,18 @@ module.exports = {
     ],
     theme: {
         extend: {
+            fontFamily: {
+                sans: [
+                    "sohne", "ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Helvetica Neue", "Arial", "Noto Sans", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+                ]
+            },
             colors: {
                 colorBackground: 'var(--colorBackground)',
                 colorText: 'var(--colorText)',
                 colorTextTrans1: 'var(--colorTextTrans1)',
                 colorMeta: 'var(--colorMeta)',
                 colorBorder: 'var(--colorBorder)',
-                
+
                 colorDarkBackground: 'var(--colorDarkBackground)',
                 colorDarkText: 'var(--colorDarkText)',
                 colorDarkTextTrans1: 'var(--colorDarkTextTrans1)',
@@ -25,6 +30,7 @@ module.exports = {
     plugins: [
         require('tailwindcss'),
         require('autoprefixer'),
-        require('@tailwindcss/line-clamp')
+        require('@tailwindcss/line-clamp'),
+        require('@tailwindcss/typography'),
     ]
 }
