@@ -2,19 +2,53 @@
     <b:includable id="main" var="this">
         <b:comment>Index: Label Page, Search Page and Archive Page</b:comment>
         <b:if cond="data:view.search.query or data:view.search.label or data:view.isArchive">
-            <div class="my-6 flex w-full flex-wrap items-center justify-between lg:mb-12 lg:mt-8">
+            <div class="mb-8 flex w-full flex-col items-start justify-between">
+                <b:if cond="data:view.search.query">
+                    <form expr:action="data:blog.searchUrl" expr:target='!data:view.isPreview ? "_top" : "_blank"' class="flex w-full flex-row items-center justify-center rounded-full border border-colorBorder bg-colorBackground dark:border-colorDarkBorder dark:bg-colorDarkBackground lg:hidden">
+                        <b:include name="urlParamsAsFormInput" />
+                        <!-- prettier-ignore -->
+                        <button expr:aria-label="data:messages.searchThisBlog" expr:title="data:messages.searchThisBlog" type="submit" class="p-2 ltr:mr-1 rtl:ml-1"><svg width="25" height="25" viewBox="0 0 25 25" aria-hidden="true"><path d="M20.07 18.93l-4.16-4.15a6 6 0 1 0-.88.88l4.15 4.16a.62.62 0 1 0 .89-.89zM6.5 11a4.75 4.75 0 1 1 9.5 0 4.75 4.75 0 0 1-9.5 0z"></path></svg></button>
+                        <input id="search_input" autocomplete="off" expr:aria-label="data:messages.searchThisBlog" expr:placeholder="data:messages.searchThisBlog" expr:value='data:view.isSearch ? data:view.search.query.escaped : ""' name="q" required="" class="w-full bg-transparent py-2 text-colorText outline-0 placeholder:text-colorMeta ltr:pr-2 rtl:pl-2 dark:text-colorDarkText dark:placeholder:text-colorDarkMeta" />
+                        <label for="search_input" class="sr-only"><data:messages.searchThisBlog /></label>
+                    </form>
+                </b:if>
                 <b:with value='data:view.search.query ? data:view.search.query : data:view.search.label ? data:view.search.label : data:view.isArchive ? data:messages.archive + ": " + data:blog.pageName : ""' var="message">
-                    <h2 class="break-words text-[22px] font-bold text-colorText line-clamp-1 dark:text-colorDarkText lg:text-[42px]">
-                        <b:if cond="data:view.search.query">
-                            <span class="text-colorMeta dark:text-colorDarkMeta"><data:messages.search /></span>
+                    <b:tag expr:name='(data:view.search.query or data:view.isArchive) ? "h2" : "div"' class="mt-6 flex flex-row items-center justify-center text-[22px] font-bold lg:text-[42px]">
+                        <!-- prettier-ignore -->
+                        <b:if cond="data:view.search.query"><span class="text-colorMeta dark:text-colorDarkMeta ltr:mr-2 rtl:ml-2"><data:messages.search /></span></b:if>
+                        <b:if cond="data:view.search.label">
+                            <svg width="21" height="21" fill="currentColor" aria-hidden="true" class="box-content flex-shrink-0 flex-grow-0 rounded-full bg-colorTextTrans1 p-1 ltr:mr-2 rtl:ml-2 dark:bg-colorDarkTextTrans1"><path d="M4.66 8.72L3.43 9.95a1.75 1.75 0 0 0 0 2.48l5.14 5.13c.7.7 1.8.69 2.48 0l1.23-1.22 5.35-5.35a2 2 0 0 0 .51-1.36l-.32-4.29a2.42 2.42 0 0 0-2.15-2.14l-4.3-.33c-.43-.03-1.05.2-1.36.51l-.79.8-2.27 2.28-2.28 2.27zm9.83-.98a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5z" fill-rule="evenodd"></path></svg>
                         </b:if>
-                        <data:message />
-                    </h2>
+                        <span class="break-words text-colorText line-clamp-1 dark:text-colorDarkText"><data:message /></span>
+                    </b:tag>
                 </b:with>
                 <div class="mt-4 w-full select-none shadow-[var(--colorBorder)_0_-1px_0_inset] dark:shadow-[var(--colorDarkBorder)_0_-1px_0_inset]">
                     <div class="w-max border-b border-colorText py-4 text-sm dark:border-colorDarkText"><data:messages.posts /></div>
                 </div>
             </div>
+        </b:if>
+        <b:comment>Index: Label Page, Search Page and Archive Page (No Result)</b:comment>
+        <b:if cond="data:view.isMultipleItems and data:posts.empty">
+            <div class="text-center"><data:messages.noResultsFound /></div>
+        </b:if>
+        <b:comment>Index: Error and Noscript Message</b:comment>
+        <b:if cond="data:view.isError">
+            <div class="my-7 flex flex-col items-center justify-center text-center">
+                <h2 class="text-9xl font-bold text-colorMeta dark:text-colorDarkMeta">404</h2>
+                <p class="mt-3 text-2xl font-medium"><data:messages.theresNothingHere /></p>
+                <p class="my-3"><data:navMessage /></p>
+                <div class="my-3">
+                    <a class="underline" expr:href="data:blog.homepageUrl">
+                        <span><data:messages.home /></span>
+                    </a>
+                </div>
+            </div>
+            <b:else />
+            <noscript>
+                <b:with value='data:blog.locale == "id" ? "Maaf, situs ini tidak berfungsi dengan baik tanpa JavaScript." : "Sorry, this site doesn&apos;t work properly without JavaScript."' var="languages">
+                    <div class="elcreative_alert alert_warning"><data:languages /></div>
+                </b:with>
+            </noscript>
         </b:if>
         <div class="flex w-full flex-col items-center justify-center">
             <b:loop index="i" values="data:posts" var="post">
