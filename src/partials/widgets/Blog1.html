@@ -8,7 +8,7 @@
                         <b:include name="urlParamsAsFormInput" />
                         <!-- prettier-ignore -->
                         <button expr:aria-label="data:messages.searchThisBlog" expr:title="data:messages.searchThisBlog" type="submit" class="p-2 ltr:mr-1 rtl:ml-1"><svg width="25" height="25" viewBox="0 0 25 25" aria-hidden="true"><path d="M20.07 18.93l-4.16-4.15a6 6 0 1 0-.88.88l4.15 4.16a.62.62 0 1 0 .89-.89zM6.5 11a4.75 4.75 0 1 1 9.5 0 4.75 4.75 0 0 1-9.5 0z"></path></svg></button>
-                        <input id="search_input" autocomplete="off" expr:aria-label="data:messages.searchThisBlog" expr:placeholder="data:messages.searchThisBlog" expr:value='data:view.isSearch ? data:view.search.query.escaped : ""' name="q" required="" class="w-full bg-transparent py-2 text-colorText outline-0 placeholder:text-colorMeta ltr:pr-2 rtl:pl-2 dark:text-colorDarkText dark:placeholder:text-colorDarkMeta" />
+                        <input id="search_input" autocomplete="off" expr:aria-label="data:messages.searchThisBlog" expr:placeholder="data:messages.searchThisBlog" expr:value='data:view.isSearch ? data:view.search.query.escaped : ""' name="q" required="" class="w-full bg-transparent py-2 text-colorText outline-0 placeholder:text-colorMeta ltr:rounded-tr-full ltr:rounded-br-full ltr:pr-2 rtl:rounded-tl-full rtl:rounded-bl-full rtl:pl-2 dark:text-colorDarkText dark:placeholder:text-colorDarkMeta" />
                         <label for="search_input" class="sr-only"><data:messages.searchThisBlog /></label>
                     </form>
                 </b:if>
