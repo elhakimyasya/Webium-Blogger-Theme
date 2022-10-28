@@ -1,5 +1,6 @@
 <b:widget id="Blog1" locked="true" title="Blog Posts (Mobile)" type="Blog" visible="true" version="2">
     <b:includable id="main" var="this">
+        <b:class name="mx-auto xl:max-w-2xl" />
         <b:comment>Index: Label Page, Search Page and Archive Page</b:comment>
         <b:if cond="data:view.search.query or data:view.search.label or data:view.isArchive">
             <div class="mb-8 flex w-full flex-col items-start justify-between">
