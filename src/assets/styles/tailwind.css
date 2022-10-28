@@ -11,6 +11,9 @@
 }
 
 /* RTL Prose */
+.prose pre > code {
+    @apply bg-transparent;
+}
 .prose ol,
 .prose ul {
     @apply rtl:pl-0 rtl:pr-[1.625em];
@@ -33,18 +36,6 @@
 }
 .prose-lg blockquote {
     @apply rtl:pl-0 rtl:pr-[1em];
-}
-
-.lg\:prose-xl ol,
-.lg\:prose-xl ul {
-    @apply rtl:pl-0 rtl:pr-[1.6em];
-}
-.lg\:prose-xl ol > li,
-.lg\:prose-xl ul > li {
-    @apply rtl:pl-0 rtl:pr-[0.4em];
-}
-.prose-xl blockquote {
-    @apply rtl:pl-0 rtl:pr-[1.0666667em];
 }
 
 #LinkList999 li svg {
