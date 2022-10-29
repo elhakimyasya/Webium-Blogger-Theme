@@ -18,15 +18,34 @@ module.exports = {
                 colorTextTrans1: 'var(--colorTextTrans1)',
                 colorMeta: 'var(--colorMeta)',
                 colorBorder: 'var(--colorBorder)',
+
+                colorNavbarTopBackground: 'var(--colorNavbarTopBackground)',
+                colorNavbarTopBorder: 'var(--colorNavbarTopBorder)',
+                colorNavbarTopShadow: 'var(--colorNavbarTopShadow)',
+                colorNavbarTopText: 'var(--colorNavbarTopText)',
+
+                colorNavbarBottomBackground: 'var(--colorNavbarBottomBackground)',
+                colorNavbarBottomShadow: 'var(--colorNavbarTopShadow)',
+                colorNavbarBottomText: 'var(--colorNavbarBottomText)',
+
+                colorMainMenuBackground: 'var(--colorMainMenuBackground)',
+                colorMainMenuText: 'var(--colorMainMenuText)',
                 
-                colorNavbarBackground: 'var(--colorNavbarBackground)',
-                colorNavbarBorder: 'var(--colorNavbarBorder)',
-                colorNavbarShadow: 'var(--colorNavbarShadow)',
-                colorNavbarText: 'var(--colorNavbarText)',
+                colorIndexText: 'var(--colorIndexText)',
+                colorIndexTextTrans1: 'var(--colorIndexTextTrans1)',
+                colorIndexTextTrans2: 'var(--colorIndexTextTrans2)',
+                colorIndexMeta: 'var(--colorIndexMeta)',
+                colorIndexBorder: 'var(--colorIndexBorder)',
+
+                colorItemText: 'var(--colorItemText)',
+                colorItemTextTrans1: 'var(--colorItemTextTrans1)',
+                colorItemMeta: 'var(--colorItemMeta)',
+                colorItemLink: 'var(--colorItemLink)',
                 
                 colorDarkBackground: 'var(--colorDarkBackground)',
                 colorDarkText: 'var(--colorDarkText)',
                 colorDarkTextTrans1: 'var(--colorDarkTextTrans1)',
+                colorDarkTextTrans2: 'var(--colorDarkTextTrans2)',
                 colorDarkMeta: 'var(--colorDarkMeta)',
                 colorDarkBorder: 'var(--colorDarkBorder)',
             }

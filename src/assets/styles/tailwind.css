@@ -12,7 +12,7 @@
 
 /* RTL Prose */
 .prose pre > code {
-    @apply bg-transparent;
+    @apply bg-transparent dark:bg-transparent;
 }
 .prose ol,
 .prose ul {

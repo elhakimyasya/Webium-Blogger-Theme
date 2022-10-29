@@ -1,10 +1,10 @@
 <b:widget id="LinkList999" locked="true" title="Main Menu" type="LinkList" visible="true" version="2">
     <b:includable id="main">
-        <b:class name="fixed top-0 bottom-0 z-20 hidden h-screen w-full min-w-[280px] overflow-y-auto overflow-x-hidden border-colorBorder bg-colorBackground py-16 ltr:left-0 rtl:right-0 dark:border-colorDarkBorder dark:bg-colorDarkBackground xl:top-auto xl:z-30 xl:mb-16 xl:h-auto xl:max-h-[80vh] xl:w-max xl:rounded-md xl:border xl:py-3 xl:shadow-md ltr:xl:ml-5 rtl:xl:mr-5" />
+        <b:class name="fixed top-0 bottom-0 z-20 hidden h-screen w-full min-w-[280px] overflow-y-auto overflow-x-hidden border-colorMainMenuBorder bg-colorMainMenuBackground py-16 ltr:left-0 rtl:right-0 dark:border-colorDarkBorder dark:bg-colorDarkBackground xl:top-auto xl:z-30 xl:mb-16 xl:h-auto xl:max-h-[80vh] xl:w-max xl:rounded-md xl:border xl:py-3 xl:shadow-md ltr:xl:ml-5 rtl:xl:mr-5" />
         <ul>
             <b:loop values="data:links" var="link">
                 <li>
-                    <a expr:href="data:link.target" class="flex items-center justify-start py-3 px-5 text-sm"><b:class cond="data:blog.canonicalUrl == data:link.target or (data:blog.url == data:link.target)" name="selected" /><data:link.name /></a>
+                    <a expr:href="data:link.target" class="flex items-center justify-start py-3 px-5 text-sm text-colorMainMenuText dark:text-colorDarkText"><b:class cond="data:blog.canonicalUrl == data:link.target or (data:blog.url == data:link.target)" name="selected" /><data:link.name /></a>
                 </li>
             </b:loop>
         </ul>
