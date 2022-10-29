@@ -139,7 +139,7 @@
                                             <b:comment>Item: Post Comment</b:comment>
                                             <b:if cond="data:allBylineItems.comments and data:post.allowNewComments">
                                                 <!-- prettier-ignore -->
-                                                <button type="button" expr:aria-label="data:messages.comments" expr:title="data:messages.comments" class="inline-flex items-center justify-center text-sm capitalize text-colorItemMeta dark:text-colorDarkMeta"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" aria-expanded="false" data-overflow="true" data-toggle-class-on-target="comment_active" data-toggle-target="#comments" data-toggle-escape="" data-toggle-outside=""><path d="M18 16.8a7.14 7.14 0 0 0 2.24-5.32c0-4.12-3.53-7.48-8.05-7.48C7.67 4 4 7.36 4 11.48c0 4.13 3.67 7.48 8.2 7.48a8.9 8.9 0 0 0 2.38-.32c.23.2.48.39.75.56 1.06.69 2.2 1.04 3.4 1.04.22 0 .4-.11.48-.29a.5.5 0 0 0-.04-.52 6.4 6.4 0 0 1-1.16-2.65v.02zm-3.12 1.06l-.06-.22-.32.1a8 8 0 0 1-2.3.33c-4.03 0-7.3-2.96-7.3-6.59S8.17 4.9 12.2 4.9c4 0 7.1 2.96 7.1 6.6 0 1.8-.6 3.47-2.02 4.72l-.2.16v.26l.02.3a6.74 6.74 0 0 0 .88 2.4 5.27 5.27 0 0 1-2.17-.86c-.28-.17-.72-.38-.94-.59l.01-.02z" fill="currentColor" /></svg><b:if cond="data:post.numberOfComments > 0"><span class="ltr:ml-1 rtl:mr-1"><data:post.numberOfComments /></span></b:if></button>
+                                                <button type="button" expr:aria-label="data:messages.comments" expr:title="data:messages.comments" class="inline-flex items-center justify-center text-sm capitalize text-colorItemMeta dark:text-colorDarkMeta"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" aria-expanded="false" data-overflow="false" data-toggle-class-on-target="comment_active" data-toggle-target="#comments" data-toggle-escape="" data-toggle-outside=""><path d="M18 16.8a7.14 7.14 0 0 0 2.24-5.32c0-4.12-3.53-7.48-8.05-7.48C7.67 4 4 7.36 4 11.48c0 4.13 3.67 7.48 8.2 7.48a8.9 8.9 0 0 0 2.38-.32c.23.2.48.39.75.56 1.06.69 2.2 1.04 3.4 1.04.22 0 .4-.11.48-.29a.5.5 0 0 0-.04-.52 6.4 6.4 0 0 1-1.16-2.65v.02zm-3.12 1.06l-.06-.22-.32.1a8 8 0 0 1-2.3.33c-4.03 0-7.3-2.96-7.3-6.59S8.17 4.9 12.2 4.9c4 0 7.1 2.96 7.1 6.6 0 1.8-.6 3.47-2.02 4.72l-.2.16v.26l.02.3a6.74 6.74 0 0 0 .88 2.4 5.27 5.27 0 0 1-2.17-.86c-.28-.17-.72-.38-.94-.59l.01-.02z" fill="currentColor" /></svg><b:if cond="data:post.numberOfComments > 0"><span class="ltr:ml-1 rtl:mr-1"><data:post.numberOfComments /></span></b:if></button>
                                             </b:if>
                                         </b:if>
                                     </div>
@@ -203,11 +203,76 @@
                     <section id="comments" class="elcreative_comment" expr:data-src='data:post.commentFormIframeSrc appendParams {skin: "contempo"}'>
                         <b:tag cond="data:post.numberOfComments != 0" name="input" id="comments_sort" class="comments_sort hidden" type="checkbox" />
                         <b:comment>Comment Title</b:comment>
-                        <div class="flex w-full items-center justify-between capitalize">
+                        <div class="flex w-full items-center justify-between px-6 capitalize">
                             <h2 class="inline-flex w-auto select-none text-xl font-bold text-colorItemText dark:text-colorDarkText"><data:messages.comments /> (<data:post.numberOfComments />)</h2>
                             <button type="button" aria-label="Close" title="Close" class="rounded-full p-2 text-colorItemText opacity-50 hover:opacity-100 dark:text-colorDarkText" data-toggle-trigger-off="">
                                 <svg width="25" height="25" viewBox="0 0 25 25" fill="currentColor" aria-hidden="true"><path d="M18.13 6.11l-5.61 5.61-5.6-5.61-.81.8 5.61 5.61-5.61 5.61.8.8 5.61-5.6 5.61 5.6.8-.8-5.6-5.6 5.6-5.62" /></svg>
                             </button>
+                        </div>
+                        <b:comment>Comment Message</b:comment>
+                        <b:if cond='data:post.allowNewComments and data:this.messages.blogComment != ""'>
+                            <div class="my-6 w-full border-b border-colorItemBorder px-6 pb-6 text-sm text-colorItemMeta dark:border-colorDarkBorder dark:text-colorDarkMeta">
+                                <data:this.messages.blogComment />
+                            </div>
+                        </b:if>
+                        <div class="comment_container relative flex w-full flex-col items-center justify-start">
+                            <b:if cond="data:post.numberOfComments > 0">
+                                <div id="comment_holder" class="comment_holder flex w-full flex-col-reverse items-center justify-center">
+                                    <b:class cond='data:this.messages.blogComment == ""' name="mt-3" />
+                                    <b:loop values="data:post.comments where (c => not c.inReplyTo)" var="commentThreadPrimary">
+                                        <div expr:id='"c" + data:commentThreadPrimary.id' class="comment_item mb-3 flex w-full flex-col items-start justify-center overflow-hidden border-b border-colorItemBorder px-6 pb-6 first:border-b-0 first:pb-0 dark:border-colorDarkBorder">
+                                            <b:class cond="data:cb.level.author == data:post.author.name" name="author" />
+                                            <b:include data="{level: data:commentThreadPrimary, d: true}" name="commentBlock" />
+                                            <b:with value="data:post.comments where (c => c.inReplyTo == data:commentThreadPrimary.id)" var="commentThreadSecondary">
+                                                <b:if cond='data:commentThreadSecondary.size != "0"'>
+                                                    <div expr:id='"comment_thread_" + data:commentThreadPrimary.id' class="comment_thread flex h-full w-full flex-col items-start justify-center">
+                                                        <b:loop values="data:commentThreadSecondary" var="commentLevel2">
+                                                            <div expr:id='"c" + data:commentLevel2.id' class="w-full border-colorItemTextTrans1 ltr:border-l-4 ltr:pl-6 rtl:border-r-4 rtl:pr-6 dark:border-colorDarkTextTrans1">
+                                                                <b:class cond="data:cb.level.author == data:post.author.name" name="author" />
+                                                                <b:include data="{level: data:commentLevel2, d: true}" name="commentBlock" />
+                                                            </div>
+                                                        </b:loop>
+                                                    </div>
+                                                </b:if>
+                                            </b:with>
+                                            <b:if cond='data:commentThreadSecondary.size != "1" and data:post.allowNewComments'>
+                                                <div class="comment_actions mt-4">
+                                                    <a expr:aria-label="data:messages.postAComment" expr:data-reply-to="data:commentThreadPrimary.id" expr:href='"#comment_id_" + data:commentThreadPrimary.id' role="button" target="_self" class="reply_to text-sm text-colorItemText hover:underline dark:text-colorDarkText">
+                                                        <b:with value='data:blog.locale == "id" ? "Balas" : "Replyt"' var="languages">
+                                                            <span><data:languages /></span>
+                                                        </b:with>
+                                                    </a>
+                                                </div>
+                                            </b:if>
+                                        </div>
+                                    </b:loop>
+                                </div>
+                                <b:if cond="data:post.allowNewComments">
+                                    <div class="comment_add flex w-full items-center justify-center">
+                                        <button id="comment_add" class="add_comment m-2 hidden" expr:aria-label="data:messages.postAComment" type="button" role="button" data-comments="true">
+                                            <b:with value='data:blog.locale == "id" ? "Tulis Komentar Baru" : "Post a New Comment"' var="languages">
+                                                <data:languages />
+                                            </b:with>
+                                        </button>
+                                    </div>
+                                </b:if>
+                                
+                                <b:else />
+                                <div id="comment_add" class="add_comment" data-comments="false"></div>
+                            </b:if>
+                            <div class="comment_form flex w-full items-center justify-center">
+                                <b:if cond="data:post.allowNewComments">
+                                    <div id="threaded_comment_form" class="threaded_comment_form flex w-full items-center justify-center p-3">
+                                        <a expr:href="data:post.commentFormIframeSrc" id="comment-editor-src" class="sr-only hidden"><data:messages.comments /></a>
+                                        <iframe id="comment-editor" name="comment-editor" allowtransparency="true" class="blogger-iframe-colorize blogger-comment-from-post" expr:title="data:messages.comments" src="" expr:height='data:cmtIframeInitialHeight ?: "90px"' scrolling="no" frameborder="0" width="100%" loading="lazy"></iframe>
+                                    </div>
+                                    <b:else />
+                                    <data:post.noNewCommentsText />
+                                </b:if>
+                            </div>
+                            <b:if cond="data:showCmtPopup">
+                                <div id="comment-popup"><iframe allowtransparency="true" frameborder="0" id="comment_actions" name="comment_actions" scrolling="no" loading="lazy"></iframe></div>
+                            </b:if>
                         </div>
                     </section>
                     <div class="comment_backdrop fixed inset-0 z-40 cursor-pointer bg-colorTextTrans1"></div>
@@ -232,6 +297,42 @@
             <b:class expr:name='data:view.isMultipleItems ? "text-colorIndexText" : "text-colorItemText" ' />
             <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.57 14.67c0-.57.13-1.11.38-1.6l.02-.02v-.02l.02-.02c0-.02 0-.02.02-.02.12-.26.3-.52.57-.8L7.78 9v-.02l.01-.02c.44-.41.91-.7 1.44-.85a4.87 4.87 0 0 0-1.19 2.36A5.04 5.04 0 0 0 8 11.6L6.04 13.6c-.19.19-.32.4-.38.65a2 2 0 0 0 0 .9c.08.2.2.4.38.57l1.29 1.31c.27.28.62.42 1.03.42.42 0 .78-.14 1.06-.42l1.23-1.25.79-.78 1.15-1.16c.08-.09.19-.22.28-.4.1-.2.15-.42.15-.67 0-.16-.02-.3-.06-.45l-.02-.02v-.02l-.07-.14s0-.03-.04-.06l-.06-.13-.02-.02c0-.02 0-.03-.02-.05a.6.6 0 0 0-.14-.16l-.48-.5c0-.04.02-.1.04-.15l.06-.12 1.17-1.14.09-.09.56.57c.02.04.08.1.16.18l.05.04.03.06.04.05.03.04.04.06.1.14.02.02c0 .02.01.03.03.04l.1.2v.02c.1.16.2.38.3.68a1 1 0 0 1 .04.25 3.2 3.2 0 0 1 .02 1.33 3.49 3.49 0 0 1-.95 1.87l-.66.67-.97.97-1.56 1.57a3.4 3.4 0 0 1-2.47 1.02c-.97 0-1.8-.34-2.49-1.03l-1.3-1.3a3.55 3.55 0 0 1-1-2.51v-.01h-.02v.02zm5.39-3.43c0-.19.02-.4.07-.63.13-.74.44-1.37.95-1.87l.66-.67.97-.98 1.56-1.56c.68-.69 1.5-1.03 2.47-1.03.97 0 1.8.34 2.48 1.02l1.3 1.32a3.48 3.48 0 0 1 1 2.48c0 .58-.11 1.11-.37 1.6l-.02.02v.02l-.02.04c-.14.27-.35.54-.6.8L16.23 15l-.01.02-.01.02c-.44.42-.92.7-1.43.83a4.55 4.55 0 0 0 1.23-3.52L18 10.38c.18-.21.3-.42.35-.65a2.03 2.03 0 0 0-.01-.9 1.96 1.96 0 0 0-.36-.58l-1.3-1.3a1.49 1.49 0 0 0-1.06-.42c-.42 0-.77.14-1.06.4l-1.2 1.27-.8.8-1.16 1.15c-.08.08-.18.21-.29.4a1.66 1.66 0 0 0-.08 1.12l.02.03v.02l.06.14s.01.03.05.06l.06.13.02.02.01.02.01.02c.05.08.1.13.14.16l.47.5c0 .04-.02.09-.04.15l-.06.12-1.15 1.15-.1.08-.56-.56a2.3 2.3 0 0 0-.18-.19c-.02-.01-.02-.03-.02-.04l-.02-.02a.37.37 0 0 1-.1-.12c-.03-.03-.05-.04-.05-.06l-.1-.15-.02-.02-.02-.04-.08-.17v-.02a5.1 5.1 0 0 1-.28-.69 1.03 1.03 0 0 1-.04-.26c-.06-.23-.1-.46-.1-.7v.01z" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" /></svg>
         </button>
+    </b:includable>
+    <b:includable id="commentBlock" var="cb">
+        <div class="flex w-full flex-col items-start justify-center">
+            <div class="mb-3 flex w-full flex-row items-center justify-start">
+                <b:comment>Item: Post Comment Author Image</b:comment>
+                <a expr:title="data:cb.level.author" class="relative h-8 w-8 flex-shrink-0 flex-grow-0 rounded-full ltr:mr-3 rtl:ml-3" expr:href="data:cb.level.authorUrl" rel="nofollow noopener noreferer" target="_blank">
+                    <b:class cond="data:post.author.name == data:cb.level.author" name="blog_author_admin" />
+                    <b:with value='data:cb.level.authorAvatarSrc ? resizeImage(data:cb.level.authorAvatarSrc, 32, "1:1") : "//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhPzZlVciGeYVCgCEcfFKeNI8IhtFHNShFG_5Xavi8bej56zOpPRIjHEUZsTsLybpnEZkNJ6M-ivL0lcjLs9YEu_xVrD14a9gtcfxBAzIvwrmAY920GO9gkHtlljlwvRnLcRvD8WL5pbEcmgxCpct-7EJsMymUnpFCMxpTk8i0b0P7O82_kzKoEjeb3/s1600-rw/user-icon.webp"' var="images">
+                        <span class="lazyload block h-full w-full animate-pulse rounded-full bg-colorMeta bg-cover bg-center bg-no-repeat" expr:data-image="data:images" expr:title="data:cb.level.author"></span>
+                    </b:with>
+                    <b:if cond="data:post.author.name == data:cb.level.author">
+                        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true" class="absolute -bottom-1 stroke-colorBackground stroke-2 ltr:-right-2 rtl:-left-2 dark:stroke-colorDarkBackground"><path d="M12.4 12.77l-1.81 4.99a.63.63 0 0 1-1.18 0l-1.8-4.99a.63.63 0 0 0-.38-.37l-4.99-1.81a.62.62 0 0 1 0-1.18l4.99-1.8a.63.63 0 0 0 .37-.38l1.81-4.99a.63.63 0 0 1 1.18 0l1.8 4.99a.63.63 0 0 0 .38.37l4.99 1.81a.63.63 0 0 1 0 1.18l-4.99 1.8a.63.63 0 0 0-.37.38z" fill="#FFC017" /></svg>
+                    </b:if>
+                </a>
+                <b:comment>Item: Post Comment Author Name and Timestamp</b:comment>
+                <div class="flex w-full flex-col items-start justify-center">
+                    <div class="flex w-full flex-row flex-wrap items-center justify-start">
+                        <b:if cond='data:cb.level.author != "Anonymous"'>
+                            <a expr:href="data:cb.level.authorUrl" expr:title="data:cb.level.authorUrl" rel="nofollow noopener noreferer" target="_blank" class="text-sm text-colorItemText dark:text-colorDarkText"><data:cb.level.author /></a>
+                            <b:else />
+                            <span class="text-sm text-colorItemText dark:text-colorDarkText">User</span>
+                        </b:if>
+                        <b:if cond="data:post.author.name == data:cb.level.author"><span class="rounded-sm bg-green-600 px-2 text-xs text-colorBackground ltr:ml-2 rtl:mr-2">AUTHOR</span></b:if>
+                    </div>
+                    <time class="text-sm text-colorItemMeta dark:text-colorDarkMeta" expr:data-datetime="data:cb.level.timestamp"><data:cb.level.timestamp /></time>
+                </div>
+            </div>
+            <b:comment>Item: Post Comment Content</b:comment>
+            <div class="comment_content w-full break-words pb-4 text-sm text-colorItemText dark:text-colorDarkText">
+                <b:if cond="data:cb.level.authorUrl != data:post.author.profileUrl">
+                    <b:eval expr="data:cb.level.body snippet {links: false}" />
+                    <b:else />
+                    <div><data:cb.level.body /></div>
+                </b:if>
+            </div>
+        </div>
     </b:includable>
     <b:includable id="aboutPostAuthor">
         <div class="author-name">

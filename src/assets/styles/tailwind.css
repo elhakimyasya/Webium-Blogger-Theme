@@ -11,7 +11,7 @@
 }
 
 .elcreative_comment {
-    @apply fixed bottom-0 z-50 h-[90vh] w-full flex-col items-center justify-start rounded-t-3xl bg-colorBackground py-6 transition-transform duration-300 dark:bg-colorDarkBackground lg:top-0 lg:h-full lg:max-w-[395px] lg:rounded-t-none ltr:lg:right-0 rtl:lg:left-0;
+    @apply fixed bottom-0 z-50 h-[90vh] w-full flex-col items-center justify-start overflow-y-auto overflow-x-hidden rounded-t-3xl bg-colorBackground py-6 transition-transform duration-300 dark:bg-colorDarkBackground lg:top-0 lg:h-full lg:max-w-[395px] lg:rounded-t-none ltr:lg:right-0 rtl:lg:left-0;
 }
 .elcreative_comment:not(.comment_active) {
     @apply translate-x-0 translate-y-full lg:translate-y-0 ltr:lg:translate-x-full rtl:lg:-translate-x-full;

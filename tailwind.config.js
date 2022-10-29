@@ -40,6 +40,7 @@ module.exports = {
                 colorItemText: 'var(--colorItemText)',
                 colorItemTextTrans1: 'var(--colorItemTextTrans1)',
                 colorItemMeta: 'var(--colorItemMeta)',
+                colorItemBorder: 'var(--colorItemBorder)',
                 colorItemLink: 'var(--colorItemLink)',
                 
                 colorDarkBackground: 'var(--colorDarkBackground)',

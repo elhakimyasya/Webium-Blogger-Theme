@@ -10,7 +10,6 @@ The appearance is really very similar. However, there are a few things that need
 
 If you have questions related to this theme, please write in the [Comments](https://www.elcreativeacademy.com/2021/03/webium-template-blogger-mirip-medium.html) or [Discussions](https://github.com/elhakimyasya/Webium-Blogger-Theme/discussions) page.
 
-
 > _Recently, we are trying to update all the structure and design of the Webium Theme to look very much like the original Website._
 >
 > _Old files can be found in [/old](https://github.com/elhakimyasya/Webium-Blogger-Theme/tree/main/old) directory._
@@ -32,6 +31,8 @@ If you have questions related to this theme, please write in the [Comments](http
 -   ✅ Static Page
 -   ❌ Comments
 -   ❌ Gadgets
+
+## Contribution
 
 ## Credits
 
