@@ -18,7 +18,12 @@ module.exports = {
                 colorTextTrans1: 'var(--colorTextTrans1)',
                 colorMeta: 'var(--colorMeta)',
                 colorBorder: 'var(--colorBorder)',
-
+                
+                colorNavbarBackground: 'var(--colorNavbarBackground)',
+                colorNavbarBorder: 'var(--colorNavbarBorder)',
+                colorNavbarShadow: 'var(--colorNavbarShadow)',
+                colorNavbarText: 'var(--colorNavbarText)',
+                
                 colorDarkBackground: 'var(--colorDarkBackground)',
                 colorDarkText: 'var(--colorDarkText)',
                 colorDarkTextTrans1: 'var(--colorDarkTextTrans1)',

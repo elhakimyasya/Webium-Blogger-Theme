@@ -18,17 +18,22 @@
                 :root {
                     --contentBullet: "\0000a0\002022\0000a0";
 
-                    --colorBackground: #ffffff;
-                    --colorText: #202124;
-                    --colorTextTrans1: #2021241f;
-                    --colorMeta: #5F6368;
-                    --colorBorder: #DADCE4;
+                    --colorBackground: $(colorBackground);
+                    --colorText: $(colorText);
+                    --colorTextTrans1: $(colorText)1f;
+                    --colorMeta: $(colorMeta);
+                    --colorBorder: $(colorBorder);
 
-                    --colorDarkBackground: #202124;
-                    --colorDarkText: #E4E6E9;
-                    --colorDarkTextTrans1: #E4E6E91f;
-                    --colorDarkMeta: #9AA0A6;
-                    --colorDarkBorder: #5F6368;
+                    --colorNavbarBackground: $(colorNavbarBackground);
+                    --colorNavbarBorder: $(colorNavbarBorder);
+                    --colorNavbarShadow: $(colorNavbarShadow)1f;
+                    --colorNavbarText: $(colorNavbarText);
+                    
+                    --colorDarkBackground: $(colorDarkBackground);
+                    --colorDarkText: $(colorDarkText);
+                    --colorDarkTextTrans1: $(colorDarkText)1f;
+                    --colorDarkMeta: $(colorDarkMeta);
+                    --colorDarkBorder: $(colorDarkBorder);
                 }
             </b:skin>
             <b:tag name="style">@@include("../build/styles/styles.min.css")</b:tag>
@@ -52,18 +57,18 @@
         <div id="app" class="app mx-auto w-full max-w-[1504px]">
             <div class="relative flex flex-col pb-16 xl:flex-row xl:pb-0">
                 <!-- prettier-ignore -->
-                <b:section showaddelement="false" maxwidgets="2" id="section_header" name="Navbar Section" class="section_header sticky top-0 z-30 flex min-h-[56px] w-full select-none flex-row items-center justify-between border-colorBorder bg-colorBackground px-5 py-2 shadow-[rgba(0,0,0,0.15)_0_-2px_10px] dark:border-colorDarkBorder dark:bg-colorDarkBackground xl:h-screen xl:max-w-[80px] xl:flex-col xl:px-2 xl:shadow-none ltr:xl:border-r rtl:xl:border-l">
+                <b:section showaddelement="false" maxwidgets="2" id="section_header" name="Navbar Section" class="section_header sticky top-0 z-30 flex min-h-[56px] w-full select-none flex-row items-center justify-between border-colorNavbarBorder bg-colorNavbarBackground px-5 py-2 text-colorNavbarText shadow-[var(--colorTextTrans1)_0_-2px_10px] shadow-colorNavbarShadow dark:border-colorDarkBorder dark:text-colorDarkText dark:shadow-colorTextTrans1 xl:h-screen xl:max-w-[80px] xl:flex-col xl:bg-colorBackground xl:px-2 xl:shadow-none ltr:xl:border-r rtl:xl:border-l dark:xl:bg-colorDarkBackground">
                     @@include("../src/partials/widgets/Image999.html")
                     @@include("../src/partials/widgets/Header1.html")
                 </b:section>
                 <div class="relative flex w-full flex-col justify-between xl:flex-row">
                     <!-- prettier-ignore -->
-                    <b:section showaddelement="false" maxwidgets="2" id="section_main" name="Main Section" class="section_main w-full py-4 px-5">
+                    <b:section showaddelement="false" maxwidgets="2" id="section_main" name="Main Section" class="section_main w-full py-4 px-5 lg:w-[calc(100%-395px)]">
                         @@include("../src/partials/widgets/LinkList999.html")
                         @@include("../src/partials/widgets/PageList999.html")
                         @@include("../src/partials/widgets/Blog1.html")
                     </b:section>
-                    <aside class="w-full border-colorBorder py-4 px-5 dark:border-colorDarkBorder xl:max-w-[395px] xl:px-8 ltr:xl:border-l rtl:xl:border-r">
+                    <aside class="w-full border-colorBorder py-4 px-5 dark:border-colorDarkBorder lg:w-[395px] xl:px-8 ltr:xl:border-l rtl:xl:border-r">
                         <!-- prettier-ignore -->
                         <b:section id="section_sidebar" name="Sidebar Section" class="section_sidebar sticky top-6 w-full">
                             @@include("../src/partials/widgets/BlogSearch999.html")
