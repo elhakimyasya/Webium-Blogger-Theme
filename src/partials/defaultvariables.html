@@ -15,7 +15,7 @@
     <Variable name="colorNavbarTopBorder" description="Navbar Top Border Color" type="color" default="#DADCE4" value="#DADCE4" />
     <Variable name="colorNavbarTopShadow" description="Navbar Top Shadow Color" type="color" default="#202124" value="#202124" />
     <Variable name="colorNavbarTopText" description="Navbar Top Text Color" type="color" default="#202124" value="#202124" />
-    
+
     <Variable name="colorNavbarBottomBackground" description="Navbar Bottom Background Color" type="color" default="#FFFFFF" value="#FFFFFF" />
     <Variable name="colorNavbarBottomShadow" description="Navbar Bottom Shadow Color" type="color" default="#202124" value="#202124" />
     <Variable name="colorNavbarBottomText" description="Navbar Bottom Text Color" type="color" default="#202124" value="#202124" />
@@ -26,7 +26,6 @@
     <Variable name="colorMainMenuText" description="Main Menu Text Color" type="color" default="#202124" value="#202124" />
     <Variable name="colorMainMenuBorder" description="Main Menu Border Color" type="color" default="#DADCE4" value="#DADCE4" />
 </Group>
-
 
 <Group description="Index Options">
     <Variable name="colorIndexText" description="Index Text Color" type="color" default="#202124" value="#202124" />
@@ -41,22 +40,17 @@
     <Variable name="colorItemBorder" description="Item Border Color" type="color" default="#DADCE4" value="#DADCE4" />
 </Group>
 
-<Variable name="body.font" description="Fonts" type="font" default="normal 400 16px webium" value="normal 400 16px webium" />
-<Variable name="keycolor" description="Key Color" type="color" default="#26843f" value="#26843f" />
-<Variable name="posts.text.color" description="Default Text Color" type="color" default="#202124" value="#202124" />
+<Variable hideEditor="true" type="font" name="body.font" description="Fonts" default="normal 400 16px Materia, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" value="normal 400 16px Materia" />
+<Variable hideEditor="true" type="font" name="body.text.font" description="1" default="$(body.font)" value="normal 400 16px Materia, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" />
+<Variable hideEditor="true" type="font" name="tabs.font" description="9" default="$(body.font)" value="normal 400 16px Materia, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" />
 
-<Variable hideEditor="true" name="body.text.color" description="Text Color" type="color" default="$(posts.text.color)" value="#9aa0a6" />
-<Variable hideEditor="true" name="body.text.font" description="1" type="font" default="$(body.font)" value="normal 400 16px -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif" />
-<Variable hideEditor="true" name="posts.background.color" description="2" type="color" default="transparent" value="transparent" />
-<Variable hideEditor="true" name="body.link.color" description="3" type="color" default="$(keycolor)" value="#26843f" />
-<Variable hideEditor="true" name="tabs.font" description="9" type="font" default="$(body.font)" value="normal 400 16px -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif" />
-<Variable hideEditor="true" name="tabs.color" description="10" type="color" default="#e5e5e5" value="#e5e5e5" />
-<Variable hideEditor="true" name="tabs.selected.color" description="11" type="color" default="#ffffff" value="#ffffff" />
-<Variable hideEditor="true" name="tabs.overflow.background.color" description="12" type="color" default="#ffffff" value="#ffffff" />
-<Variable hideEditor="true" name="tabs.overflow.color" description="13" type="color" default="$(posts.text.color)" value="#212121" />
-<Variable hideEditor="true" name="tabs.overflow.selected.color" description="14" type="color" default="$(posts.text.color)" value="#212121" />
-<Variable hideEditor="true" name="posts.title.color" description="15" type="color" default="$(posts.text.color)" value="#212121" />
-<Variable hideEditor="true" name="posts.title.font" description="16" type="font" default="$(body.text.font)" value="normal 400 16px -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif" />
-<Variable hideEditor="true" name="posts.text.font" description="17" type="font" default="$(body.text.font)" value="normal 400 16px -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif" />
-<Variable hideEditor="true" name="posts.icons.color" description="19" type="color" default="$(posts.text.color)" value="#212121" />
-<Variable hideEditor="true" name="labels.background.color" description="20" type="color" default="$(keycolor)" value="#26843f" />
+<Variable hideEditor="true" type="background" name="body.background" description="Body Background" color="rgba(255,255,255,0)" default="$(color) url(//1.bp.blogspot.com/-3fxYMPSkglE/XXEqoYT86tI/AAAAAAAAGgQ/W4qTmxfWsg8fBXr26HNPhCFFeadM9_xgACPcBGAYYCw/ELC.jpg) repeat scroll top center" value="#FFFFFF url(//1.bp.blogspot.com/-3fxYMPSkglE/XXEqoYT86tI/AAAAAAAAGgQ/W4qTmxfWsg8fBXr26HNPhCFFeadM9_xgACPcBGAYYCw/ELC.jpg) repeat scroll top center" />
+<Variable hideEditor="true" type="color" value="#9AA0A6" default="$(colorKey)" name="body.text.color" description="body.text.color" />
+<Variable hideEditor="true" type="color" value="#590DE6" default="$(colorKey)" name="body.link.color" description="3" />
+<Variable hideEditor="true" type="color" value="transparent" default="transparent" name="posts.background.color" description="2" />
+<Variable hideEditor="true" type="color" value="#202124" default="$(colorText)" name="posts.text.color" description="posts.text.color" />
+<Variable hideEditor="true" type="color" value="#212121" default="$(colorText)" name="posts.title.color" description="15" />
+<Variable hideEditor="true" type="color" value="#212121" default="$(colorText)" name="posts.icons.color" description="19" />
+<Variable hideEditor="true" type="color" value="#590DE6" default="$(colorKey)" name="labels.background.color" description="20" />
+
+<Variable name="backgroundImage" description="backgroundImage" type="background" color="rgba(255,255,255,0)" default="$(color) url() repeat scroll top center" value="#FFFFFF url(https://lh3.googleusercontent.com/-Efigs16DUTQ/YKrJkJaHDKI/AAAAAAAAg_A/_xTHzW1sLmssSTAFEZtZTL_QqseedXjfACLcBGAsYHQ/s720-rw/index.webp) repeat scroll top center" />
