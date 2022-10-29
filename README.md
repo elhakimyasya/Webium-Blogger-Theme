@@ -12,36 +12,39 @@
 
 Webium is a Blogger Template or Theme that looks very similar to the Medium.com. [View Demo](https://webium-blogger.blogspot.com/).
 
+The appearance is really very similar. However, there are a few things that need to be improved as this has a huge impact on the accessibility and inconsistent layout on Medium.com.
+
 If you have questions related to this theme, please write in the [Comments](https://www.elcreativeacademy.com/2021/03/webium-template-blogger-mirip-medium.html) or [Discussions](https://github.com/elhakimyasya/Webium-Blogger-Theme/discussions) page.
 
 <hr>
 
 ## To-Do List (Latest Update Progress)
+
 [Live Demo (Beta)](https://idpdthemes.blogspot.com/)
 
-- ✅ Home Page
-- ✅ Search Page
-- ✅ Archive Page
-- ✅ Label Page
-- ✅ Error Page
-- ✅ Post Page
-- ❌ Static Page
-- ❌ Comments
-- ❌ Gadgets
+-   ✅ Home Page
+-   ✅ Search Page
+-   ✅ Archive Page
+-   ✅ Label Page
+-   ✅ Error Page
+-   ✅ Post Page
+-   ❌ Static Page
+-   ❌ Comments
+-   ❌ Gadgets
 
 ## Credits
 
-- [Tailwind CSS](https://tailwindcss.com/)
-- [LazySizes](https://github.com/aFarkas/lazysizes)
-- [Medium Zoom](https://github.com/francoischalifour/medium-zoom)
-- [Easy Toggle State](https://github.com/Twikito/easy-toggle-state)
-- [Simple AJAX infinite scroll](https://dte.web.id/teknis/blogger-infinite-scroll)
-- Some Images from [Unsplash](https://unsplash.com/)
+-   [Tailwind CSS](https://tailwindcss.com/)
+-   [LazySizes](https://github.com/aFarkas/lazysizes)
+-   [Medium Zoom](https://github.com/francoischalifour/medium-zoom)
+-   [Easy Toggle State](https://github.com/Twikito/easy-toggle-state)
+-   [Simple AJAX infinite scroll](https://dte.web.id/teknis/blogger-infinite-scroll)
+-   Some Images from [Unsplash](https://unsplash.com/)
 
 ## More Info
 
-- [Documentation](https://webium-blogger.blogspot.com/p/webium-documentations.html)
-- [Official Website](https://www.elcreativeacademy.com/)
+-   [Documentation](https://webium-blogger.blogspot.com/p/webium-documentations.html)
+-   [Official Website](https://www.elcreativeacademy.com/)
 
 ## License
 
