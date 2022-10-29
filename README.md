@@ -20,8 +20,8 @@ If you have questions related to this theme, please write in the [Comments](http
 
 ## Webium v3 Update Progress
 
-[Live Demo 1 (Beta)](https://idpdthemes.blogspot.com/)
-[Live Demo 2 (Beta)](https://technoidious.blogspot.com/)
+[Webium v3 - Live Demo 1 (Beta)](https://idpdthemes.blogspot.com/)
+[Webium v3 - Live Demo 2 (Beta)](https://technoidious.blogspot.com/)
 
 > _Please contact me if you want to be a tester for this version._
 
