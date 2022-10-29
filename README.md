@@ -4,17 +4,17 @@
 
 [![Donate PayPal](https://img.shields.io/badge/Donate-PayPal-blue)](https://www.paypal.me/yasyaelhakim/5) [![Donate Ko-Fi](https://img.shields.io/badge/Donate-Ko--Fi-red)](https://ko-fi.com/elhakimyasya) ![GitHub last commit](https://img.shields.io/github/last-commit/elhakimyasya/Webium-Blogger-Theme?color=green) ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/elhakimyasya/Webium-Blogger-Theme?color=yellow)
 
-> _Recently, we are trying to update all the structure and design of the Webium Theme to look very much like the original Website._
->
-> _Old files can be found in [/old](https://github.com/elhakimyasya/Webium-Blogger-Theme/tree/main/old) directory._
->
-> _Always support us by simply donating via [Ko-Fi](https://ko-fi.com/elhakimyasya) or [PayPal](https://www.paypal.me/yasyaelhakim/5) 😃._
-
 Webium is a Blogger Template or Theme that looks very similar to the Medium.com. [View Demo](https://webium-blogger.blogspot.com/).
 
 The appearance is really very similar. However, there are a few things that need to be improved as this has a huge impact on the accessibility and inconsistent layout on Medium.com.
 
 If you have questions related to this theme, please write in the [Comments](https://www.elcreativeacademy.com/2021/03/webium-template-blogger-mirip-medium.html) or [Discussions](https://github.com/elhakimyasya/Webium-Blogger-Theme/discussions) page.
+
+> _Recently, we are trying to update all the structure and design of the Webium Theme to look very much like the original Website._
+>
+> _Old files can be found in [/old](https://github.com/elhakimyasya/Webium-Blogger-Theme/tree/main/old) directory._
+>
+> _Always support us by simply donating via [Ko-Fi](https://ko-fi.com/elhakimyasya) or [PayPal](https://www.paypal.me/yasyaelhakim/5) 😃._
 
 <hr>
 
