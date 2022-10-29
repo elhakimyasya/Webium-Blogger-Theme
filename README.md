@@ -22,7 +22,7 @@ If you have questions related to this theme, please write in the [Comments](http
 
 [Live Demo (Beta)](https://idpdthemes.blogspot.com/)
 
-> _Please contact me if you want to be a tester for this version.
+> _Please contact me if you want to be a tester for this version._
 
 -   ✅ Home Page
 -   ✅ Search Page
