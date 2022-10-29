@@ -22,6 +22,8 @@ If you have questions related to this theme, please write in the [Comments](http
 
 [Live Demo (Beta)](https://idpdthemes.blogspot.com/)
 
+> _Please contact me if you want to be a tester for this version.
+
 -   ✅ Home Page
 -   ✅ Search Page
 -   ✅ Archive Page
@@ -29,7 +31,7 @@ If you have questions related to this theme, please write in the [Comments](http
 -   ✅ Error Page
 -   ✅ Post Page
 -   ✅ Static Page
--   ❌ Comments
+-   ✅ Comments (Partially)
 -   ❌ Gadgets
 
 ## Contribution
